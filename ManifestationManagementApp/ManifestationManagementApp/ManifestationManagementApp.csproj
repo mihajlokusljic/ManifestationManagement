@@ -68,6 +68,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="model\Coordinates.cs" />
+    <Compile Include="model\Enums.cs" />
+    <Compile Include="model\Label.cs" />
+    <Compile Include="model\Manifestation.cs" />
+    <Compile Include="model\ManifestationType.cs" />
+    <Compile Include="model\Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

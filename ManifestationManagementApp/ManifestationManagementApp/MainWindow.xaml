@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManifestationManagementApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Manifestation Management"
+        WindowState="Maximized">
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" FontSize="24">
+            <MenuItem Header="Manifestations" Margin="10,0,0,0">
+                <MenuItem Header="Add Manifestation"></MenuItem>
+                <MenuItem Header="Show/Edit Manifestations"></MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Manifestation Types" Margin="15,0,0,0">
+                <MenuItem Header="Add Manifestation Type"></MenuItem>
+                <MenuItem Header="Show/Edit Manifestation Types"></MenuItem>
+            </MenuItem>
+
+
+
+            <MenuItem Header="Labels" Margin="15,0,0,0">
+                <MenuItem Header="Add Label"></MenuItem>
+                <MenuItem Header="Show/Edit Labels"></MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Show Map" Margin="15,0,0,0">
+                <MenuItem Header="Map 1"></MenuItem>
+                <MenuItem Header="Map2"></MenuItem>
+                <MenuItem Header="Map3"></MenuItem>
+                <MenuItem Header="Map4"></MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Help" Margin="15,0,0,0">
+                <MenuItem Header="Documentation"></MenuItem>
+                <MenuItem Header="Demo mode"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+
+    </DockPanel>
 </Window>
