@@ -12,23 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ManifestationManagementApp.view;
 
-namespace ManifestationManagementApp
+namespace ManifestationManagementApp.view
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddLabelView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddLabelView : Page
     {
-        public MainWindow()
+        public AddLabelView()
         {
             InitializeComponent();
-        }
-
-        private void showAddLabelView(object sender, RoutedEventArgs e)
-        {
-            this.MainContent.Content = new AddLabelView();
         }
     }
 }

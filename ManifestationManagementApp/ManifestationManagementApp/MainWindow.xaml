@@ -20,18 +20,16 @@
                 <MenuItem Header="Show/Edit Manifestation Types"></MenuItem>
             </MenuItem>
 
-
-
             <MenuItem Header="Labels" Margin="15,0,0,0">
-                <MenuItem Header="Add Label"></MenuItem>
+                <MenuItem Header="Add Label" Click="showAddLabelView"></MenuItem>
                 <MenuItem Header="Show/Edit Labels"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Show Map" Margin="15,0,0,0">
-                <MenuItem Header="Map 1"></MenuItem>
-                <MenuItem Header="Map2"></MenuItem>
-                <MenuItem Header="Map3"></MenuItem>
-                <MenuItem Header="Map4"></MenuItem>
+                <MenuItem Header="Novi Sad"></MenuItem>
+                <MenuItem Header="Map 2"></MenuItem>
+                <MenuItem Header="Map 3"></MenuItem>
+                <MenuItem Header="Map 4"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Help" Margin="15,0,0,0">
@@ -40,6 +38,7 @@
             </MenuItem>
         </Menu>
 
+        <Frame DockPanel.Dock="Bottom" x:Name="MainContent" NavigationUIVisibility="Hidden"></Frame>
 
     </DockPanel>
 </Window>
