@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace ManifestationManagementApp.model
 {
-    class ManifestationType : INotifyPropertyChanged
+    public class ManifestationType : INotifyPropertyChanged
     {
         private static int counter = 0;
 

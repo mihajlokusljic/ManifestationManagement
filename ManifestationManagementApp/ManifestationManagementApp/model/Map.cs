@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManifestationManagementApp.model
 {
-    class Map
+    public class Map
     {
         public int Id { get; set; }
 
@@ -15,8 +15,6 @@ namespace ManifestationManagementApp.model
         public int Width { get; set; }
 
         public int Heigth { get; set; }
-
-        public Map ParentMap { get; set; }
 
         public Coordinates ParentMapOffset { get; set; }
 

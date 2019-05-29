@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Labels>
+    <Label>
+      <Id>lab1</Id>
+      <Color>#FFAFEEEE</Color>
+      <Description>Some description</Description>
+    </Label>
+    <Label>
+      <Id>lab2</Id>
+      <Color>#FFFF0000</Color>
+      <Description>Some other description</Description>
+    </Label>
+  </Labels>
+  <ManifestationTypes />
+  <Manifestations />
+  <Maps />
+</Repository>

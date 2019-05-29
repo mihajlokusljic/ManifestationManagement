@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ManifestationManagementApp.model
 {
-    class Coordinates
+    public class Coordinates
     {
         public int X { get; set; }
 
         public int Y { get; set; }
+
+        public Map ParentMap { get; set; }
 
         public Coordinates()
         {
@@ -18,10 +20,11 @@ namespace ManifestationManagementApp.model
             Y = 0;
         }
 
-        public Coordinates(int x_coord, int y_coord)
+        public Coordinates(int x_coord, int y_coord, Map parent)
         {
             X = x_coord;
             Y = y_coord;
+            ParentMap = parent;
         }
     }
 }

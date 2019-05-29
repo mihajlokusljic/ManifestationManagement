@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace ManifestationManagementApp.model
 {
-    class Manifestation : INotifyPropertyChanged
+    public class Manifestation : INotifyPropertyChanged
     {
         private static int counter = 0;
 
@@ -194,16 +194,15 @@ namespace ManifestationManagementApp.model
             }
         }
 
-        //Maps id of map to coordinates on the map
-        private Dictionary<int, Coordinates> mapCoordinates;
-        public Dictionary<int, Coordinates> MapCoordinates
+        private ObservableCollection<Coordinates> mapCoords;
+        public ObservableCollection<Coordinates> MapCoordinates
         {
-            get { return mapCoordinates; }
+            get { return mapCoords; }
             set
             {
-                if (value != mapCoordinates)
+                if (value != mapCoords)
                 {
-                    mapCoordinates = value;
+                    mapCoords = value;
                     OnPropertyChanged("MapCoordinates");
                 }
             }

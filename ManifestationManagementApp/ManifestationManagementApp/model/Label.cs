@@ -7,9 +7,9 @@ using System.ComponentModel;
 
 namespace ManifestationManagementApp.model
 {
-    class Label : INotifyPropertyChanged
+    public class Label : INotifyPropertyChanged
     {
-        private static int counter = 0;
+        public static int counter = 0;
 
         private string id;
         public string Id

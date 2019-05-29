@@ -25,19 +25,19 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0" Content="Auto-generate Ids:" VerticalAlignment="Center" FontSize="24"/>
-        <CheckBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" RenderTransformOrigin="0.018,0.525">
+        <CheckBox x:Name="autoGenerateId" Click="AutoGenerateIdClicked" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <CheckBox.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform X="8"/>
+                    <TranslateTransform X="10"/>
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
 
         <Label Grid.Row="1" Grid.Column="0" Content="Label Id:" FontSize="24"/>
-        <TextBox Grid.Row="1" Grid.Column="1" FontSize="26" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Margin="0,5">
+        <TextBox x:Name="idInput" Grid.Row="1" Grid.Column="1" FontSize="26" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Margin="0,5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="0.85"/>
@@ -49,16 +49,16 @@
         </TextBox>
 
         <Label Grid.Row="2" Grid.Column="0" Content="Label Color:" FontSize="22"/>
-        <wpfTool:ColorPicker Grid.Row="2" Grid.Column="1" ToolTip="Pick a color for the label" Margin="0,5"/>
+        <wpfTool:ColorPicker x:Name="colorPicker" Grid.Row="2" Grid.Column="1" ToolTip="Pick a color for the label" Margin="0,5"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="Label Description:" FontSize="22"/>
-        <TextBox Grid.Row="3" Grid.Column="1" FontSize="22" Margin="10,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="descriptionInput" Grid.Row="3" Grid.Column="1" FontSize="22" Margin="10,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
 
-        <Label x:Name="AddedLabelMessage" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  Content="Label has been added successfully." FontSize="24"/>
+        <Label x:Name="AddedLabelMessage" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
 
         <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-            <Button FontSize="24" Margin="10,0" Padding="10,1"> Add Label </Button>
-            <Button FontSize="24" Margin="10,0" Padding="10,1"> Cancel </Button>
+            <Button FontSize="24" Margin="10,0" Padding="10,1" Click="Button_Click">Add Label</Button>
+            <Button FontSize="24" Margin="10,0" Padding="10,1" Click="CancelBtnClicked">Cancel</Button>
         </StackPanel>
     </Grid>
 

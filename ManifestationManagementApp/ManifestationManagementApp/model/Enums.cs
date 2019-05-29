@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ManifestationManagementApp.model
 {
-    enum AlcoholConusmption
+    public enum AlcoholConusmption
     {
         Forbidden = 0,
         BringAlcohol = 1,
         BuyAlcohol = 2
     }
 
-    enum PriceCategory
+    public enum PriceCategory
     {
         Free = 0,
         LowPrices = 1,
