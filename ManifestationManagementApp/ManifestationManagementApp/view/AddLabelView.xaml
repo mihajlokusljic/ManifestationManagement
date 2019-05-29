@@ -5,10 +5,60 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ManifestationManagementApp.view"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="900"
       Title="AddLabelView">
 
-    <Grid>
-        <TextBlock Text="Add label" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+    <Grid Margin="0,10,0,20" RenderTransformOrigin="0.5,0.5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Content="Auto-generate Ids:" VerticalAlignment="Center" FontSize="24"/>
+        <CheckBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" RenderTransformOrigin="0.018,0.525">
+            <CheckBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="8"/>
+                </TransformGroup>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Label Id:" FontSize="24"/>
+        <TextBox Grid.Row="1" Grid.Column="1" FontSize="26" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Margin="0,5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.85"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Label Color:" FontSize="22"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Label Description:" FontSize="22"/>
+        <TextBox Grid.Row="3" Grid.Column="1" FontSize="22" Margin="10,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+        <Label x:Name="AddedLabelMessage" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  Content="Label has been added successfully." FontSize="24"/>
+
+        <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+            <Button FontSize="24" Margin="10,0" Padding="10,1"> Add Label </Button>
+            <Button FontSize="24" Margin="10,0" Padding="10,1"> Cancel </Button>
+        </StackPanel>
     </Grid>
+
+
 </Page>
