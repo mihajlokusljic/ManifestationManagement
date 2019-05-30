@@ -129,6 +129,7 @@
   <ItemGroup>
     <Folder Include="bin\Release\" />
     <Folder Include="resources\data\" />
+    <Folder Include="resources\images\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit">
