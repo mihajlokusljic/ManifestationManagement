@@ -144,6 +144,21 @@ namespace ManifestationManagementApp.model
             return true;
         }
 
+        public bool LabelIsReferenced(string lablelId)
+        {
+            foreach(Manifestation manif in Manifestations)
+            {
+                foreach(Label lab in manif.Labels)
+                {
+                    if(lab.Id == lablelId)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         public bool DeleteLabel(string id)
         {
             Label target = FindLabel(id);
@@ -151,6 +166,7 @@ namespace ManifestationManagementApp.model
             {
                 return false;
             }
+
             Labels.Remove(target);
             SaveData();
             return true;

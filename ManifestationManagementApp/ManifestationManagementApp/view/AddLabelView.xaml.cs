@@ -21,9 +21,20 @@ namespace ManifestationManagementApp.view
     /// </summary>
     public partial class AddLabelView : Page
     {
+        private MainWindow mainWindow;
+        public bool Editing { get; set; }
+
         public AddLabelView()
         {
             InitializeComponent();
+            Editing = false;
+        }
+
+        public AddLabelView(MainWindow parent, bool editMode)
+        {
+            InitializeComponent();
+            mainWindow = parent;
+            Editing = editMode;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,18 +53,16 @@ namespace ManifestationManagementApp.view
                 AddedLabelMessage.Content = "Please, insert id for this label.";
                 AddedLabelMessage.Foreground = Brushes.Red;
             }
-            else if (idInput.Text != "" && !isAutoChecked && Repository.GetInstance().FindLabel(idInput.Text) != null)
+            else if (idInput.Text != "" && !isAutoChecked && Repository.GetInstance().FindLabel(idInput.Text) != null && !Editing)
             {
                 AddedLabelMessage.Content = "This id is already taken, please select another one.";
                 AddedLabelMessage.Foreground = Brushes.Red;
             }
             else
             {
-                if (isAutoChecked)
-                {
-                }
+                
                 model.Label retVal = new model.Label();
-                if (isAutoChecked)
+                if (isAutoChecked && !Editing)
                 {
                     Repository.GetInstance().LabelCounter = Repository.GetInstance().LabelCounter + 1;
                     retVal.Id = "lab" + Repository.GetInstance().LabelCounter;
@@ -72,27 +81,37 @@ namespace ManifestationManagementApp.view
                 retVal.Color = colorPicker.SelectedColor.ToString();
                 retVal.Description = descriptionInput.Text;
                 Repository rep = Repository.GetInstance();
-                rep.Addlabel(retVal);
-                AddedLabelMessage.Content = "Label \"" + retVal.Id + "\" has been added successfully.";
-                AddedLabelMessage.Foreground = Brushes.Green;
-                descriptionInput.Text = "";
-                colorPicker.SelectedColor = null;
-
-                if (autoGenerateId.IsChecked.Value)
+                if (!Editing)
                 {
-                    //ako je izabrano automatsko inkrementiranje, azurira se vrijednost za id
-                    idInput.Text = $"lab{Repository.GetInstance().LabelCounter + 1}";
-                    while (Repository.GetInstance().FindLabel(idInput.Text) != null)
+                    rep.Addlabel(retVal);
+                    AddedLabelMessage.Content = "Label \"" + retVal.Id + "\" has been added successfully.";
+                    AddedLabelMessage.Foreground = Brushes.Green;
+                    descriptionInput.Text = "";
+                    colorPicker.SelectedColor = null;
+
+                    if (autoGenerateId.IsChecked.Value)
                     {
-                        Repository.GetInstance().LabelCounter = Repository.GetInstance().LabelCounter + 1;
+                        //ako je izabrano automatsko inkrementiranje, azurira se vrijednost za id
                         idInput.Text = $"lab{Repository.GetInstance().LabelCounter + 1}";
+                        while (Repository.GetInstance().FindLabel(idInput.Text) != null)
+                        {
+                            Repository.GetInstance().LabelCounter = Repository.GetInstance().LabelCounter + 1;
+                            idInput.Text = $"lab{Repository.GetInstance().LabelCounter + 1}";
+                        }
+                        descriptionInput.Focus();
                     }
-                    descriptionInput.Focus();
+                    else
+                    {
+                        idInput.Text = "";
+                        idInput.Focus();
+                    }
                 }
                 else
                 {
-                    idInput.Text = "";
-                    idInput.Focus();
+                    rep.UpdateLabel(retVal);
+                    LabelsView labels = new LabelsView(mainWindow);
+                    labels.SelectedLabel = retVal;
+                    mainWindow.MainContent.Content = labels;
                 }
             }
         }

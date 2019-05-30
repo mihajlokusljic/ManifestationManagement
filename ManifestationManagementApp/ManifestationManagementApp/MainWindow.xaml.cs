@@ -39,12 +39,30 @@ namespace ManifestationManagementApp
 
         private void showLabelsView(object sender, RoutedEventArgs e)
         {
-            this.MainContent.Content = new LabelsView();
+            this.MainContent.Content = new LabelsView(this);
         }
 
         private void showAddManifestationView(object sender, RoutedEventArgs e)
         {
             this.MainContent.Content = new AddManifestationView();
+        }
+
+        public void showLabelEditView(string labelId)
+        {
+            model.Label target = model.Repository.GetInstance().FindLabel(labelId);
+            if(target == null)
+            {
+                return;
+            }
+            AddLabelView view = new AddLabelView(this, true);
+            view.idInput.Text = target.Id;
+            view.idInput.IsEnabled = false;
+            view.colorPicker.SelectedColor = (Color)ColorConverter.ConvertFromString(target.Color);
+            view.descriptionInput.Text = target.Description;
+            view.autoGenerateId.Visibility = Visibility.Collapsed;
+            view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;
+            view.AddOrEditBtn.Content = "Confirm changes";
+            MainContent.Content = view;
         }
 
     }
