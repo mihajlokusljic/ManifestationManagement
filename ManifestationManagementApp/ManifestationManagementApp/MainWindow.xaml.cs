@@ -35,5 +35,11 @@ namespace ManifestationManagementApp
         {
             this.MainContent.Content = new AddManifTypeView();
         }
+
+        private void showAddManifestationView(object sender, RoutedEventArgs e)
+        {
+            this.MainContent.Content = new AddManifestationView();
+        }
+
     }
 }
