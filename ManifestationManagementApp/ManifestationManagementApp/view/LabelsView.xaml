@@ -50,7 +50,7 @@
         </Grid>
 
         <!-- Labels table -->
-        <DataGrid Name="tagsGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22">
+        <DataGrid Name="tagsGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedLabel, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Labels}" SelectionChanged="tagsGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Label color" Width="1*">
                     <DataGridTemplateColumn.CellTemplate>
@@ -59,9 +59,9 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Label Id" MinWidth="100" Width="1.5*"/>
+                <DataGridTextColumn Header="Label Id" MinWidth="100" Width="1.5*" Binding="{Binding Id}"/>
 
-                <DataGridTextColumn Header="Label Description"   MinWidth="100" Width="7*"/>
+                <DataGridTextColumn Header="Label Description"   MinWidth="100" Width="7*" Binding="{Binding Description}"/>
             </DataGrid.Columns>
         </DataGrid>
 

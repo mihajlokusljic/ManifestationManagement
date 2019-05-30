@@ -5,24 +5,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ManifestationManagementApp.model
 {
-    public class Repository
+    public class Repository: INotifyPropertyChanged
     {
         private static string dataFilepath = "..\\..\\resources\\data\\data.xml";
-        public List<Label> Labels { get; set; }
-        public List<ManifestationType> ManifestationTypes { get; set; }
-        public List<Manifestation> Manifestations { get; set; }
-        public List<Map> Maps { get; set; }
+        private ObservableCollection<Label> labels;
+        public ObservableCollection<Label> Labels
+        {
+            get { return labels; }
+            set
+            {
+                if(labels != value)
+                {
+                    labels = value;
+                    OnPropertyChanged("Labels");
+                }
+            }
+        }
+
+        public ObservableCollection<ManifestationType> ManifestationTypes { get; set; }
+        public ObservableCollection<Manifestation> Manifestations { get; set; }
+        public ObservableCollection<Map> Maps { get; set; }
         private static Repository instance = null;
 
         private Repository()
         {
-            Labels = new List<Label>();
-            ManifestationTypes = new List<ManifestationType>();
-            Manifestations = new List<Manifestation>();
-            Maps = new List<Map>();
+            Labels = new ObservableCollection<Label>();
+            ManifestationTypes = new ObservableCollection<ManifestationType>();
+            Manifestations = new ObservableCollection<Manifestation>();
+            Maps = new ObservableCollection<Map>();
         }
 
         public static Repository GetInstance()
@@ -140,6 +155,15 @@ namespace ManifestationManagementApp.model
             using(StreamWriter sw = File.CreateText(dataFilepath))
             {
                 serializer.Serialize(sw, this);
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
 
