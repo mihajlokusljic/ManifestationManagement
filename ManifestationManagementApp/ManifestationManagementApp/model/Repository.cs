@@ -27,9 +27,48 @@ namespace ManifestationManagementApp.model
             }
         }
 
-        public ObservableCollection<ManifestationType> ManifestationTypes { get; set; }
-        public ObservableCollection<Manifestation> Manifestations { get; set; }
-        public ObservableCollection<Map> Maps { get; set; }
+        private ObservableCollection<ManifestationType> manifestationTypes;
+        public ObservableCollection<ManifestationType> ManifestationTypes
+        {
+            get { return manifestationTypes; }
+            set
+            {
+                if (manifestationTypes != value)
+                {
+                    manifestationTypes = value;
+                    OnPropertyChanged("ManifestationTypes");
+                }
+            }
+        }
+
+        private ObservableCollection<Manifestation> manifestations;
+        public ObservableCollection<Manifestation> Manifestations
+        {
+            get { return manifestations; }
+            set
+            {
+                if (manifestations != value)
+                {
+                    manifestations = value;
+                    OnPropertyChanged("Manifestations");
+                }
+            }
+        }
+
+        private ObservableCollection<Map> maps;
+        public ObservableCollection<Map> Maps
+        {
+            get { return maps; }
+            set
+            {
+                if (maps != value)
+                {
+                    maps = value;
+                    OnPropertyChanged("Maps");
+                }
+            }
+        }
+
         private static Repository instance = null;
 
         private Repository()
@@ -116,7 +155,6 @@ namespace ManifestationManagementApp.model
                 return false;
             }
             ManifestationTypes.Add(newType);
-            ManifestationType.counter++;
             SaveData();
             return true;
         }

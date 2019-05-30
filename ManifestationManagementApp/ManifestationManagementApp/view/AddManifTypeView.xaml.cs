@@ -52,7 +52,15 @@ namespace ManifestationManagementApp.view
             string id;
             if(isAutoChecked)
             {
-                id = $"type{ManifestationType.counter + 1}";
+                int i = 1;
+                id = $"type{ManifestationType.counter + i}";
+                while (rep.FindLabel(id) != null)
+                {
+                    i++;
+                    id = $"type{ManifestationType.counter + i}";
+                }
+                ManifestationType.counter++;
+                
             } else
             {
                 id = idInput.Text;
