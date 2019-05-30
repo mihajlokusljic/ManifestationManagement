@@ -171,6 +171,13 @@ namespace ManifestationManagementApp.view
                 }
                 retVal.IconPath = textBoxIconPath.Text;
                 retVal.Description = descriptionInput.Text;
+                retVal.Type = Repository.GetInstance().FindManifestationType(comboBoxTypes.Text);
+                model.Label lab = Repository.GetInstance().FindLabel(label.Text);
+                if (lab != null)
+                {
+                    retVal.Addlabel(Repository.GetInstance().FindLabel(label.Text));
+
+                }
                 model.Repository rep = model.Repository.GetInstance();
                 rep.AddManifestation(retVal);
                 AddedLabelMessage.Content = "Manifestation " + retVal.Id + " has been added successfully.";
