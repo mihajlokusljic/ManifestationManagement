@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LabelCounter>14</LabelCounter>
-  <ManifestationCounter>6</ManifestationCounter>
+  <ManifestationCounter>0</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab4</Id>
@@ -104,7 +104,20 @@
       <Description>ds</Description>
       <IconPath />
     </ManifestationType>
+    <ManifestationType>
+      <Id>hadkfhfjkh</Id>
+      <Name>tip 1</Name>
+      <Description>dad</Description>
+      <IconPath />
+    </ManifestationType>
+    <ManifestationType>
+      <Id>bbbbb</Id>
+      <Name>cx</Name>
+      <Description>cx</Description>
+      <IconPath />
+    </ManifestationType>
   </ManifestationTypes>
+  <Maps />
   <Manifestations>
     <Manifestation>
       <Id>1233213</Id>
@@ -145,6 +158,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation2</Id>
@@ -157,6 +172,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation3</Id>
@@ -169,6 +186,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation4</Id>
@@ -181,6 +200,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation5</Id>
@@ -193,6 +214,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation6</Id>
@@ -205,7 +228,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
   </Manifestations>
-  <Maps />
 </Repository>

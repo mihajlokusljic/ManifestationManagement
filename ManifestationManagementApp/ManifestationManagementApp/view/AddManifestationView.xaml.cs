@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,36 @@ namespace ManifestationManagementApp.view
     /// </summary>
     public partial class AddManifestationView : Page
     {
+
+        private ManifestationType selectedType;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string v)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(v));
+            }
+        }
+
+        public ManifestationType SelectedType
+        {
+            get { return selectedType; }
+            set
+            {
+                if (value != selectedType)
+                {
+                    selectedType = value;
+                    OnPropertyChanged("Type");
+                }
+            }
+        }
+        
         public AddManifestationView()
         {
             InitializeComponent();
+            comboBoxTypes.DataContext = Repository.GetInstance();
+            label.DataContext = Repository.GetInstance();
         }
 
         private void loadIcon_Click(object sender, RoutedEventArgs e)
