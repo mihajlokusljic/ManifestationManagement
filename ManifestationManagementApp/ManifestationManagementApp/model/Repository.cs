@@ -13,6 +13,10 @@ namespace ManifestationManagementApp.model
     public class Repository: INotifyPropertyChanged
     {
         private static string dataFilepath = "..\\..\\resources\\data\\data.xml";
+        public int LabelCounter { get; set; }
+        public int ManifestationTypeCounter { get; set; }
+        public int ManifestationCounter { get; set; }
+
         private ObservableCollection<Label> labels;
         public ObservableCollection<Label> Labels
         {
