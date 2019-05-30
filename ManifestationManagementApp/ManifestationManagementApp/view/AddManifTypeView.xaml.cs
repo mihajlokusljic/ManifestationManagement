@@ -33,11 +33,13 @@ namespace ManifestationManagementApp.view
             {
                 idInput.IsEnabled = false;
                 idInput.Text = $"type{ManifestationType.counter + 1}";
+                nameInput.Focus();
             }
             else
             {
                 idInput.IsEnabled = true;
                 idInput.Text = "";
+                idInput.Focus();
             }
         }
 
@@ -83,11 +85,20 @@ namespace ManifestationManagementApp.view
                 };
                 rep.AddManifestationType(newType);
                 string nextId = $"type{ManifestationType.counter + 1}";
-                AddedTypeMessage.Content = $"Manifestation type {newType.Id} was added successfully.";
+                AddedTypeMessage.Content = $"Successfully added manifestation type: {newType.Id}";
+                nameInput.Text = "";
+                descriptionInput.Text = "";
                 if(isAutoChecked)
                 {
                     idInput.Text = nextId;
-                }          
+                    nameInput.Focus();
+                }
+                else
+                {
+                    idInput.Text = "";
+                    idInput.Focus();
+                }
+
             }
         }
     }
