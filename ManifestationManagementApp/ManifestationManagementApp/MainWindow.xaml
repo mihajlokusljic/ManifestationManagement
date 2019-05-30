@@ -17,7 +17,7 @@
 
             <MenuItem Header="Manifestation Types" Margin="15,0,0,0">
                 <MenuItem Header="Add Manifestation Type" Click="showAddManifTypeView"></MenuItem>
-                <MenuItem Header="Show/Edit Manifestation Types"></MenuItem>
+                <MenuItem Header="Show/Edit Manifestation Types" Click="showManifestationTypesView"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Labels" Margin="15,0,0,0">
