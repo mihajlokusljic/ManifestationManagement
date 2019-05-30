@@ -2,6 +2,7 @@
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LabelCounter>18</LabelCounter>
   <ManifestationTypeCounter>26</ManifestationTypeCounter>
+  <ManifestationCounter>8</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab4</Id>
@@ -327,6 +328,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation2</Id>
@@ -339,6 +342,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation3</Id>
@@ -351,6 +356,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation4</Id>
@@ -363,6 +370,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation5</Id>
@@ -375,6 +384,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation6</Id>
@@ -387,6 +398,59 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation7</Id>
+      <Name>manifestacija</Name>
+      <Description>opis</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>www</Name>
+        <Description>ww</Description>
+        <IconPath />
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath />
+      <SupportHandicaped>true</SupportHandicaped>
+      <SmokingAllowed>false</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab7</Id>
+          <Color>#FFD2691E</Color>
+          <Description>sasa</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation8</Id>
+      <Name>manif</Name>
+      <Description />
+      <Type>
+        <Id>type3</Id>
+        <Name>dad</Name>
+        <Description>ds</Description>
+        <IconPath />
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath />
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>LowPrices</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab9</Id>
+          <Color>#FF556B2F</Color>
+          <Description>sa</Description>
+        </Label>
+      </Labels>
     </Manifestation>
   </Manifestations>
   <Maps />

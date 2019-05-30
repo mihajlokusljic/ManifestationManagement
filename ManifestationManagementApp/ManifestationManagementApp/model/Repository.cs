@@ -7,6 +7,8 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace ManifestationManagementApp.model
 {
@@ -75,11 +77,22 @@ namespace ManifestationManagementApp.model
 
         private static Repository instance = null;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+        
         private Repository()
         {
             Labels = new ObservableCollection<Label>();
             ManifestationTypes = new ObservableCollection<ManifestationType>();
             Manifestations = new ObservableCollection<Manifestation>();
+            Maps = new ObservableCollection<Map>();
             Maps = new ObservableCollection<Map>();
             LabelCounter = 0;
             ManifestationTypeCounter = 0;
@@ -270,15 +283,6 @@ namespace ManifestationManagementApp.model
                 Maps = rep.Maps;
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
 
     }
 }

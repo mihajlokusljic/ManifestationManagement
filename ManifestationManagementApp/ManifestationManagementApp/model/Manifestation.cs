@@ -206,6 +206,18 @@ namespace ManifestationManagementApp.model
             }
         }
 
+        public bool Addlabel(Label newLabel)
+        {
+            
+            Labels.Add(newLabel);
+            return true;
+        }
+
+        public Manifestation()
+        {
+            labels = new ObservableCollection<Label>();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
         {

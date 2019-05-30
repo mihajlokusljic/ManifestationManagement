@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
       xmlns:local="clr-namespace:ManifestationManagementApp.view"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -63,10 +64,14 @@
         </TextBox>
 
         <Label Grid.Column="0" Grid.Row="3" Content="Type:" FontSize="24" Margin="0,0,0,10" />
-        <ComboBox Name="comboBoxTypes" FontSize="20" ToolTip="Choose type of manifestation" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="0,0,82,14" Height="36">
-            <ComboBoxItem FontSize="20">Type 1</ComboBoxItem>
-            <ComboBoxItem FontSize="20">Type 2</ComboBoxItem>
-        </ComboBox>
+        <ComboBox Name="comboBoxTypes" FontSize="20" 
+                               ToolTip="Choose type of manifestation" Grid.Column="1" Grid.Row="3" 
+                               VerticalAlignment="Center" Margin="0,0,82,14" Height="36"
+                               ItemsSource="{Binding ManifestationTypes}"
+                               DisplayMemberPath="Id"
+                               SelectedItem="{Binding SelectedType}"
+
+            />
 
         <Label Grid.Column="1" Grid.Row="4" Content="People with special needs support:" VerticalAlignment="Center" FontSize="24" RenderTransformOrigin="0.5,0.5" Margin="130,2,148,6" Height="42" Grid.ColumnSpan="2" />
         <CheckBox x:Name="peopleWithSpecialSupport" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="2.294,0.42" Height="14" Margin="526,18,0,18" Width="21">
@@ -107,10 +112,11 @@
         </ComboBox>
 
         <Label Grid.Column="0" Grid.Row="7" Content="Label:" FontSize="24" Margin="0,0,5,0" />
-        <ComboBox Name="label" FontSize="20" ToolTip="Choose label of manifestation" Grid.Row="7" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" Grid.Column="1">
-            <ComboBoxItem FontSize="20">Label 1</ComboBoxItem>
-            <ComboBoxItem FontSize="20">Label 2</ComboBoxItem>
-        </ComboBox>
+        <ComboBox Name="label" FontSize="20" ToolTip="Choose label of manifestation" Grid.Row="7" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" Grid.Column="1"
+                  ItemsSource="{Binding Labels}"
+                  DisplayMemberPath="Id"
+                  />
+
 
         <Label Grid.Column="0" Grid.Row="8" Content="Icon:" FontSize="24" />
         <Grid Grid.Column="1" Grid.Row="8">
