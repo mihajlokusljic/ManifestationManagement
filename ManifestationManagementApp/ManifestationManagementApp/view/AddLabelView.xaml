@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="900"
       Title="AddLabelView">
 
-    <Grid Margin="0,10,0,20" RenderTransformOrigin="0.5,0.5">
+    <Grid Margin="20,10,20,20" RenderTransformOrigin="0.5,0.5">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
@@ -52,11 +52,11 @@
         <wpfTool:ColorPicker x:Name="colorPicker" Grid.Row="2" Grid.Column="1" ToolTip="Pick a color for the label" Margin="0,5"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="Label Description:" FontSize="22"/>
-        <TextBox x:Name="descriptionInput" Grid.Row="3" Grid.Column="1" FontSize="22" Margin="10,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="descriptionInput" Grid.Row="3" Grid.Column="1" FontSize="22" Margin="0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
 
-        <Label x:Name="AddedLabelMessage" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
+        <Label x:Name="AddedLabelMessage" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
 
-        <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+        <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
             <Button FontSize="24" Margin="10,0" Padding="10,1" Click="Button_Click">Add Label</Button>
             <Button FontSize="24" Margin="10,0" Padding="10,1" Click="CancelBtnClicked">Cancel</Button>
         </StackPanel>

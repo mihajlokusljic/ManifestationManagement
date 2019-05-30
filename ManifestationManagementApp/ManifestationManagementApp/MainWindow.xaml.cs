@@ -23,6 +23,7 @@ namespace ManifestationManagementApp
     {
         public MainWindow()
         {
+            model.Repository.GetInstance().ReadData();
             InitializeComponent();
         }
 

@@ -32,20 +32,38 @@ namespace ManifestationManagementApp.view
             if (colorPicker.SelectedColor.ToString() == "")
             {
                 AddedLabelMessage.Content = "Please, pick some color.";
+                AddedLabelMessage.Foreground = Brushes.Red;
             } else if (descriptionInput.Text == "")
             {
                 AddedLabelMessage.Content = "Please, add some description.";
+                AddedLabelMessage.Foreground = Brushes.Red;
             } else if (idInput.Text == "" && !isAutoChecked)
             {
                 AddedLabelMessage.Content = "Please, insert id for this label.";
+                AddedLabelMessage.Foreground = Brushes.Red;
+            }
+            else if (idInput.Text != "" && !isAutoChecked && Repository.GetInstance().FindLabel(idInput.Text) != null)
+            {
+                AddedLabelMessage.Content = "This id is already taken, please select another one.";
+                AddedLabelMessage.Foreground = Brushes.Red;
             }
             else
             {
+                if (isAutoChecked)
+                {
+                }
                 model.Label retVal = new model.Label();
                 if (isAutoChecked)
                 {
-                    model.Label.counter = model.Label.counter + 1;
-                    retVal.Id = "lab" + model.Label.counter;
+                    Repository.GetInstance().LabelCounter = Repository.GetInstance().LabelCounter + 1;
+                    retVal.Id = "lab" + Repository.GetInstance().LabelCounter;
+                    idInput.Text = retVal.Id;
+                    while (Repository.GetInstance().FindLabel(retVal.Id) != null)
+                    {
+                        Repository.GetInstance().LabelCounter = Repository.GetInstance().LabelCounter + 1;
+                        retVal.Id = "lab" + Repository.GetInstance().LabelCounter;
+                        idInput.Text = retVal.Id;
+                    }
                 }
                 else
                 {
@@ -53,13 +71,19 @@ namespace ManifestationManagementApp.view
                 }
                 retVal.Color = colorPicker.SelectedColor.ToString();
                 retVal.Description = descriptionInput.Text;
-                model.Repository rep = model.Repository.GetInstance();
+                Repository rep = Repository.GetInstance();
                 rep.Addlabel(retVal);
                 AddedLabelMessage.Content = "Label " + retVal.Id + " has been added successfully.";
-                if(autoGenerateId.IsChecked.Value)
+                AddedLabelMessage.Foreground = Brushes.Green;
+                if (autoGenerateId.IsChecked.Value)
                 {
                     //ako je izabrano automatsko inkrementiranje, azurira se vrijednost za id
-                    idInput.Text = $"lab{model.Label.counter + 1}";
+                    idInput.Text = $"lab{Repository.GetInstance().LabelCounter + 1}";
+                    while (Repository.GetInstance().FindLabel(idInput.Text) != null)
+                    {
+                        Repository.GetInstance().LabelCounter = Repository.GetInstance().LabelCounter + 1;
+                        idInput.Text = $"lab{Repository.GetInstance().LabelCounter + 1}";
+                    }
                 }
             }
         }
@@ -75,7 +99,12 @@ namespace ManifestationManagementApp.view
             if (isAutoChecked)
             {
                 idInput.IsEnabled = false;
-                idInput.Text = $"lab{model.Label.counter + 1}";
+                idInput.Text = $"lab{Repository.GetInstance().LabelCounter + 1}";
+                while(Repository.GetInstance().FindLabel(idInput.Text) != null)
+                {
+                    Repository.GetInstance().LabelCounter = Repository.GetInstance().LabelCounter + 1;
+                    idInput.Text = $"lab{Repository.GetInstance().LabelCounter + 1}";
+                }
             }
             else
             {

@@ -1,18 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LabelCounter>14</LabelCounter>
   <Labels>
     <Label>
+      <Id>lab4</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab5</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab6</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
       <Id>lab1</Id>
-      <Color>#FFAFEEEE</Color>
-      <Description>Some description</Description>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
     </Label>
     <Label>
       <Id>lab2</Id>
-      <Color>#FFFF0000</Color>
-      <Description>Some other description</Description>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab3</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab7</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab8</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab10</Id>
+      <Color>#FF556B2F</Color>
+      <Description>sa</Description>
+    </Label>
+    <Label>
+      <Id>lab9</Id>
+      <Color>#FF556B2F</Color>
+      <Description>sa</Description>
+    </Label>
+    <Label>
+      <Id>lab11</Id>
+      <Color>#FF556B2F</Color>
+      <Description>sa</Description>
+    </Label>
+    <Label>
+      <Id>lab12</Id>
+      <Color>#FFDCDCDC</Color>
+      <Description>hello</Description>
+    </Label>
+    <Label>
+      <Id>lab13</Id>
+      <Color>#FF1E90FF</Color>
+      <Description>13 nedo Bog</Description>
+    </Label>
+    <Label>
+      <Id>lab15</Id>
+      <Color>#FF1E90FF</Color>
+      <Description>13 nedo Bog</Description>
+    </Label>
+    <Label>
+      <Id>lab14</Id>
+      <Color>#FF1E90FF</Color>
+      <Description>13 nedo Bog</Description>
     </Label>
   </Labels>
-  <ManifestationTypes />
+  <ManifestationTypes>
+    <ManifestationType>
+      <Id>type1</Id>
+      <Name>ffrasf</Name>
+      <Description>fdfd</Description>
+      <IconPath />
+    </ManifestationType>
+    <ManifestationType>
+      <Id>sa</Id>
+      <Name>sa</Name>
+      <Description>sa</Description>
+      <IconPath />
+    </ManifestationType>
+    <ManifestationType>
+      <Id>type3</Id>
+      <Name>dad</Name>
+      <Description>ds</Description>
+      <IconPath />
+    </ManifestationType>
+  </ManifestationTypes>
   <Manifestations />
   <Maps />
 </Repository>

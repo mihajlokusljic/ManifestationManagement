@@ -11,6 +11,7 @@ namespace ManifestationManagementApp.model
     public class Repository
     {
         private static string dataFilepath = "..\\..\\resources\\data\\data.xml";
+        public int LabelCounter { get; set; }
         public List<Label> Labels { get; set; }
         public List<ManifestationType> ManifestationTypes { get; set; }
         public List<Manifestation> Manifestations { get; set; }
@@ -23,6 +24,7 @@ namespace ManifestationManagementApp.model
             ManifestationTypes = new List<ManifestationType>();
             Manifestations = new List<Manifestation>();
             Maps = new List<Map>();
+            LabelCounter = 0;
         }
 
         public static Repository GetInstance()
@@ -140,6 +142,20 @@ namespace ManifestationManagementApp.model
             using(StreamWriter sw = File.CreateText(dataFilepath))
             {
                 serializer.Serialize(sw, this);
+            }
+        }
+
+        public void ReadData()
+        {
+            XmlSerializer reader = new XmlSerializer(typeof(Repository));
+            using (StreamReader file = new StreamReader(dataFilepath))
+            {
+                Repository rep = (Repository)reader.Deserialize(file);
+                LabelCounter = rep.LabelCounter;
+                Labels = rep.Labels;
+                ManifestationTypes = rep.ManifestationTypes;
+                Manifestations = rep.Manifestations;
+                Maps = rep.Maps;
             }
         }
 
