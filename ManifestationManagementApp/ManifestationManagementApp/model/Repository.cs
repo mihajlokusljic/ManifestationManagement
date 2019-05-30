@@ -13,6 +13,7 @@ namespace ManifestationManagementApp.model
         private static string dataFilepath = "..\\..\\resources\\data\\data.xml";
         public int LabelCounter { get; set; }
         public int ManifestationTypeCounter { get; set; }
+        public int ManifestationCounter { get; set; }
         public List<Label> Labels { get; set; }
         public List<ManifestationType> ManifestationTypes { get; set; }
         public List<Manifestation> Manifestations { get; set; }
@@ -27,6 +28,7 @@ namespace ManifestationManagementApp.model
             Maps = new List<Map>();
             LabelCounter = 0;
             ManifestationTypeCounter = 0;
+            ManifestationCounter = 0;
         }
 
         public static Repository GetInstance()
@@ -135,7 +137,60 @@ namespace ManifestationManagementApp.model
             return true;
         }
 
+        public Manifestation FindManifestation(string id)
+        {
+            foreach (Manifestation manif in Manifestations)
+            {
+                if (manif.Id == id)
+                {
+                    return manif;
+                }
+            }
+            return null;
+        }
 
+        public bool AddManifestation(Manifestation newManif)
+        {
+            if (FindManifestation(newManif.Id) != null)
+            {
+                return false;
+            }
+            Manifestations.Add(newManif);
+            SaveData();
+            return true;
+        }
+
+        public bool UpdateManifestation(Manifestation newManifestationData)
+        {
+            Manifestation target = FindManifestation(newManifestationData.Id);
+            if (target == null)
+            {
+                return false;
+            }
+            target.Name = newManifestationData.Name;
+            target.Type = newManifestationData.Type;
+            target.Labels = newManifestationData.Labels;
+            target.SmokingAllowed = newManifestationData.SmokingAllowed;
+            target.SupportHandicaped = newManifestationData.SupportHandicaped;
+            target.Prices = newManifestationData.Prices;
+            target.Alcohol = newManifestationData.Alcohol;
+            target.IconPath = newManifestationData.IconPath;
+            target.Description = newManifestationData.Description;
+            SaveData();
+            return true;
+        }
+
+        public bool DeleteManifestation(string id)
+        {
+            Manifestation target = FindManifestation(id);
+            if (target == null)
+            {
+                return false;
+            }
+            Manifestations.Remove(target);
+            SaveData();
+            return true;
+        }
 
         public void SaveData()
         {
