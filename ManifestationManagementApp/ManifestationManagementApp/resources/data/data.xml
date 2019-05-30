@@ -1,11 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Labels />
+  <LabelCounter>14</LabelCounter>
+  <ManifestationCounter>6</ManifestationCounter>
+  <Labels>
+    <Label>
+      <Id>lab4</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab5</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab6</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab1</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab2</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab3</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab7</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab8</Id>
+      <Color>#FFD2691E</Color>
+      <Description>sasa</Description>
+    </Label>
+    <Label>
+      <Id>lab10</Id>
+      <Color>#FF556B2F</Color>
+      <Description>sa</Description>
+    </Label>
+    <Label>
+      <Id>lab9</Id>
+      <Color>#FF556B2F</Color>
+      <Description>sa</Description>
+    </Label>
+    <Label>
+      <Id>lab11</Id>
+      <Color>#FF556B2F</Color>
+      <Description>sa</Description>
+    </Label>
+    <Label>
+      <Id>lab12</Id>
+      <Color>#FFDCDCDC</Color>
+      <Description>hello</Description>
+    </Label>
+    <Label>
+      <Id>lab13</Id>
+      <Color>#FF1E90FF</Color>
+      <Description>13 nedo Bog</Description>
+    </Label>
+    <Label>
+      <Id>lab15</Id>
+      <Color>#FF1E90FF</Color>
+      <Description>13 nedo Bog</Description>
+    </Label>
+    <Label>
+      <Id>lab14</Id>
+      <Color>#FF1E90FF</Color>
+      <Description>13 nedo Bog</Description>
+    </Label>
+  </Labels>
   <ManifestationTypes>
     <ManifestationType>
       <Id>type1</Id>
       <Name>www</Name>
       <Description>ww</Description>
+      <IconPath />
+    </ManifestationType>
+    <ManifestationType>
+      <Id>type1</Id>
+      <Name>ffrasf</Name>
+      <Description>fdfd</Description>
+      <IconPath />
+    </ManifestationType>
+    <ManifestationType>
+      <Id>sa</Id>
+      <Name>sa</Name>
+      <Description>sa</Description>
+      <IconPath />
+    </ManifestationType>
+    <ManifestationType>
+      <Id>type3</Id>
+      <Name>dad</Name>
+      <Description>ds</Description>
       <IconPath />
     </ManifestationType>
   </ManifestationTypes>
@@ -21,6 +117,8 @@
       <IsOutside>false</IsOutside>
       <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation0</Id>
@@ -32,6 +130,80 @@
       <SmokingAllowed>true</SmokingAllowed>
       <IsOutside>false</IsOutside>
       <Prices>LowPrices</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation1</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation2</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation3</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation4</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation5</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation6</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
       <Date>0001-01-01T00:00:00</Date>
     </Manifestation>
   </Manifestations>

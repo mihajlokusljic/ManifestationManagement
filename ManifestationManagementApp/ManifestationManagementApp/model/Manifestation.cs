@@ -10,8 +10,6 @@ namespace ManifestationManagementApp.model
 {
     public class Manifestation : INotifyPropertyChanged
     {
-        public static int counter = 0;
-
         private string id;
         public string Id
         {

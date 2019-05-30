@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ManifestationManagementApp.model;
 
 namespace ManifestationManagementApp.view
 {
@@ -36,11 +37,17 @@ namespace ManifestationManagementApp.view
         }
         private void AutoGenerateIdClicked(object sender, RoutedEventArgs e)
         {
+
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
             if (isAutoChecked)
             {
                 idInput.IsEnabled = false;
-                idInput.Text = $"manifestation{model.Label.counter + 1}";
+                idInput.Text = $"manifestation{Repository.GetInstance().ManifestationCounter + 1}";
+                while (Repository.GetInstance().FindManifestation(idInput.Text) != null)
+                {
+                    Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
+                    idInput.Text = $"manifestation{Repository.GetInstance().LabelCounter + 1}";
+                }
             }
             else
             {
@@ -56,27 +63,41 @@ namespace ManifestationManagementApp.view
             if (idInput.Text == "" && !isAutoChecked)
             {
                 AddedLabelMessage.Content = "Please, insert id for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+
             }
             else if (nameInput.Text == "")
             {
                 AddedLabelMessage.Content = "Please, insert name for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+
             }
             else if (comboBoxTypes.Text == "")
             {
                 AddedLabelMessage.Content = "Please, add type for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+
             }
             else if (label.Text == "")
             {
                 AddedLabelMessage.Content = "Please, add label for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+
             }
             else
             {
-                model.Manifestation retVal = new model.Manifestation();
+                Manifestation retVal = new Manifestation();
                 if (isAutoChecked)
                 {
-                    model.Manifestation.counter = model.Label.counter + 1;
-                    retVal.Id = "manifestation" + model.Label.counter;
-                    idInput.Text = $"manifestation{model.Manifestation.counter}";
+                    Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
+                    retVal.Id = "manifestation" + Repository.GetInstance().ManifestationCounter;
+                    idInput.Text = retVal.Id;
+                    while (Repository.GetInstance().FindManifestation(retVal.Id) != null)
+                    {
+                        Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
+                        retVal.Id = "manifestation" + Repository.GetInstance().ManifestationCounter;
+                        idInput.Text = retVal.Id;
+                    }
 
                 }
                 else
@@ -125,10 +146,16 @@ namespace ManifestationManagementApp.view
                 model.Repository rep = model.Repository.GetInstance();
                 rep.AddManifestation(retVal);
                 AddedLabelMessage.Content = "Manifestation " + retVal.Id + " has been added successfully.";
+                AddedLabelMessage.Foreground = Brushes.Green;
                 if (autoGenerateId.IsChecked.Value)
                 {
-                    //ako je izabrano automatsko inkrementiranje, azurira se vrijednost za id
-                    idInput.Text = $"manifestation{model.Manifestation.counter + 1}";
+                    // ako je izabrano automatsko inkrementiranje, azurira se vrijednost za id
+                    idInput.Text = $"manifestation{Repository.GetInstance().ManifestationCounter + 1}";
+                    while (Repository.GetInstance().FindManifestation(idInput.Text) != null)
+                    {
+                        Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
+                        idInput.Text = $"manifestation{Repository.GetInstance().ManifestationCounter + 1}";
+                    }
                 }
             }
 
