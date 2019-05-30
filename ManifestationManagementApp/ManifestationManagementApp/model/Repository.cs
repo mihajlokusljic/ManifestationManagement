@@ -7,8 +7,6 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.ComponentModel;
-using System.Collections.ObjectModel;
 
 namespace ManifestationManagementApp.model
 {

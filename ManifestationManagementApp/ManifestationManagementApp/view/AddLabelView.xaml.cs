@@ -110,7 +110,7 @@ namespace ManifestationManagementApp.view
                 {
                     rep.UpdateLabel(retVal);
                     LabelsView labels = new LabelsView(mainWindow);
-                    labels.SelectedLabel = retVal;
+                    labels.scrollTo(retVal.Id);
                     mainWindow.MainContent.Content = labels;
                 }
             }
@@ -118,7 +118,12 @@ namespace ManifestationManagementApp.view
 
         private void CancelBtnClicked(object sender, RoutedEventArgs e)
         {
-
+            LabelsView labels = new LabelsView(mainWindow);
+            if(Editing)
+            {
+                labels.scrollTo(idInput.Text);
+            }
+            mainWindow.MainContent.Content = labels;
         }
 
         private void AutoGenerateIdClicked(object sender, RoutedEventArgs e)

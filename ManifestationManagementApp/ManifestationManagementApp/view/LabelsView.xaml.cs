@@ -49,6 +49,19 @@ namespace ManifestationManagementApp.view
             Labels = Repository.GetInstance().Labels;
         }
 
+        public void scrollTo(string labelId)
+        {
+            foreach(model.Label lab in Labels)
+            {
+                if(lab.Id == labelId)
+                {
+                    SelectedLabel = lab;
+                    LabelsTable.ScrollIntoView(lab);
+                    break;
+                }
+            }
+        }
+
         public LabelsView(MainWindow parent)
         {
             InitializeComponent();
