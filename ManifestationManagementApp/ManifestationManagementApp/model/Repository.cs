@@ -82,6 +82,58 @@ namespace ManifestationManagementApp.model
             return true;
         }
 
+        public ManifestationType FindManifestationType(string id)
+        {
+            foreach(ManifestationType type in ManifestationTypes)
+            {
+                if(type.Id == id)
+                {
+                    return type;
+                }
+            }
+            return null;
+        }
+
+        public bool AddManifestationType(ManifestationType newType)
+        {
+            if(FindLabel(newType.Id) != null)
+            {
+                return false;
+            }
+            ManifestationTypes.Add(newType);
+            ManifestationType.counter++;
+            SaveData();
+            return true;
+        }
+
+        public bool UpdateManifestationType(ManifestationType newTypeData)
+        {
+            ManifestationType target = FindManifestationType(newTypeData.Id);
+            if (target == null)
+            {
+                return false;
+            }
+            target.Name = newTypeData.Name;
+            target.IconPath = newTypeData.IconPath;
+            target.Description = newTypeData.Description;
+            SaveData();
+            return true;
+        }
+
+        public bool DeleteManifestationType(string id)
+        {
+            ManifestationType target = FindManifestationType(id);
+            if(target == null)
+            {
+                return false;
+            }
+            ManifestationTypes.Remove(target);
+            SaveData();
+            return true;
+        }
+
+
+
         public void SaveData()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Repository));

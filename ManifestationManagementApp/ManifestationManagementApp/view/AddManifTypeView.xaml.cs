@@ -40,5 +40,55 @@ namespace ManifestationManagementApp.view
                 idInput.Text = "";
             }
         }
+
+        private void addTypeBtnClicked(object sender, RoutedEventArgs e)
+        {
+            bool isAutoChecked = autoGenerateId.IsChecked.Value;
+            string typeName = nameInput.Text;
+            string desc = descriptionInput.Text;
+            Repository rep = Repository.GetInstance();
+            string id;
+            if(isAutoChecked)
+            {
+                id = $"type{ManifestationType.counter + 1}";
+            } else
+            {
+                id = idInput.Text;
+            }
+
+            if(id == "")
+            {
+                AddedTypeMessage.Content = "Please enter an Id.";
+            }
+            else if (rep.FindManifestationType(id) != null)
+            {
+                AddedTypeMessage.Content = "Entered id already exists. Pease enter a different value.";
+            }
+            else if (typeName == "")
+            {
+                AddedTypeMessage.Content = "Please enter a name for manifestation type.";
+            }
+            else if (desc == "")
+            {
+                AddedTypeMessage.Content = "Please enter some description.";
+            }
+            else
+            {
+                ManifestationType newType = new ManifestationType()
+                {
+                    Id = id,
+                    Name = typeName,
+                    Description = desc,
+                    IconPath = "",
+                };
+                rep.AddManifestationType(newType);
+                string nextId = $"type{ManifestationType.counter + 1}";
+                AddedTypeMessage.Content = $"Manifestation type {newType.Id} was added successfully.";
+                if(isAutoChecked)
+                {
+                    idInput.Text = nextId;
+                }          
+            }
+        }
     }
 }
