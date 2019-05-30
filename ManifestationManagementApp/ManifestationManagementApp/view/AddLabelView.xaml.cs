@@ -73,8 +73,11 @@ namespace ManifestationManagementApp.view
                 retVal.Description = descriptionInput.Text;
                 Repository rep = Repository.GetInstance();
                 rep.Addlabel(retVal);
-                AddedLabelMessage.Content = "Label " + retVal.Id + " has been added successfully.";
+                AddedLabelMessage.Content = "Label \"" + retVal.Id + "\" has been added successfully.";
                 AddedLabelMessage.Foreground = Brushes.Green;
+                descriptionInput.Text = "";
+                colorPicker.SelectedColor = null;
+
                 if (autoGenerateId.IsChecked.Value)
                 {
                     //ako je izabrano automatsko inkrementiranje, azurira se vrijednost za id
@@ -84,6 +87,12 @@ namespace ManifestationManagementApp.view
                         Repository.GetInstance().LabelCounter = Repository.GetInstance().LabelCounter + 1;
                         idInput.Text = $"lab{Repository.GetInstance().LabelCounter + 1}";
                     }
+                    descriptionInput.Focus();
+                }
+                else
+                {
+                    idInput.Text = "";
+                    idInput.Focus();
                 }
             }
         }
