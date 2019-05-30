@@ -5,27 +5,82 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ManifestationManagementApp.model
 {
-    public class Repository
+    public class Repository: INotifyPropertyChanged
     {
         private static string dataFilepath = "..\\..\\resources\\data\\data.xml";
         public int LabelCounter { get; set; }
         public int ManifestationTypeCounter { get; set; }
         public int ManifestationCounter { get; set; }
-        public List<Label> Labels { get; set; }
-        public List<ManifestationType> ManifestationTypes { get; set; }
-        public List<Manifestation> Manifestations { get; set; }
-        public List<Map> Maps { get; set; }
+
+        private ObservableCollection<Label> labels;
+        public ObservableCollection<Label> Labels
+        {
+            get { return labels; }
+            set
+            {
+                if(labels != value)
+                {
+                    labels = value;
+                    OnPropertyChanged("Labels");
+                }
+            }
+        }
+
+        private ObservableCollection<ManifestationType> manifestationTypes;
+        public ObservableCollection<ManifestationType> ManifestationTypes
+        {
+            get { return manifestationTypes; }
+            set
+            {
+                if (manifestationTypes != value)
+                {
+                    manifestationTypes = value;
+                    OnPropertyChanged("ManifestationTypes");
+                }
+            }
+        }
+
+        private ObservableCollection<Manifestation> manifestations;
+        public ObservableCollection<Manifestation> Manifestations
+        {
+            get { return manifestations; }
+            set
+            {
+                if (manifestations != value)
+                {
+                    manifestations = value;
+                    OnPropertyChanged("Manifestations");
+                }
+            }
+        }
+
+        private ObservableCollection<Map> maps;
+        public ObservableCollection<Map> Maps
+        {
+            get { return maps; }
+            set
+            {
+                if (maps != value)
+                {
+                    maps = value;
+                    OnPropertyChanged("Maps");
+                }
+            }
+        }
+
         private static Repository instance = null;
 
         private Repository()
         {
-            Labels = new List<Label>();
-            ManifestationTypes = new List<ManifestationType>();
-            Manifestations = new List<Manifestation>();
-            Maps = new List<Map>();
+            Labels = new ObservableCollection<Label>();
+            ManifestationTypes = new ObservableCollection<ManifestationType>();
+            Manifestations = new ObservableCollection<Manifestation>();
+            Maps = new ObservableCollection<Map>();
             LabelCounter = 0;
             ManifestationTypeCounter = 0;
             ManifestationCounter = 0;
@@ -213,6 +268,14 @@ namespace ManifestationManagementApp.model
                 ManifestationTypes = rep.ManifestationTypes;
                 Manifestations = rep.Manifestations;
                 Maps = rep.Maps;
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
 
