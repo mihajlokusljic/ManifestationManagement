@@ -14,6 +14,7 @@ namespace ManifestationManagementApp.model
     {
         private static string dataFilepath = "..\\..\\resources\\data\\data.xml";
         public int LabelCounter { get; set; }
+        public int ManifestationTypeCounter { get; set; }
         public int ManifestationCounter { get; set; }
         public ObservableCollection<Label> labels { get; set; }
         public ObservableCollection<ManifestationType> manifestationTypes { get; set; }
@@ -75,6 +76,7 @@ namespace ManifestationManagementApp.model
             Manifestations = new ObservableCollection<Manifestation>();
             Maps = new List<Map>();
             LabelCounter = 0;
+            ManifestationTypeCounter = 0;
             ManifestationCounter = 0;
         }
 
@@ -154,7 +156,6 @@ namespace ManifestationManagementApp.model
                 return false;
             }
             ManifestationTypes.Add(newType);
-            ManifestationType.counter++;
             SaveData();
             return true;
         }
@@ -256,6 +257,7 @@ namespace ManifestationManagementApp.model
             {
                 Repository rep = (Repository)reader.Deserialize(file);
                 LabelCounter = rep.LabelCounter;
+                ManifestationTypeCounter = rep.ManifestationTypeCounter;
                 Labels = rep.Labels;
                 ManifestationTypes = rep.ManifestationTypes;
                 Manifestations = rep.Manifestations;
