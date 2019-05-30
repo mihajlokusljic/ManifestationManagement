@@ -77,6 +77,9 @@ namespace ManifestationManagementApp.model
             ManifestationTypes = new ObservableCollection<ManifestationType>();
             Manifestations = new ObservableCollection<Manifestation>();
             Maps = new ObservableCollection<Map>();
+            LabelCounter = 0;
+            ManifestationTypeCounter = 0;
+            ManifestationCounter = 0;
         }
 
         public static Repository GetInstance()
@@ -185,7 +188,60 @@ namespace ManifestationManagementApp.model
             return true;
         }
 
+        public Manifestation FindManifestation(string id)
+        {
+            foreach (Manifestation manif in Manifestations)
+            {
+                if (manif.Id == id)
+                {
+                    return manif;
+                }
+            }
+            return null;
+        }
 
+        public bool AddManifestation(Manifestation newManif)
+        {
+            if (FindManifestation(newManif.Id) != null)
+            {
+                return false;
+            }
+            Manifestations.Add(newManif);
+            SaveData();
+            return true;
+        }
+
+        public bool UpdateManifestation(Manifestation newManifestationData)
+        {
+            Manifestation target = FindManifestation(newManifestationData.Id);
+            if (target == null)
+            {
+                return false;
+            }
+            target.Name = newManifestationData.Name;
+            target.Type = newManifestationData.Type;
+            target.Labels = newManifestationData.Labels;
+            target.SmokingAllowed = newManifestationData.SmokingAllowed;
+            target.SupportHandicaped = newManifestationData.SupportHandicaped;
+            target.Prices = newManifestationData.Prices;
+            target.Alcohol = newManifestationData.Alcohol;
+            target.IconPath = newManifestationData.IconPath;
+            target.Description = newManifestationData.Description;
+            SaveData();
+            return true;
+        }
+
+        public bool DeleteManifestation(string id)
+        {
+            Manifestation target = FindManifestation(id);
+            if (target == null)
+            {
+                return false;
+            }
+            Manifestations.Remove(target);
+            SaveData();
+            return true;
+        }
 
         public void SaveData()
         {
@@ -196,6 +252,20 @@ namespace ManifestationManagementApp.model
             }
         }
 
+        public void ReadData()
+        {
+            XmlSerializer reader = new XmlSerializer(typeof(Repository));
+            using (StreamReader file = new StreamReader(dataFilepath))
+            {
+                Repository rep = (Repository)reader.Deserialize(file);
+                LabelCounter = rep.LabelCounter;
+                ManifestationTypeCounter = rep.ManifestationTypeCounter;
+                Labels = rep.Labels;
+                ManifestationTypes = rep.ManifestationTypes;
+                Manifestations = rep.Manifestations;
+                Maps = rep.Maps;
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
         {

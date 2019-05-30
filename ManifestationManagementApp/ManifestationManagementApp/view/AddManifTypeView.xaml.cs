@@ -32,7 +32,12 @@ namespace ManifestationManagementApp.view
             if (isAutoChecked)
             {
                 idInput.IsEnabled = false;
-                idInput.Text = $"type{ManifestationType.counter + 1}";
+                idInput.Text = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
+                while (Repository.GetInstance().FindManifestationType(idInput.Text) != null)
+                {
+                    Repository.GetInstance().ManifestationTypeCounter = Repository.GetInstance().ManifestationTypeCounter + 1;
+                    idInput.Text = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
+                }
                 nameInput.Focus();
             }
             else
@@ -50,17 +55,15 @@ namespace ManifestationManagementApp.view
             string desc = descriptionInput.Text;
             Repository rep = Repository.GetInstance();
             string id;
+
             if(isAutoChecked)
             {
-                int i = 1;
-                id = $"type{ManifestationType.counter + i}";
-                while (rep.FindLabel(id) != null)
+                id = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
+                while (rep.FindManifestationType(id) != null)
                 {
-                    i++;
-                    id = $"type{ManifestationType.counter + i}";
+                    Repository.GetInstance().ManifestationTypeCounter = Repository.GetInstance().ManifestationTypeCounter + 1;
+                    id = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
                 }
-                ManifestationType.counter++;
-                
             } else
             {
                 id = idInput.Text;
@@ -69,18 +72,22 @@ namespace ManifestationManagementApp.view
             if(id == "")
             {
                 AddedTypeMessage.Content = "Please enter an Id.";
+                AddedTypeMessage.Foreground = Brushes.Red;
             }
             else if (rep.FindManifestationType(id) != null)
             {
                 AddedTypeMessage.Content = "Entered id already exists. Pease enter a different value.";
+                AddedTypeMessage.Foreground = Brushes.Red;
             }
             else if (typeName == "")
             {
                 AddedTypeMessage.Content = "Please enter a name for manifestation type.";
+                AddedTypeMessage.Foreground = Brushes.Red;
             }
             else if (desc == "")
             {
                 AddedTypeMessage.Content = "Please enter some description.";
+                AddedTypeMessage.Foreground = Brushes.Red;
             }
             else
             {
@@ -92,13 +99,19 @@ namespace ManifestationManagementApp.view
                     IconPath = "",
                 };
                 rep.AddManifestationType(newType);
-                string nextId = $"type{ManifestationType.counter + 1}";
                 AddedTypeMessage.Content = $"Successfully added manifestation type: {newType.Id}";
+                AddedTypeMessage.Foreground = Brushes.Green;
                 nameInput.Text = "";
                 descriptionInput.Text = "";
-                if(isAutoChecked)
+                if (isAutoChecked)
                 {
-                    idInput.Text = nextId;
+                    Repository.GetInstance().ManifestationTypeCounter = Repository.GetInstance().ManifestationTypeCounter + 1;
+                    idInput.Text = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
+                    while (Repository.GetInstance().FindManifestationType(idInput.Text) != null)
+                    {
+                        Repository.GetInstance().ManifestationTypeCounter = Repository.GetInstance().ManifestationTypeCounter + 1;
+                        idInput.Text = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
+                    }
                     nameInput.Focus();
                 }
                 else

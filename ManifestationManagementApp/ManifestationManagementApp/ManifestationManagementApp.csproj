@@ -58,6 +58,9 @@
     <Compile Include="view\AddLabelView.xaml.cs">
       <DependentUpon>AddLabelView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\AddManifestationView.xaml.cs">
+      <DependentUpon>AddManifestationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\AddManifTypeView.xaml.cs">
       <DependentUpon>AddManifTypeView.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
     <Page Include="view\AddLabelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\AddManifestationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\AddManifTypeView.xaml">
       <SubType>Designer</SubType>
@@ -129,6 +136,7 @@
   <ItemGroup>
     <Folder Include="bin\Release\" />
     <Folder Include="resources\data\" />
+    <Folder Include="resources\images\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit">

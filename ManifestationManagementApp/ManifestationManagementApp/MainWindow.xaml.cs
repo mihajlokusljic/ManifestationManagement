@@ -23,6 +23,7 @@ namespace ManifestationManagementApp
     {
         public MainWindow()
         {
+            model.Repository.GetInstance().ReadData();
             InitializeComponent();
         }
 
@@ -40,5 +41,11 @@ namespace ManifestationManagementApp
         {
             this.MainContent.Content = new LabelsView();
         }
+
+        private void showAddManifestationView(object sender, RoutedEventArgs e)
+        {
+            this.MainContent.Content = new AddManifestationView();
+        }
+
     }
 }
