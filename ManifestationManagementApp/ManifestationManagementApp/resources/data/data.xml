@@ -2,8 +2,8 @@
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LabelCounter>18</LabelCounter>
   <ManifestationTypeCounter>26</ManifestationTypeCounter>
-  <ManifestationCounter>7</ManifestationCounter>
-  <labels>
+  <ManifestationCounter>8</ManifestationCounter>
+  <Labels>
     <Label>
       <Id>lab4</Id>
       <Color>#FFD2691E</Color>
@@ -99,335 +99,7 @@
       <Color>#FFFFD700</Color>
       <Description>xaxa</Description>
     </Label>
-  </labels>
-  <manifestationTypes>
-    <ManifestationType>
-      <Id>type1</Id>
-      <Name>www</Name>
-      <Description>ww</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type1</Id>
-      <Name>ffrasf</Name>
-      <Description>fdfd</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>sa</Id>
-      <Name>sa</Name>
-      <Description>sa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type3</Id>
-      <Name>dad</Name>
-      <Description>ds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type2</Id>
-      <Name>dsd</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type4</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type7</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type8</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type10</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type5</Id>
-      <Name>asas</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type9</Id>
-      <Name>sasa</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type11</Id>
-      <Name>sas</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type13</Id>
-      <Name>sa</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type15</Id>
-      <Name>sasa</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type17</Id>
-      <Name>sasa</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type19</Id>
-      <Name>xzd</Name>
-      <Description>dsa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type6</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type12</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type14</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type16</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type18</Id>
-      <Name>dsd</Name>
-      <Description>dsdsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type20</Id>
-      <Name>sds</Name>
-      <Description>dsdds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type22</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type24</Id>
-      <Name>dsdsds</Name>
-      <Description>dsdsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type21</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type23</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type25</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type28</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type29</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type26</Id>
-      <Name>dsd</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type27</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-  </manifestationTypes>
-  <Maps />
-  <Manifestations>
-    <Manifestation>
-      <Id>1233213</Id>
-      <Name>Manifestacija</Name>
-      <Description>Opis</Description>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels />
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation0</Id>
-      <Name>hhh</Name>
-      <Description>gg</Description>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>LowPrices</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels />
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation1</Id>
-      <Name>mab</Name>
-      <Description>des</Description>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels />
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation2</Id>
-      <Name>mab</Name>
-      <Description>des</Description>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels />
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation3</Id>
-      <Name>mab</Name>
-      <Description>des</Description>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels />
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation4</Id>
-      <Name>mab</Name>
-      <Description>des</Description>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels />
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation5</Id>
-      <Name>mab</Name>
-      <Description>des</Description>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels />
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation6</Id>
-      <Name>mab</Name>
-      <Description>des</Description>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels />
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation7</Id>
-      <Name>manifestacija</Name>
-      <Description>opis</Description>
-      <Type>
-        <Id>type1</Id>
-        <Name>www</Name>
-        <Description>ww</Description>
-        <IconPath />
-      </Type>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath />
-      <SupportHandicaped>true</SupportHandicaped>
-      <SmokingAllowed>false</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels>
-        <Label>
-          <Id>lab7</Id>
-          <Color>#FFD2691E</Color>
-          <Description>sasa</Description>
-        </Label>
-      </Labels>
-    </Manifestation>
-  </Manifestations>
+  </Labels>
   <ManifestationTypes>
     <ManifestationType>
       <Id>type1</Id>
@@ -616,101 +288,170 @@
       <IconPath />
     </ManifestationType>
   </ManifestationTypes>
-  <Labels>
-    <Label>
-      <Id>lab4</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab5</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab6</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab1</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab2</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab3</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab7</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab8</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab10</Id>
-      <Color>#FF556B2F</Color>
-      <Description>sa</Description>
-    </Label>
-    <Label>
-      <Id>lab9</Id>
-      <Color>#FF556B2F</Color>
-      <Description>sa</Description>
-    </Label>
-    <Label>
-      <Id>lab11</Id>
-      <Color>#FF556B2F</Color>
-      <Description>sa</Description>
-    </Label>
-    <Label>
-      <Id>lab12</Id>
-      <Color>#FFDCDCDC</Color>
-      <Description>hello</Description>
-    </Label>
-    <Label>
-      <Id>lab13</Id>
-      <Color>#FF1E90FF</Color>
-      <Description>13 nedo Bog</Description>
-    </Label>
-    <Label>
-      <Id>lab15</Id>
-      <Color>#FF1E90FF</Color>
-      <Description>13 nedo Bog</Description>
-    </Label>
-    <Label>
-      <Id>lab14</Id>
-      <Color>#FF1E90FF</Color>
-      <Description>13 nedo Bog</Description>
-    </Label>
-    <Label>
-      <Id>lab16</Id>
-      <Color>#FF6495ED</Color>
-      <Description>sdas</Description>
-    </Label>
-    <Label>
-      <Id>lab17</Id>
-      <Color>#FF556B2F</Color>
-      <Description>xzxzx</Description>
-    </Label>
-    <Label>
-      <Id>xaxa</Id>
-      <Color>#FFE6E6FA</Color>
-      <Description>xaxaxa</Description>
-    </Label>
-    <Label>
-      <Id>lab18</Id>
-      <Color>#FFFFD700</Color>
-      <Description>xaxa</Description>
-    </Label>
-  </Labels>
+  <Manifestations>
+    <Manifestation>
+      <Id>1233213</Id>
+      <Name>Manifestacija</Name>
+      <Description>Opis</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation0</Id>
+      <Name>hhh</Name>
+      <Description>gg</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>LowPrices</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation1</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation2</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation3</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation4</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation5</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation6</Id>
+      <Name>mab</Name>
+      <Description>des</Description>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels />
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation7</Id>
+      <Name>manifestacija</Name>
+      <Description>opis</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>www</Name>
+        <Description>ww</Description>
+        <IconPath />
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath />
+      <SupportHandicaped>true</SupportHandicaped>
+      <SmokingAllowed>false</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab7</Id>
+          <Color>#FFD2691E</Color>
+          <Description>sasa</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation8</Id>
+      <Name>manif</Name>
+      <Description />
+      <Type>
+        <Id>type3</Id>
+        <Name>dad</Name>
+        <Description>ds</Description>
+        <IconPath />
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath />
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>false</IsOutside>
+      <Prices>LowPrices</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab9</Id>
+          <Color>#FF556B2F</Color>
+          <Description>sa</Description>
+        </Label>
+      </Labels>
+    </Manifestation>
+  </Manifestations>
+  <Maps />
 </Repository>
