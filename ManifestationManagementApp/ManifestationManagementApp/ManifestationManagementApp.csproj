@@ -118,7 +118,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\ManifestationManagementApp.exe" />
     <Content Include="bin\Debug\ManifestationManagementApp.pdb" />
-    <Resource Include="resources\icons\manif_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
