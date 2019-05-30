@@ -22,7 +22,7 @@
 
             <MenuItem Header="Labels" Margin="15,0,0,0">
                 <MenuItem Header="Add Label" Click="showAddLabelView"></MenuItem>
-                <MenuItem Header="Show/Edit Labels"></MenuItem>
+                <MenuItem Header="Show/Edit Labels" Click="showLabelsView"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Show Map" Margin="15,0,0,0">
