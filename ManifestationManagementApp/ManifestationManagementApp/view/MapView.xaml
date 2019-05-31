@@ -8,6 +8,29 @@
       d:DesignHeight="450" d:DesignWidth="900"
       Title="MapView">
 
+    <Page.Resources>
+        <!-- Prikaz manifestacije u list view -->
+        <DataTemplate x:Key="ManifListItem">
+            <Grid HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="138"/>
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="{Binding IconPath}" Width="128" Height="128" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Id}" TextWrapping="Wrap" FontSize="22" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Name}" TextWrapping="WrapWithOverflow" FontSize="22"/>
+                <Separator Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+            </Grid>
+        </DataTemplate>
+        
+    </Page.Resources>
+
     <Grid Margin="20,10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -49,12 +72,15 @@
         <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0">
             
             <!-- Available manifestations -->
-            <StackPanel DockPanel.Dock="Left" Margin="0,0,20,0">
-                <Button Height="Auto" Content="Hide Manifestations" FontSize="22" Margin="0,10,0,20" />
-                <ListView x:Name="ManifList" MinHeight="250">
-                    
-                </ListView>
-            </StackPanel>
+            <Grid DockPanel.Dock="Left" Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Button Grid.Row="0" Grid.Column="0" Height="Auto" Content="Hide Manifestations" FontSize="22" Margin="0,10,0,20" />
+                <ListView Grid.Row="1" Grid.Column="0" x:Name="ManifList" ItemsSource="{Binding Manifestations}" ItemTemplate="{StaticResource ManifListItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+            </Grid>
             
             <!-- Prikaz Mape -->
             <Canvas x:Name="Map" DockPanel.Dock="Right">
