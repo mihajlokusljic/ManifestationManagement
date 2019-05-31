@@ -63,6 +63,7 @@ namespace ManifestationManagementApp.view
                 textBoxIconPath.Text = dialog.FileName;
             }
         }
+
         private void AutoGenerateIdClicked(object sender, RoutedEventArgs e)
         {
 
@@ -109,6 +110,30 @@ namespace ManifestationManagementApp.view
             else if (label.Text == "")
             {
                 AddedLabelMessage.Content = "Please, add label for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+
+            }
+            else if (textBoxIconPath.Text == "")
+            {
+                AddedLabelMessage.Content = "Please, add icon for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+
+            }
+            else if (descriptionInput.Text == "")
+            {
+                AddedLabelMessage.Content = "Please, add description for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+
+            }
+            else if (priceCategory.Text == "")
+            {
+                AddedLabelMessage.Content = "Please, add price category for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+
+            }
+            else if (alcoholConsumption.Text == "")
+            {
+                AddedLabelMessage.Content = "Please, add alcohol consumption type for this manifestation";
                 AddedLabelMessage.Foreground = Brushes.Red;
 
             }
@@ -169,6 +194,29 @@ namespace ManifestationManagementApp.view
                 {
                     retVal.Prices = model.PriceCategory.HighPrices;
                 }
+                else
+                {
+                    retVal.Prices = model.PriceCategory.Free;
+                }
+
+                String alcohol = alcoholConsumption.Text;
+                if (price.Equals("No alcohol"))
+                {
+                    retVal.Alcohol = model.AlcoholConusmption.Forbidden;
+                }
+                else if (price.Equals("Allowed to bring alcohol"))
+                {
+                    retVal.Alcohol = model.AlcoholConusmption.BringAlcohol;
+                }
+                else if (price.Equals("Allowed to buy alcohol"))
+                {
+                    retVal.Alcohol = model.AlcoholConusmption.BuyAlcohol;
+                }
+                else
+                {
+                    retVal.Alcohol = model.AlcoholConusmption.Forbidden;
+                }
+
                 retVal.IconPath = textBoxIconPath.Text;
                 retVal.Description = descriptionInput.Text;
                 retVal.Type = Repository.GetInstance().FindManifestationType(comboBoxTypes.Text);

@@ -9,8 +9,28 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddManifestationView">
 
-    <Grid>
+    <Page.Resources>
+        <Style x:Key="resizedCalendarItem" TargetType="{x:Type Calendar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Calendar}">
+                        <Viewbox Height="350"
+                        Width="350">
+                            <CalendarItem x:Name="PART_CalendarItem"
+                                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" />
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="20,0">
+
         <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
@@ -97,29 +117,44 @@
             </CheckBox.RenderTransform>
         </CheckBox>
 
-        <Label Grid.Column="0" Grid.Row="5" Content="Alcohol consumption:" FontSize="24" Margin="0,0,5,0" />
-        <ComboBox Name="alcoholConsumption" FontSize="20" ToolTip="Choose consumption of alcohol" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" >
+        <Label Grid.Column="0" Grid.Row="5" Content="Date:" VerticalAlignment="Center" FontSize="24" RenderTransformOrigin="0.5,0.5" Margin="0,2,0,6" Height="42" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="230" />
+        <DatePicker CalendarStyle="{StaticResource resizedCalendarItem}" FontSize="24" Grid.Column="1" Grid.Row="5" Height="37" HorizontalAlignment="Left" Name="datePicker1" VerticalAlignment="Center" Width="300">
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+
+        <Label Grid.Column="0" Grid.Row="6" Content="Is it outside:" FontSize="24" Margin="0,0,5,0" />
+        <ComboBox Name="isItOutside" FontSize="20" ToolTip="Choose is it outside or inside event" Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" >
+            <ComboBoxItem FontSize="20">Outside</ComboBoxItem>
+            <ComboBoxItem FontSize="20">Inside</ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Column="0" Grid.Row="7" Content="Alcohol consumption:" FontSize="24" Margin="0,0,5,0" />
+        <ComboBox Name="alcoholConsumption" FontSize="20" ToolTip="Choose consumption of alcohol" Grid.Column="1" Grid.Row="7" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" >
             <ComboBoxItem FontSize="20">No alcohol</ComboBoxItem>
             <ComboBoxItem FontSize="20">Allowed to bring alcohol</ComboBoxItem>
             <ComboBoxItem FontSize="20">Allowed to buy alcohol</ComboBoxItem>
         </ComboBox>
-        <Label Grid.Column="0" Grid.Row="6" Content="Price category:" FontSize="24" Margin="0,0,5,0" />
-        <ComboBox Name="priceCategory" FontSize="20" ToolTip="Choose price cateogry of manifestation" Grid.Row="6" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" Grid.Column="1">
+        
+        <Label Grid.Column="0" Grid.Row="8" Content="Price category:" FontSize="24" Margin="0,0,5,0" />
+        <ComboBox Name="priceCategory" FontSize="20" ToolTip="Choose price cateogry of manifestation" Grid.Row="8" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" Grid.Column="1">
             <ComboBoxItem FontSize="20">Free</ComboBoxItem>
             <ComboBoxItem FontSize="20">Low price</ComboBoxItem>
             <ComboBoxItem FontSize="20">Medium price</ComboBoxItem>
             <ComboBoxItem FontSize="20">High price</ComboBoxItem>
         </ComboBox>
 
-        <Label Grid.Column="0" Grid.Row="7" Content="Label:" FontSize="24" Margin="0,0,5,0" />
-        <ComboBox Name="label" FontSize="20" ToolTip="Choose label of manifestation" Grid.Row="7" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" Grid.Column="1"
+        <Label Grid.Column="0" Grid.Row="9" Content="Label:" FontSize="24" Margin="0,0,5,0" />
+        <ComboBox Name="label" FontSize="20" ToolTip="Choose label of manifestation" Grid.Row="9" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" Grid.Column="1"
                   ItemsSource="{Binding Labels}"
                   DisplayMemberPath="Id"
                   />
 
-
-        <Label Grid.Column="0" Grid.Row="8" Content="Icon:" FontSize="24" />
-        <Grid Grid.Column="1" Grid.Row="8">
+        <Label Grid.Column="0" Grid.Row="10" Content="Icon:" FontSize="24" />
+        <Grid Grid.Column="1" Grid.Row="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="121" />
@@ -132,11 +167,12 @@
             </Button>
         </Grid>
         <Label Grid.Row="0" Grid.Column="2" Content="Description:" FontSize="24" Margin="0,3,1,5" Height="42" />
-        <TextBox x:Name="descriptionInput" Grid.Row="1" Grid.Column="2" FontSize="22" Margin="10,5,10,0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Grid.RowSpan="7"/>
-        <StackPanel Grid.Row="9" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,10" Height="36">
+        <TextBox x:Name="descriptionInput" Grid.Row="1" Grid.Column="2" FontSize="22" Margin="10,5,10,0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Grid.RowSpan="8"/>
+        <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,10" Height="36">
             <Button FontSize="24" Margin="10,0" Padding="10,1" Content="Add Manifestation" Click="Button_Click"/>
             <Button FontSize="24" Margin="10,0" Padding="10,1" Content="Cancel"/>
         </StackPanel>
-        <Label x:Name="AddedLabelMessage" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
+        <Label x:Name="AddedLabelMessage" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
+
     </Grid>
 </Page>

@@ -34,7 +34,7 @@ namespace ManifestationManagementApp
 
         private void showAddManifTypeView(object sender, RoutedEventArgs e)
         {
-            this.MainContent.Content = new AddManifTypeView();
+            this.MainContent.Content = new AddManifTypeView(this, false);
         }
 
         private void showLabelsView(object sender, RoutedEventArgs e)

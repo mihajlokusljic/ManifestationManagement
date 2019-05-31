@@ -67,7 +67,7 @@ namespace ManifestationManagementApp.view
             Repository rep = Repository.GetInstance();
             string id;
 
-            if(isAutoChecked)
+            if(isAutoChecked && !Editing)
             {
                 id = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
                 while (rep.FindManifestationType(id) != null)
@@ -85,7 +85,7 @@ namespace ManifestationManagementApp.view
                 AddedTypeMessage.Content = "Please enter an Id.";
                 AddedTypeMessage.Foreground = Brushes.Red;
             }
-            else if (rep.FindManifestationType(id) != null)
+            else if (rep.FindManifestationType(id) != null && !Editing)
             {
                 AddedTypeMessage.Content = "Entered id already exists. Pease enter a different value.";
                 AddedTypeMessage.Foreground = Brushes.Red;
