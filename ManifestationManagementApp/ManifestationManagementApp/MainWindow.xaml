@@ -13,7 +13,7 @@
         <Menu DockPanel.Dock="Top" FontSize="24">
             <MenuItem Header="Manifestations" Margin="10,0,0,0">
                 <MenuItem Header="Add Manifestation" Click="showAddManifestationView"></MenuItem>
-                <MenuItem Header="Show/Edit Manifestations"></MenuItem>
+                <MenuItem Header="Show/Edit Manifestations" Click="showManifestationsView"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Manifestation Types" Margin="15,0,0,0">

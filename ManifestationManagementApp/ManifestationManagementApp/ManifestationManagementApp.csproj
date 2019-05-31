@@ -67,6 +67,9 @@
     <Compile Include="view\LabelsView.xaml.cs">
       <DependentUpon>LabelsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\ManifestationsView.xaml.cs">
+      <DependentUpon>ManifestationsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\ManifestationTypesView.xaml.cs">
       <DependentUpon>ManifestationTypesView.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\LabelsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\ManifestationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,6 +22,8 @@ namespace ManifestationManagementApp.view
     /// </summary>
     public partial class AddManifestationView : Page
     {
+        private MainWindow mainWindow;
+        public bool Editing { get; set; }
 
         private ManifestationType selectedType;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -46,12 +48,22 @@ namespace ManifestationManagementApp.view
                 }
             }
         }
-        
+
+        public AddManifestationView(MainWindow parent, bool editMode)
+        {
+            InitializeComponent();
+            comboBoxTypes.DataContext = Repository.GetInstance();
+            label.DataContext = Repository.GetInstance();
+            mainWindow = parent;
+            Editing = editMode;
+        }
+
         public AddManifestationView()
         {
             InitializeComponent();
             comboBoxTypes.DataContext = Repository.GetInstance();
             label.DataContext = Repository.GetInstance();
+            Editing = false;
         }
 
         private void loadIcon_Click(object sender, RoutedEventArgs e)
@@ -85,7 +97,7 @@ namespace ManifestationManagementApp.view
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addManifBtnClicked(object sender, RoutedEventArgs e) //ispraviti sa editom
         {
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
       
@@ -144,6 +156,11 @@ namespace ManifestationManagementApp.view
             else if (isItOutside.Text == "")
             {
                 AddedLabelMessage.Content = "Please, pick is it outside or not for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+            }
+            else if (Repository.GetInstance().FindManifestation(idInput.Text) != null && !isAutoChecked && !Editing)
+            {
+                AddedLabelMessage.Content = "This id is already taken, please insert another one";
                 AddedLabelMessage.Foreground = Brushes.Red;
             }
             else
@@ -251,21 +268,41 @@ namespace ManifestationManagementApp.view
 
                 }
                 model.Repository rep = model.Repository.GetInstance();
-                rep.AddManifestation(retVal);
-                AddedLabelMessage.Content = "Manifestation " + retVal.Id + " has been added successfully.";
-                AddedLabelMessage.Foreground = Brushes.Green;
-                if (autoGenerateId.IsChecked.Value)
+                if (!Editing)
                 {
-                    // ako je izabrano automatsko inkrementiranje, azurira se vrijednost za id
-                    idInput.Text = $"manifestation{Repository.GetInstance().ManifestationCounter + 1}";
-                    while (Repository.GetInstance().FindManifestation(idInput.Text) != null)
+                    rep.AddManifestation(retVal);
+                    AddedLabelMessage.Content = "Manifestation " + retVal.Id + " has been added successfully.";
+                    AddedLabelMessage.Foreground = Brushes.Green;
+                    if (autoGenerateId.IsChecked.Value)
                     {
-                        Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
+                        // ako je izabrano automatsko inkrementiranje, azurira se vrijednost za id
                         idInput.Text = $"manifestation{Repository.GetInstance().ManifestationCounter + 1}";
+                        while (Repository.GetInstance().FindManifestation(idInput.Text) != null)
+                        {
+                            Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
+                            idInput.Text = $"manifestation{Repository.GetInstance().ManifestationCounter + 1}";
+                        }
                     }
+                }
+                else
+                {
+                    rep.UpdateManifestation(retVal);
+                    ManifestationsView manifs = new ManifestationsView(mainWindow);
+                    manifs.scrollTo(retVal.Id);
+                    mainWindow.MainContent.Content = manifs;
                 }
             }
 
+        }
+
+        private void CancelBtnClicked(object sender, RoutedEventArgs e)
+        {
+            ManifestationsView manifestations = new ManifestationsView(mainWindow);
+            if (Editing)
+            {
+                manifestations.scrollTo(idInput.Text);
+            }
+            mainWindow.MainContent.Content = manifestations;
         }
     }
 }

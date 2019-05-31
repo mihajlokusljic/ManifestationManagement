@@ -47,7 +47,7 @@
             <ColumnDefinition Width="343*"></ColumnDefinition>
             <ColumnDefinition Width="301*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Content="Auto-generated Id:" VerticalAlignment="Center" FontSize="24" RenderTransformOrigin="0.5,0.5" Margin="0,3,1,5" Height="42" />
+        <Label x:Name="autoGenerateIdLabel" Grid.Column="0" Grid.Row="0" Content="Auto-generated Id:" VerticalAlignment="Center" FontSize="24" RenderTransformOrigin="0.5,0.5" Margin="0,3,1,5" Height="42" />
         <CheckBox x:Name="autoGenerateId" Click="AutoGenerateIdClicked" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="2.294,0.42" Height="14" Margin="23,18,0,18" Width="21">
             <CheckBox.RenderTransform>
                 <TransformGroup>
@@ -169,8 +169,8 @@
         <Label Grid.Row="0" Grid.Column="2" Content="Description:" FontSize="24" Margin="0,3,1,5" Height="42" />
         <TextBox x:Name="descriptionInput" Grid.Row="1" Grid.Column="2" FontSize="22" Margin="10,5,10,0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Grid.RowSpan="8"/>
         <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,10" Height="36">
-            <Button FontSize="24" Margin="10,0" Padding="10,1" Content="Add Manifestation" Click="Button_Click"/>
-            <Button FontSize="24" Margin="10,0" Padding="10,1" Content="Cancel"/>
+            <Button x:Name="AddOrEditBtn" FontSize="24" Margin="10,0" Padding="10,1" Content="Add Manifestation" Click="addManifBtnClicked"/>
+            <Button FontSize="24" Margin="10,0" Padding="10,1" Content="Cancel" Click="CancelBtnClicked"/>
         </StackPanel>
         <Label x:Name="AddedLabelMessage" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
 

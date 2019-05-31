@@ -44,12 +44,17 @@ namespace ManifestationManagementApp
 
         private void showAddManifestationView(object sender, RoutedEventArgs e)
         {
-            this.MainContent.Content = new AddManifestationView();
+            this.MainContent.Content = new AddManifestationView(this, false);
         }
 
         private void showManifestationTypesView(object sender, RoutedEventArgs e)
         {
             this.MainContent.Content = new ManifestationTypesView(this);
+        }
+
+        private void showManifestationsView(object sender, RoutedEventArgs e)
+        {
+            this.MainContent.Content = new ManifestationsView(this);
         }
 
         public void showLabelEditView(string labelId)
@@ -82,6 +87,28 @@ namespace ManifestationManagementApp
             view.idInput.IsEnabled = false;
             view.nameInput.Text = target.Name;
             view.descriptionInput.Text = target.Description;
+            view.autoGenerateId.Visibility = Visibility.Collapsed;
+            view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;
+            view.AddOrEditBtn.Content = "Confirm changes";
+            MainContent.Content = view;
+        }
+
+        public void showManifestationEditView(string manifId) //prepraviti
+        {
+            model.Manifestation target = model.Repository.GetInstance().FindManifestation(manifId);
+            if (target == null)
+            {
+                return;
+            }
+
+            AddManifestationView view = new AddManifestationView(this, true);
+            view.idInput.Text = target.Id;
+            view.idInput.IsEnabled = false;
+            view.nameInput.Text = target.Name;
+            view.descriptionInput.Text = target.Description;
+            view.comboBoxTypes.SelectedItem = target.Labels[0].Id;
+
+
             view.autoGenerateId.Visibility = Visibility.Collapsed;
             view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;
             view.AddOrEditBtn.Content = "Confirm changes";
