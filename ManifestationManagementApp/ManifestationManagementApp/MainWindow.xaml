@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ManifestationManagementApp"
         mc:Ignorable="d"
         Title="Manifestation Management"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        ResizeMode="CanMinimize">
 
     <DockPanel>
         <Menu DockPanel.Dock="Top" FontSize="24">

@@ -172,7 +172,7 @@
             <Button FontSize="24" Margin="10,0" Padding="10,1" Content="Add Manifestation" Click="Button_Click"/>
             <Button FontSize="24" Margin="10,0" Padding="10,1" Content="Cancel"/>
         </StackPanel>
-        <Label x:Name="AddedLabelMessage" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
+        <Label x:Name="AddedLabelMessage" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
 
     </Grid>
 </Page>

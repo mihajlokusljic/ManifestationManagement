@@ -75,7 +75,7 @@ namespace ManifestationManagementApp.view
                 while (Repository.GetInstance().FindManifestation(idInput.Text) != null)
                 {
                     Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
-                    idInput.Text = $"manifestation{Repository.GetInstance().LabelCounter + 1}";
+                    idInput.Text = $"manifestation{Repository.GetInstance().ManifestationCounter + 1}";
                 }
             }
             else
@@ -127,15 +127,24 @@ namespace ManifestationManagementApp.view
             }
             else if (priceCategory.Text == "")
             {
-                AddedLabelMessage.Content = "Please, add price category for this manifestation";
+                AddedLabelMessage.Content = "Please, pick price category for this manifestation";
                 AddedLabelMessage.Foreground = Brushes.Red;
 
             }
             else if (alcoholConsumption.Text == "")
             {
-                AddedLabelMessage.Content = "Please, add alcohol consumption type for this manifestation";
+                AddedLabelMessage.Content = "Please, pick alcohol consumption type for this manifestation";
                 AddedLabelMessage.Foreground = Brushes.Red;
-
+            }
+            else if (datePicker1.Text == "")
+            {
+                AddedLabelMessage.Content = "Please, pick date for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
+            }
+            else if (isItOutside.Text == "")
+            {
+                AddedLabelMessage.Content = "Please, pick is it outside or not for this manifestation";
+                AddedLabelMessage.Foreground = Brushes.Red;
             }
             else
             {
@@ -217,6 +226,21 @@ namespace ManifestationManagementApp.view
                     retVal.Alcohol = model.AlcoholConusmption.Forbidden;
                 }
 
+                String outside = isItOutside.Text;
+                if (price.Equals("Outside"))
+                {
+                    retVal.IsOutside = true;
+                }
+                else if (price.Equals("Inside"))
+                {
+                    retVal.IsOutside = false;
+                }
+                else
+                {
+                    retVal.IsOutside = true;
+                }
+
+                retVal.Date = DateTime.Parse(datePicker1.Text);
                 retVal.IconPath = textBoxIconPath.Text;
                 retVal.Description = descriptionInput.Text;
                 retVal.Type = Repository.GetInstance().FindManifestationType(comboBoxTypes.Text);
