@@ -49,8 +49,9 @@ namespace ManifestationManagementApp
 
         private void showManifestationTypesView(object sender, RoutedEventArgs e)
         {
-            this.MainContent.Content = new ManifestationTypesView();
+            this.MainContent.Content = new ManifestationTypesView(this);
         }
+
         public void showLabelEditView(string labelId)
         {
             model.Label target = model.Repository.GetInstance().FindLabel(labelId);
@@ -62,6 +63,24 @@ namespace ManifestationManagementApp
             view.idInput.Text = target.Id;
             view.idInput.IsEnabled = false;
             view.colorPicker.SelectedColor = (Color)ColorConverter.ConvertFromString(target.Color);
+            view.descriptionInput.Text = target.Description;
+            view.autoGenerateId.Visibility = Visibility.Collapsed;
+            view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;
+            view.AddOrEditBtn.Content = "Confirm changes";
+            MainContent.Content = view;
+        }
+
+        public void showManifestationTypeEditView(string typeId)
+        {
+            model.ManifestationType target = model.Repository.GetInstance().FindManifestationType(typeId);
+            if (target == null)
+            {
+                return;
+            }
+            AddManifTypeView view = new AddManifTypeView(this, true);
+            view.idInput.Text = target.Id;
+            view.idInput.IsEnabled = false;
+            view.nameInput.Text = target.Name;
             view.descriptionInput.Text = target.Description;
             view.autoGenerateId.Visibility = Visibility.Collapsed;
             view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;

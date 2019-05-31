@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LabelCounter>18</LabelCounter>
-  <ManifestationTypeCounter>26</ManifestationTypeCounter>
-  <ManifestationCounter>8</ManifestationCounter>
+  <ManifestationTypeCounter>29</ManifestationTypeCounter>
+  <ManifestationCounter>0</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab4</Id>
@@ -92,7 +92,7 @@
     <Label>
       <Id>xaxa</Id>
       <Color>#FFE6E6FA</Color>
-      <Description>xaxaxa</Description>
+      <Description>xaxa</Description>
     </Label>
     <Label>
       <Id>lab18</Id>
@@ -287,6 +287,12 @@
       <Description>dsds</Description>
       <IconPath />
     </ManifestationType>
+    <ManifestationType>
+      <Id>type30</Id>
+      <Name>dsds</Name>
+      <Description>dsds</Description>
+      <IconPath />
+    </ManifestationType>
   </ManifestationTypes>
   <Manifestations>
     <Manifestation>
@@ -451,6 +457,7 @@
           <Description>sa</Description>
         </Label>
       </Labels>
+      <MapCoordinates />
     </Manifestation>
   </Manifestations>
   <Maps />

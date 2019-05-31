@@ -142,17 +142,29 @@ namespace ManifestationManagementApp.model
             return true;
         }
 
-        public bool LabelIsReferenced(string lablelId)
+        public bool LabelIsReferenced(string labelId)
         {
             foreach(Manifestation manif in Manifestations)
             {
                 foreach(Label lab in manif.Labels)
                 {
-                    if(lab.Id == lablelId)
+                    if(lab.Id == labelId)
                     {
                         return true;
                     }
                 }
+            }
+            return false;
+        }
+
+        public bool ManifestationTypeIsReferenced(string typeId)
+        {
+            foreach (Manifestation manif in Manifestations)
+            {
+                    if (manif.Type.Id == typeId)
+                    {
+                        return true;
+                    }
             }
             return false;
         }

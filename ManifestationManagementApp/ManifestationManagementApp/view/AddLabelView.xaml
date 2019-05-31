@@ -57,7 +57,7 @@
         <Label x:Name="AddedLabelMessage" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
 
         <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-            <Button x:Name="AddOrEditBtn" FontSize="24" Margin="10,0" Padding="10,1" Click="Button_Click">Add Label</Button>
+            <Button x:Name="AddOrEditBtn" FontSize="24" Margin="10,0" Padding="10,1" Click="AddOrEditButtonClick">Add Label</Button>
             <Button FontSize="24" Margin="10,0" Padding="10,1" Click="CancelBtnClicked">Cancel</Button>
         </StackPanel>
     </Grid>

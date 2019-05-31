@@ -38,14 +38,38 @@ namespace ManifestationManagementApp.view
         }
 
         public model.ManifestationType SelectedManifestationType { get; set; }
+        private MainWindow mainWindow;
 
         public ManifestationTypesView()
         {
+            InitializeComponent();
+
             SelectedManifestationType = null;
             DataContext = this;
             Types = Repository.GetInstance().ManifestationTypes;
+        }
 
+        public ManifestationTypesView(MainWindow parent)
+        {
             InitializeComponent();
+
+            SelectedManifestationType = null;
+            DataContext = this;
+            Types = Repository.GetInstance().ManifestationTypes;
+            mainWindow = parent;
+        }
+
+        public void scrollTo(string TypeId)
+        {
+            foreach (model.ManifestationType type in Types)
+            {
+                if (type.Id == TypeId)
+                {
+                    SelectedManifestationType = type;
+                    ManifestationTypesTable.ScrollIntoView(type);
+                    break;
+                }
+            }
         }
 
         private void tagsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -61,6 +85,40 @@ namespace ManifestationManagementApp.view
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        private void editBtnClicked(object sender, RoutedEventArgs e)
+        {
+            model.ManifestationType target = SelectedManifestationType;
+            if (target == null)
+            {
+                MessageBox.Show("Please select a manifestation type to edit.", "Edit failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            mainWindow.showManifestationTypeEditView(target.Id);
+        }
+
+        private void DeleteBtnClicked(object sender, RoutedEventArgs e)
+        {
+            model.ManifestationType target = SelectedManifestationType;
+            if (target == null)
+            {
+                MessageBox.Show("Please select a manifestation type to delete.", "Delete failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            Repository rep = Repository.GetInstance();
+            if (rep.ManifestationTypeIsReferenced(target.Id))
+            {
+                MessageBox.Show($"Manifestation type {target.Id} can not be deleted because it being used by a manifestation. Please update or delete all manifestations using manifestation type {target.Id} and try again.", "Delete failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBoxResult choice = MessageBox.Show($"Are you sure that you want to permanently delete manifestation type \"{target.Id}\"?", "Delete manifestation type", MessageBoxButton.YesNoCancel);
+            if (choice == MessageBoxResult.Yes)
+            {
+                rep.DeleteManifestationType(target.Id);
+            }
+
         }
     }
 }

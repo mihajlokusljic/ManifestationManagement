@@ -37,7 +37,7 @@ namespace ManifestationManagementApp.view
             Editing = editMode;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddOrEditButtonClick(object sender, RoutedEventArgs e)
         {
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
             if (colorPicker.SelectedColor.ToString() == "")

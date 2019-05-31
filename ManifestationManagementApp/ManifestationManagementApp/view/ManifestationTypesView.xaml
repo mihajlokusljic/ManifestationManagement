@@ -50,10 +50,10 @@
         </Grid>
 
         <!-- Types table -->
-        <DataGrid Name="tagsGrid" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestationType, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Types}" SelectionChanged="tagsGrid_SelectionChanged">
+        <DataGrid x:Name="ManifestationTypesTable" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestationType, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Types}" SelectionChanged="tagsGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Type id" MinWidth="100" Width="1.5*" Binding="{Binding Id}"/>
-                
+
                 <DataGridTextColumn Header="Type name" MinWidth="100" Width="1.5*" Binding="{Binding Name}"/>
 
                 <DataGridTextColumn Header="Type description"   MinWidth="100" Width="6.5*" Binding="{Binding Description}"/>
@@ -62,8 +62,8 @@
 
         <!-- Action buttons -->
         <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0.4,0,0">
-            <Button FontSize="24" Margin="10,0" Padding="10,1" VerticalAlignment="Center">Edit Type</Button>
-            <Button FontSize="24" Margin="10,0,0,0" Padding="10,1" VerticalAlignment="Center">Delete Type</Button>
+            <Button FontSize="24" Margin="10,0" Padding="10,1" VerticalAlignment="Center" Click="editBtnClicked">Edit Type</Button>
+            <Button FontSize="24" Margin="10,7,0,0" Padding="10,1" VerticalAlignment="Top" Click="DeleteBtnClicked">Delete Type</Button>
         </StackPanel>
 
     </Grid>

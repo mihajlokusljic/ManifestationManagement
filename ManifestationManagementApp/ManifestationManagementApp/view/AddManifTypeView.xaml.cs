@@ -21,9 +21,20 @@ namespace ManifestationManagementApp.view
     /// </summary>
     public partial class AddManifTypeView : Page
     {
+        private MainWindow mainWindow;
+        public bool Editing { get; set; }
+
         public AddManifTypeView()
         {
             InitializeComponent();
+            Editing = false;
+        }
+
+        public AddManifTypeView(MainWindow parent, bool editMode)
+        {
+            InitializeComponent();
+            mainWindow = parent;
+            Editing = editMode;
         }
 
         private void autoGenerateIdsBtnClicked(object sender, RoutedEventArgs e)
@@ -98,29 +109,50 @@ namespace ManifestationManagementApp.view
                     Description = desc,
                     IconPath = "",
                 };
-                rep.AddManifestationType(newType);
-                AddedTypeMessage.Content = $"Successfully added manifestation type: {newType.Id}";
-                AddedTypeMessage.Foreground = Brushes.Green;
-                nameInput.Text = "";
-                descriptionInput.Text = "";
-                if (isAutoChecked)
+                if (!Editing)
                 {
-                    Repository.GetInstance().ManifestationTypeCounter = Repository.GetInstance().ManifestationTypeCounter + 1;
-                    idInput.Text = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
-                    while (Repository.GetInstance().FindManifestationType(idInput.Text) != null)
+                    rep.AddManifestationType(newType);
+                    AddedTypeMessage.Content = $"Successfully added manifestation type: {newType.Id}";
+                    AddedTypeMessage.Foreground = Brushes.Green;
+                    nameInput.Text = "";
+                    descriptionInput.Text = "";
+                    if (isAutoChecked)
                     {
                         Repository.GetInstance().ManifestationTypeCounter = Repository.GetInstance().ManifestationTypeCounter + 1;
                         idInput.Text = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
+                        while (Repository.GetInstance().FindManifestationType(idInput.Text) != null)
+                        {
+                            Repository.GetInstance().ManifestationTypeCounter = Repository.GetInstance().ManifestationTypeCounter + 1;
+                            idInput.Text = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
+                        }
+                        nameInput.Focus();
                     }
-                    nameInput.Focus();
+                    else
+                    {
+                        idInput.Text = "";
+                        idInput.Focus();
+                    }
                 }
                 else
                 {
-                    idInput.Text = "";
-                    idInput.Focus();
+                    rep.UpdateManifestationType(newType);
+                    ManifestationTypesView types = new ManifestationTypesView(mainWindow);
+                    types.scrollTo(newType.Id);
+                    mainWindow.MainContent.Content = types;
                 }
 
+
             }
+        }
+
+        private void CancelBtnClicked(object sender, RoutedEventArgs e)
+        {
+            ManifestationTypesView manifestationTypes = new ManifestationTypesView(mainWindow);
+            if (Editing)
+            {
+                manifestationTypes.scrollTo(idInput.Text);
+            }
+            mainWindow.MainContent.Content = manifestationTypes;
         }
     }
 }
