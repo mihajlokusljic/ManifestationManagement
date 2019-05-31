@@ -26,7 +26,7 @@
             </MenuItem>
 
             <MenuItem Header="Show Map" Margin="15,0,0,0">
-                <MenuItem Header="Novi Sad"></MenuItem>
+                <MenuItem Header="Novi Sad" Click="showNoviSadMap"></MenuItem>
                 <MenuItem Header="Map 2"></MenuItem>
                 <MenuItem Header="Map 3"></MenuItem>
                 <MenuItem Header="Map 4"></MenuItem>
