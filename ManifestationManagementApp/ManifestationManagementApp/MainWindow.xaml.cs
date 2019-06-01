@@ -30,7 +30,8 @@ namespace ManifestationManagementApp
 
         private void ShowNoviSad_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            MainContent.Content = new MapView();
+            Map noviSadMap = Repository.GetInstance().GetMap((int)MapIds.NoviSad);
+            MainContent.Content = new MapView(noviSadMap, this);
         }
 
         private void AddManifestation_Executed(object sender, ExecutedRoutedEventArgs e)
