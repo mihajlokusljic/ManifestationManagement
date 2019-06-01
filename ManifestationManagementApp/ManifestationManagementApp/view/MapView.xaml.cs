@@ -53,5 +53,17 @@ namespace ManifestationManagementApp.view
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
+        private void HideManifsBtnClicked(object sender, RoutedEventArgs e)
+        {
+            ManifestationList.Visibility = Visibility.Collapsed;
+            ShowManifestationListBtn.Visibility = Visibility.Visible;
+        }
+
+        private void showManifestationListBtnClicked(object sender, RoutedEventArgs e)
+        {
+            ShowManifestationListBtn.Visibility = Visibility.Collapsed;
+            ManifestationList.Visibility = Visibility.Visible;
+        }
     }
 }
