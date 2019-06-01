@@ -54,6 +54,15 @@
           VirtualizingPanel.IsVirtualizingWhenGrouping="True"
           VirtualizingPanel.VirtualizationMode="Standard" VirtualizingPanel.IsVirtualizing="True" EnableRowVirtualization="True" x:Name="ManifestationTypesTable" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestationType, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Types}" SelectionChanged="tagsGrid_SelectionChanged">
             <DataGrid.Columns>
+                
+                <DataGridTemplateColumn Header="Icon" MinWidth="100" MaxWidth="120" Width="1.5*" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding IconPath}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
                 <DataGridTextColumn Header="Type id" MinWidth="100" Width="1.5*" Binding="{Binding Id}"/>
 
                 <DataGridTextColumn Header="Type name" MinWidth="100" Width="1.5*" Binding="{Binding Name}"/>

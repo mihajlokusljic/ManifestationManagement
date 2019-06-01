@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LabelCounter>18</LabelCounter>
-  <ManifestationTypeCounter>29</ManifestationTypeCounter>
-  <ManifestationCounter>0</ManifestationCounter>
+  <ManifestationTypeCounter>30</ManifestationTypeCounter>
+  <ManifestationCounter>1</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab4</Id>
@@ -276,6 +276,12 @@
       <Description>dsds</Description>
       <IconPath />
     </ManifestationType>
+    <ManifestationType>
+      <Id>type30</Id>
+      <Name>vasilije</Name>
+      <Description>sasasa</Description>
+      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\IMG_20190523_121122.jpg</IconPath>
+    </ManifestationType>
   </ManifestationTypes>
   <Manifestations>
     <Manifestation>
@@ -283,21 +289,21 @@
       <Name>sasas</Name>
       <Description>wereqeda</Description>
       <Type>
-        <Id>sa</Id>
-        <Name>sasasasasasa</Name>
-        <Description>sasasasasasa</Description>
+        <Id>type1</Id>
+        <Name>www</Name>
+        <Description>ww</Description>
         <IconPath />
       </Type>
       <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\12348176_143735882657607_8338801069869047781_n.jpg</IconPath>
+      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\39dccab9-eb22-4026-9d86-a60115b6e0bc.jpg</IconPath>
       <SupportHandicaped>true</SupportHandicaped>
       <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
+      <IsOutside>true</IsOutside>
       <Prices>LowPrices</Prices>
       <Date>0001-01-01T00:00:00</Date>
       <Labels>
         <Label>
-          <Id>lab3</Id>
+          <Id>lab7</Id>
           <Color>#FFD2691E</Color>
           <Description>sasa</Description>
         </Label>
@@ -433,6 +439,31 @@
         </Label>
       </Labels>
       <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation1</Id>
+      <Name>aaaa</Name>
+      <Description>drd</Description>
+      <Type>
+        <Id>type30</Id>
+        <Name>vasilije</Name>
+        <Description>sasasa</Description>
+        <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\IMG_20190523_121122.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\IMG_20190523_121122.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>HighPrices</Prices>
+      <Date>2019-06-21T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab8</Id>
+          <Color>#FFD2691E</Color>
+          <Description>sasa</Description>
+        </Label>
+      </Labels>
     </Manifestation>
   </Manifestations>
   <Maps />
