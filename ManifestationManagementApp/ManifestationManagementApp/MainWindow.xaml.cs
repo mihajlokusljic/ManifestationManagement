@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ManifestationManagementApp.view;
+using ManifestationManagementApp.model;
 
 namespace ManifestationManagementApp
 {
@@ -117,7 +118,8 @@ namespace ManifestationManagementApp
 
         private void showNoviSadMap(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new MapView();
+            Map noviSadMap = Repository.GetInstance().GetMap((int)MapIds.NoviSad);
+            MainContent.Content = new MapView(noviSadMap);
         }
     }
 }

@@ -27,9 +27,24 @@ namespace ManifestationManagementApp.view
     public partial class MapView : Page, INotifyPropertyChanged
     {
         private Point startPoint = new Point();
+        private Map _mapToShow;
+
+        private string mapImagePath;
+        public string MapImagePath
+        {
+            get { return mapImagePath; }
+            set
+            {
+                if (value != mapImagePath)
+                {
+                    mapImagePath = value;
+                    OnPropertyChanged("MapImagePath");
+                }
+            }
+        }
 
         private ObservableCollection<Manifestation> manifestations;
-        public ObservableCollection<Manifestation> Manifestations
+        public ObservableCollection<Manifestation> AvailableMaifs
         {
             get { return manifestations; }
             set
@@ -37,7 +52,7 @@ namespace ManifestationManagementApp.view
                 if (value != manifestations)
                 {
                     manifestations = value;
-                    OnPropertyChanged("Manifestations");
+                    OnPropertyChanged("AvailableMaifs");
                 }
             }
         }
@@ -59,10 +74,38 @@ namespace ManifestationManagementApp.view
         public MapView()
         {
             InitializeComponent();
-
             DataContext = this;
-            Manifestations = Repository.GetInstance().Manifestations;
+            AvailableMaifs = new ObservableCollection<Manifestation>();
             ManifsOnMap = new ObservableCollection<Manifestation>();
+        }
+
+        public MapView(Map mapToShow)
+        {
+            InitializeComponent();
+            DataContext = this;
+            MapImagePath = mapToShow.ImagePath;
+            AvailableMaifs = new ObservableCollection<Manifestation>();
+            ManifsOnMap = new ObservableCollection<Manifestation>();
+            _mapToShow = mapToShow;
+            bool manifOnMap;
+            foreach(Manifestation manif in Repository.GetInstance().Manifestations)
+            {
+                manifOnMap = false;
+               foreach(Coordinates coords in manif.MapCoordinates)
+                {
+                    if(coords.ParentMap.Id == _mapToShow.Id)
+                    {
+                        ManifsOnMap.Add(manif);
+                        manifOnMap = true;
+                        break;
+                    }
+                }
+               if(!manifOnMap)
+                {
+                    AvailableMaifs.Add(manif);
+                }
+            }
+            drawManifPointers();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -133,10 +176,11 @@ namespace ManifestationManagementApp.view
                 Point dropPosition = e.GetPosition(Map);
                 Manifestation manifToDrop = e.Data.GetData("manifestation") as Manifestation;
 
-                manifToDrop.MapCoordinates.Add(new Coordinates { X = (int)dropPosition.X, Y = (int)dropPosition.Y });
+                manifToDrop.MapCoordinates.Add(new Coordinates { X = (int)dropPosition.X, Y = (int)dropPosition.Y, ParentMap = _mapToShow });
                 manifsOnMap.Add(manifToDrop);
-                Manifestations.Remove(manifToDrop);
+                AvailableMaifs.Remove(manifToDrop);
                 drawManifPointers();
+                Repository.GetInstance().SaveData();
             }
         }
 
@@ -146,13 +190,20 @@ namespace ManifestationManagementApp.view
             {
                 if (File.Exists(manif.IconPath))
                 {
-                    Image manifIcon = new Image();
-                    manifIcon.Source = new BitmapImage(new Uri(manif.IconPath));
-                    manifIcon.Width = 48;
-                    manifIcon.Height = 48;
-                    Map.Children.Add(manifIcon);
-                    Canvas.SetLeft(manifIcon, manif.MapCoordinates[0].X);
-                    Canvas.SetTop(manifIcon, manif.MapCoordinates[0].Y);
+                    foreach(Coordinates coords in manif.MapCoordinates)
+                    {
+                        if(coords.ParentMap.Id == _mapToShow.Id)
+                        {
+                            Image manifIcon = new Image();
+                            manifIcon.Source = new BitmapImage(new Uri(manif.IconPath));
+                            manifIcon.Width = 48;
+                            manifIcon.Height = 48;
+                            Map.Children.Add(manifIcon);
+                            Canvas.SetLeft(manifIcon, coords.X);
+                            Canvas.SetTop(manifIcon, coords.Y);
+                            break;
+                        }
+                    }
                 }
             }
         }
