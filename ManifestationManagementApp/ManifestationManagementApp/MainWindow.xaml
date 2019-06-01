@@ -4,30 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManifestationManagementApp"
+        xmlns:commands="clr-namespace:ManifestationManagementApp.command"
         mc:Ignorable="d"
         Title="Manifestation Management"
         WindowState="Maximized"
         ResizeMode="CanMinimize">
 
+    <Window.CommandBindings>
+        <CommandBinding Command="commands:Commands.showNoviSad" Executed="ShowNoviSad_Executed"/>
+        <CommandBinding Command="commands:Commands.addManifestation" Executed="AddManifestation_Executed"/>
+        <CommandBinding Command="commands:Commands.showManifestation" Executed="ShowManifestation_Executed"/>
+        <CommandBinding Command="commands:Commands.addManifestationType" Executed="AddManifestationType_Executed"/>
+        <CommandBinding Command="commands:Commands.showManifestationType" Executed="ShowManifestationType_Executed"/>
+        <CommandBinding Command="commands:Commands.addLabel" Executed="AddLabel_Executed"/>
+        <CommandBinding Command="commands:Commands.showLabel" Executed="ShowLabel_Executed"/>
+    </Window.CommandBindings>
+
     <DockPanel>
         <Menu DockPanel.Dock="Top" FontSize="24">
             <MenuItem Header="Manifestations" Margin="10,0,0,0">
-                <MenuItem Header="Add Manifestation" Click="showAddManifestationView"></MenuItem>
-                <MenuItem Header="Show/Edit Manifestations" Click="showManifestationsView"></MenuItem>
+                <MenuItem Header="Add Manifestation (Ctrl + Q)" Click="showAddManifestationView"></MenuItem>
+                <MenuItem Header="Show/Edit Manifestations (Ctrl + W)" Click="showManifestationsView"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Manifestation Types" Margin="15,0,0,0">
-                <MenuItem Header="Add Manifestation Type" Click="showAddManifTypeView"></MenuItem>
-                <MenuItem Header="Show/Edit Manifestation Types" Click="showManifestationTypesView"></MenuItem>
+                <MenuItem Header="Add Manifestation Type (Ctrl + E)" Click="showAddManifTypeView"></MenuItem>
+                <MenuItem Header="Show/Edit Manifestation Types (Ctrl + R)" Click="showManifestationTypesView"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Labels" Margin="15,0,0,0">
-                <MenuItem Header="Add Label" Click="showAddLabelView"></MenuItem>
-                <MenuItem Header="Show/Edit Labels" Click="showLabelsView"></MenuItem>
+                <MenuItem Header="Add Label (Ctrl + D)" Click="showAddLabelView"></MenuItem>
+                <MenuItem Header="Show/Edit Labels (Ctrl + F)" Click="showLabelsView"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Show Map" Margin="15,0,0,0">
-                <MenuItem Header="Novi Sad" Click="showNoviSadMap"></MenuItem>
+                <MenuItem Header="Novi Sad (Ctrl + F1)" Click="showNoviSadMap"></MenuItem>
                 <MenuItem Header="Map 2"></MenuItem>
                 <MenuItem Header="Map 3"></MenuItem>
                 <MenuItem Header="Map 4"></MenuItem>

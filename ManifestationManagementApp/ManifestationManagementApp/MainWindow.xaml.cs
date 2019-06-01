@@ -27,6 +27,41 @@ namespace ManifestationManagementApp
             InitializeComponent();
         }
 
+        private void ShowNoviSad_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainContent.Content = new MapView();
+        }
+
+        private void AddManifestation_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MainContent.Content = new AddManifestationView(this, false);
+        }
+
+        private void ShowManifestation_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.MainContent.Content = new ManifestationsView(this);
+        }
+
+        private void AddManifestationType_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.MainContent.Content = new AddManifTypeView(this, false);
+        }
+
+        private void ShowManifestationType_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.MainContent.Content = new ManifestationTypesView(this);
+        }
+
+        private void AddLabel_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.MainContent.Content = new AddLabelView(this, false);
+        }
+
+        private void ShowLabel_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.MainContent.Content = new LabelsView(this);
+        }
+
         private void showAddLabelView(object sender, RoutedEventArgs e)
         {
             this.MainContent.Content = new AddLabelView(this, false);

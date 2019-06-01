@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="command\Commands.cs" />
     <Compile Include="model\Repository.cs" />
     <Compile Include="view\AddLabelView.xaml.cs">
       <DependentUpon>AddLabelView.xaml</DependentUpon>
