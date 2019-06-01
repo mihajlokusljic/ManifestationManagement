@@ -27,7 +27,20 @@ namespace ManifestationManagementApp.view
     public partial class MapView : Page, INotifyPropertyChanged
     {
         private Point startPoint = new Point();
-        private Map _mapToShow;
+
+        private Map mapToShow;
+        public Map MapToShow
+        {
+            get { return mapToShow; }
+            set
+            {
+                if (value != mapToShow)
+                {
+                    mapToShow = value;
+                    OnPropertyChanged("MapToShow");
+                }
+            }
+        }
 
         private string mapImagePath;
         public string MapImagePath
@@ -86,14 +99,18 @@ namespace ManifestationManagementApp.view
             MapImagePath = mapToShow.ImagePath;
             AvailableMaifs = new ObservableCollection<Manifestation>();
             ManifsOnMap = new ObservableCollection<Manifestation>();
-            _mapToShow = mapToShow;
+            MapToShow = mapToShow;
             bool manifOnMap;
             foreach(Manifestation manif in Repository.GetInstance().Manifestations)
             {
+                if(manif.MapCoordinates == null)
+                {
+                    continue;
+                }
                 manifOnMap = false;
                foreach(Coordinates coords in manif.MapCoordinates)
                 {
-                    if(coords.ParentMap.Id == _mapToShow.Id)
+                    if(coords.ParentMap.Id == MapToShow.Id)
                     {
                         ManifsOnMap.Add(manif);
                         manifOnMap = true;
@@ -176,7 +193,7 @@ namespace ManifestationManagementApp.view
                 Point dropPosition = e.GetPosition(Map);
                 Manifestation manifToDrop = e.Data.GetData("manifestation") as Manifestation;
 
-                manifToDrop.MapCoordinates.Add(new Coordinates { X = (int)dropPosition.X, Y = (int)dropPosition.Y, ParentMap = _mapToShow });
+                manifToDrop.MapCoordinates.Add(new Coordinates { X = (int)dropPosition.X, Y = (int)dropPosition.Y, ParentMap = MapToShow });
                 manifsOnMap.Add(manifToDrop);
                 AvailableMaifs.Remove(manifToDrop);
                 drawManifPointers();
@@ -192,12 +209,12 @@ namespace ManifestationManagementApp.view
                 {
                     foreach(Coordinates coords in manif.MapCoordinates)
                     {
-                        if(coords.ParentMap.Id == _mapToShow.Id)
+                        if(coords.ParentMap.Id == MapToShow.Id)
                         {
                             Image manifIcon = new Image();
                             manifIcon.Source = new BitmapImage(new Uri(manif.IconPath));
-                            manifIcon.Width = 48;
-                            manifIcon.Height = 48;
+                            manifIcon.Width = 64;
+                            manifIcon.Height = 64;
                             Map.Children.Add(manifIcon);
                             Canvas.SetLeft(manifIcon, coords.X);
                             Canvas.SetTop(manifIcon, coords.Y);

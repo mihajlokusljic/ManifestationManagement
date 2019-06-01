@@ -166,6 +166,7 @@ namespace ManifestationManagementApp.view
             else
             {
                 Manifestation retVal = new Manifestation();
+                retVal.MapCoordinates = new System.Collections.ObjectModel.ObservableCollection<Coordinates>();
                 if (isAutoChecked)
                 {
                     Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
