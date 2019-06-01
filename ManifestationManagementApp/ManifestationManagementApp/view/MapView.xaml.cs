@@ -158,13 +158,17 @@ namespace ManifestationManagementApp.view
         {
             Point mousePosition = e.GetPosition(null);
             Vector diff = startPoint - mousePosition;
+            ListView listView = sender as ListView;
+            ListViewItem listViewItem = FindAncestor<ListViewItem>((DependencyObject)e.OriginalSource);
+            if(listViewItem != null)
+            {
+                Mouse.SetCursor(Cursors.Hand);
+            }
 
             if (e.LeftButton == MouseButtonState.Pressed &&
                 (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
                 Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
             {
-                ListView listView = sender as ListView;
-                ListViewItem listViewItem = FindAncestor<ListViewItem>((DependencyObject)e.OriginalSource);
 
                 if (listViewItem != null)
                 {
@@ -253,11 +257,16 @@ namespace ManifestationManagementApp.view
             Point mousePosition = e.GetPosition(Map);
             Vector diff = startPoint - mousePosition;
 
+            Manifestation manifestation = ClickedManifestation((int)mousePosition.X, (int)mousePosition.Y);
+            if(manifestation != null)
+            {
+                Mouse.SetCursor(Cursors.Hand);
+            }
             if (e.LeftButton == MouseButtonState.Pressed &&
                 (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
                 Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
             {
-                Manifestation manifestation = ClickedManifestation((int)mousePosition.X, (int)mousePosition.Y);
+                
 
                 if (manifestation != null)
                 {
@@ -277,7 +286,7 @@ namespace ManifestationManagementApp.view
                 {
                     if(coords.ParentMap.Id == MapToShow.Id)
                     {
-                        if (Math.Sqrt(Math.Pow((X_click - coords.X - 32), 2) + Math.Pow((Y_click - coords.Y - 32), 2)) < 20)
+                        if (Math.Sqrt(Math.Pow((X_click - coords.X - 32), 2) + Math.Pow((Y_click - coords.Y - 32), 2)) < 30)
                         {
                             return manif;
                         }
@@ -350,5 +359,6 @@ namespace ManifestationManagementApp.view
                 Repository.GetInstance().SaveData();
             }
         }
+
     }
 }
