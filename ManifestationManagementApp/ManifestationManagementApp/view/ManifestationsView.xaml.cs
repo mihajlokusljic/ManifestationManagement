@@ -131,6 +131,10 @@ namespace ManifestationManagementApp.view
                     {
                         manifestationsFilter.Add(manif);
                     }
+                    else if (manif.Name.Contains(target))
+                    { 
+                        manifestationsFilter.Add(manif);
+                    }
                 }
                 ManifestationsTable.ItemsSource = manifestationsFilter;
             }
@@ -148,6 +152,11 @@ namespace ManifestationManagementApp.view
                     int index = row.GetIndex();
                     Manifestation manif = row.DataContext as Manifestation;
                     if (manif.Id.Contains(target))
+                    {
+                        SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
+                        row.Background = brush;
+                    }
+                    else if (manif.Name.Contains(target))
                     {
                         SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
                         row.Background = brush;

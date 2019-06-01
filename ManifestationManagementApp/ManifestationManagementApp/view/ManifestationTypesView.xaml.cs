@@ -120,5 +120,61 @@ namespace ManifestationManagementApp.view
             }
 
         }
+
+        private void filterClick(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<ManifestationType> manifestationTypesFilter =
+                new ObservableCollection<ManifestationType>();
+            string target = FilterInput.Text;
+            if (target == "")
+            {
+                ManifestationTypesTable.ItemsSource = Types;
+            }
+            else
+            {
+                foreach (ManifestationType type in Types)
+                {
+                    if (type.Id.Contains(target))
+                    {
+                        manifestationTypesFilter.Add(type);
+                    }
+                    else if (type.Name.Contains(target))
+                    {
+                        manifestationTypesFilter.Add(type);
+                    }
+                }
+                ManifestationTypesTable.ItemsSource = manifestationTypesFilter;
+            }
+        }
+
+        private void searchClick(object sender, RoutedEventArgs e)
+        {
+            string target = SearchInput.Text;
+            for (int i = 0; i < ManifestationTypesTable.Items.Count; i++)
+            {
+                DataGridRow row = (DataGridRow)ManifestationTypesTable.ItemContainerGenerator.ContainerFromIndex(i);
+
+                if (row != null)
+                {
+                    int index = row.GetIndex();
+                    ManifestationType type = row.DataContext as ManifestationType;
+                    if (type.Id.Contains(target))
+                    {
+                        SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
+                        row.Background = brush;
+                    }
+                    else if (type.Name.Contains(target))
+                    {
+                        SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
+                        row.Background = brush;
+                    }
+                    else
+                    {
+                        SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                        row.Background = brush;
+                    }
+                }
+            }
+        }
     }
 }
