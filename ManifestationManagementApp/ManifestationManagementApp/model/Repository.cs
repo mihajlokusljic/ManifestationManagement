@@ -270,6 +270,8 @@ namespace ManifestationManagementApp.model
             target.Alcohol = newManifestationData.Alcohol;
             target.IconPath = newManifestationData.IconPath;
             target.Description = newManifestationData.Description;
+            target.Date = newManifestationData.Date;
+            target.IsOutside = newManifestationData.IsOutside;
             SaveData();
             return true;
         }

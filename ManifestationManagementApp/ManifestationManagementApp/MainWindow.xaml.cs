@@ -93,7 +93,7 @@ namespace ManifestationManagementApp
             MainContent.Content = view;
         }
 
-        public void showManifestationEditView(string manifId) //prepraviti
+        public void showManifestationEditView(string manifId)
         {
             model.Manifestation target = model.Repository.GetInstance().FindManifestation(manifId);
             if (target == null)
@@ -106,8 +106,14 @@ namespace ManifestationManagementApp
             view.idInput.IsEnabled = false;
             view.nameInput.Text = target.Name;
             view.descriptionInput.Text = target.Description;
-            view.comboBoxTypes.SelectedItem = target.Labels[0].Id;
 
+            view.priceCategory.SelectedIndex = (int) target.Prices;
+            view.isItOutside.SelectedIndex = target.IsOutside ? 0 : 1;
+            view.alcoholConsumption.SelectedIndex = (int) target.Alcohol;
+            view.textBoxIconPath.Text = target.IconPath;
+            view.datePicker1.Text = target.Date.ToString();
+            view.smokingAllowed.IsChecked = target.SmokingAllowed;
+            view.peopleWithSpecialSupport.IsChecked = target.SupportHandicaped;
 
             view.autoGenerateId.Visibility = Visibility.Collapsed;
             view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;

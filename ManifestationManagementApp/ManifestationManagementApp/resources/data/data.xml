@@ -332,26 +332,26 @@
     </Manifestation>
     <Manifestation>
       <Id>manifestation2</Id>
-      <Name>sasasa</Name>
-      <Description>rerere</Description>
+      <Name>rhejyfjyht</Name>
+      <Description>etgretuytiyuiy</Description>
       <Type>
-        <Id>sa</Id>
-        <Name>sasasasasasa</Name>
-        <Description>sasasasasasa</Description>
+        <Id>type3</Id>
+        <Name>dad</Name>
+        <Description>ds</Description>
         <IconPath />
       </Type>
       <Alcohol>Forbidden</Alcohol>
       <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\12348176_143735882657607_8338801069869047781_n.jpg</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>false</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>Free</Prices>
-      <Date>0001-01-01T00:00:00</Date>
+      <SupportHandicaped>true</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>MediumPrices</Prices>
+      <Date>0001-01-19T00:00:00</Date>
       <Labels>
         <Label>
-          <Id>lab8</Id>
-          <Color>#FFD2691E</Color>
-          <Description>sasa</Description>
+          <Id>lab10</Id>
+          <Color>#FF556B2F</Color>
+          <Description>sa</Description>
         </Label>
       </Labels>
       <MapCoordinates />

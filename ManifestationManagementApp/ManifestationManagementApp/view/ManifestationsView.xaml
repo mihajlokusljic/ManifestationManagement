@@ -62,7 +62,7 @@
 
                 <DataGridTextColumn Header="Manifestation type"  MinWidth="100" Width="2*" Binding="{Binding Type.Name}"/>
 
-                <DataGridTextColumn Header="Manifestation date"  MinWidth="100" Width="3*" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Manifestation date"  MinWidth="100" Width="3*" Binding="{Binding Date, StringFormat='d'}"/>
             </DataGrid.Columns>
         </DataGrid>
 
