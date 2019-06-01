@@ -50,7 +50,9 @@
         </Grid>
 
         <!-- Types table -->
-        <DataGrid x:Name="ManifestationsTable" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestation, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Manifestations}" SelectionChanged="tagsGrid_SelectionChanged">
+        <DataGrid EnableColumnVirtualization="True"
+          VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+          VirtualizingPanel.VirtualizationMode="Standard" VirtualizingPanel.IsVirtualizing="True" EnableRowVirtualization="True" x:Name="ManifestationsTable" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestation, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Manifestations}" SelectionChanged="tagsGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Manifestation icon" MinWidth="100" Width="1.5*" Binding="{Binding IconPath}"/>
 
@@ -69,6 +71,8 @@
             <Button FontSize="24" Margin="10,0" Padding="10,1" VerticalAlignment="Center" Click="editBtnClicked">Edit Manifestation</Button>
             <Button FontSize="24" Margin="10,0,0,0" Padding="10,1" VerticalAlignment="Center" Click="DeleteBtnClicked">Delete Manifestation</Button>
         </StackPanel>
+
+        <Label x:Name="searchMessage" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Content="" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
     </Grid>
 </Page>

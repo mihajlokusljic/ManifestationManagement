@@ -50,7 +50,9 @@
         </Grid>
 
         <!-- Types table -->
-        <DataGrid x:Name="ManifestationTypesTable" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestationType, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Types}" SelectionChanged="tagsGrid_SelectionChanged">
+        <DataGrid EnableColumnVirtualization="True"
+          VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+          VirtualizingPanel.VirtualizationMode="Standard" VirtualizingPanel.IsVirtualizing="True" EnableRowVirtualization="True" x:Name="ManifestationTypesTable" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestationType, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Types}" SelectionChanged="tagsGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Type id" MinWidth="100" Width="1.5*" Binding="{Binding Id}"/>
 
@@ -65,6 +67,8 @@
             <Button FontSize="24" Margin="10,0" Padding="10,1" VerticalAlignment="Center" Click="editBtnClicked">Edit Type</Button>
             <Button FontSize="24" Margin="10,0,0,0" Padding="10,1" VerticalAlignment="Center" Click="DeleteBtnClicked">Delete Type</Button>
         </StackPanel>
+
+        <Label x:Name="searchMessage" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Content="" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
     </Grid>
 </Page>

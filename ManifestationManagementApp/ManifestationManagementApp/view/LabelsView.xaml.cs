@@ -119,5 +119,64 @@ namespace ManifestationManagementApp.view
             }
             mainWindow.showLabelEditView(target.Id);
         }
+
+        private void filterClick(object sender, RoutedEventArgs e)
+        {
+            searchMessage.Content = "";
+            ObservableCollection<model.Label> labelsFilter =
+                new ObservableCollection<model.Label>();
+            string target = FilterInput.Text;
+            if (target == "")
+            {
+                LabelsTable.ItemsSource = Labels;
+            }
+            else
+            {
+                foreach (model.Label label in Labels)
+                {
+                    if (label.Id.Contains(target))
+                    {
+                        labelsFilter.Add(label);
+                    }
+                }
+                LabelsTable.ItemsSource = labelsFilter;
+            }
+        }
+
+        private void searchClick(object sender, RoutedEventArgs e)
+        {
+            string target = SearchInput.Text;
+            int numberOfFound = 0;
+            for (int i = 0; i < LabelsTable.Items.Count; i++)
+            {
+                DataGridRow row = (DataGridRow)LabelsTable.ItemContainerGenerator.ContainerFromIndex(i);
+
+                if (row != null)
+                {
+                    int index = row.GetIndex();
+                    model.Label label = row.DataContext as model.Label;
+                    if (label.Id.Contains(target))
+                    {
+                        numberOfFound = numberOfFound + 1;
+                        SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
+                        row.Background = brush;
+                    }
+                    else
+                    {
+                        SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                        row.Background = brush;
+                    }
+                }
+            }
+            if (numberOfFound == 0)
+            {
+                searchMessage.Content = "Nothing found with search!";
+                searchMessage.Foreground = Brushes.Red;
+            }
+            else
+            {
+                searchMessage.Content = "";
+            }
+        }
     }
 }

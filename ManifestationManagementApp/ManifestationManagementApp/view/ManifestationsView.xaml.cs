@@ -116,6 +116,7 @@ namespace ManifestationManagementApp.view
 
         private void filterClick(object sender, RoutedEventArgs e)
         {
+            searchMessage.Content = "";
             ObservableCollection<Manifestation> manifestationsFilter = 
                 new ObservableCollection<Manifestation>();
             string target = FilterInput.Text;
@@ -143,6 +144,7 @@ namespace ManifestationManagementApp.view
         private void searchClick(object sender, RoutedEventArgs e)
         {
             string target = SearchInput.Text;
+            int numberOfFound = 0;
             for (int i = 0; i < ManifestationsTable.Items.Count; i++)
             {
                 DataGridRow row = (DataGridRow)ManifestationsTable.ItemContainerGenerator.ContainerFromIndex(i);
@@ -153,11 +155,13 @@ namespace ManifestationManagementApp.view
                     Manifestation manif = row.DataContext as Manifestation;
                     if (manif.Id.Contains(target))
                     {
+                        numberOfFound = numberOfFound + 1;
                         SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
                         row.Background = brush;
                     }
                     else if (manif.Name.Contains(target))
                     {
+                        numberOfFound = numberOfFound + 1;
                         SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
                         row.Background = brush;
                     }
@@ -167,6 +171,15 @@ namespace ManifestationManagementApp.view
                         row.Background = brush;
                     }
                 }
+            }
+            if (numberOfFound == 0)
+            {
+                searchMessage.Content = "Nothing found with search!";
+                searchMessage.Foreground = Brushes.Red;
+            }
+            else
+            {
+                searchMessage.Content = "";
             }
         }
     }

@@ -123,6 +123,7 @@ namespace ManifestationManagementApp.view
 
         private void filterClick(object sender, RoutedEventArgs e)
         {
+            searchMessage.Content = "";
             ObservableCollection<ManifestationType> manifestationTypesFilter =
                 new ObservableCollection<ManifestationType>();
             string target = FilterInput.Text;
@@ -150,6 +151,7 @@ namespace ManifestationManagementApp.view
         private void searchClick(object sender, RoutedEventArgs e)
         {
             string target = SearchInput.Text;
+            int numberOfFound = 0;
             for (int i = 0; i < ManifestationTypesTable.Items.Count; i++)
             {
                 DataGridRow row = (DataGridRow)ManifestationTypesTable.ItemContainerGenerator.ContainerFromIndex(i);
@@ -160,11 +162,13 @@ namespace ManifestationManagementApp.view
                     ManifestationType type = row.DataContext as ManifestationType;
                     if (type.Id.Contains(target))
                     {
+                        numberOfFound = numberOfFound + 1;
                         SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
                         row.Background = brush;
                     }
                     else if (type.Name.Contains(target))
                     {
+                        numberOfFound = numberOfFound + 1;
                         SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
                         row.Background = brush;
                     }
@@ -174,6 +178,15 @@ namespace ManifestationManagementApp.view
                         row.Background = brush;
                     }
                 }
+            }
+            if (numberOfFound == 0)
+            {
+                searchMessage.Content = "Nothing found with search!";
+                searchMessage.Foreground = Brushes.Red;
+            }
+            else
+            {
+                searchMessage.Content = "";
             }
         }
     }
