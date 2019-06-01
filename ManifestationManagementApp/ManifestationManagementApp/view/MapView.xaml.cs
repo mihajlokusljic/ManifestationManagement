@@ -186,24 +186,44 @@ namespace ManifestationManagementApp.view
             return null;
         }
 
+        private void placeManifAtPos(Manifestation manif, int x, int y)
+        {
+            if(AvailableMaifs.Contains(manif))
+            {
+                manif.MapCoordinates.Add(new Coordinates { X = x, Y = y, ParentMap = MapToShow });
+                manifsOnMap.Add(manif);
+                AvailableMaifs.Remove(manif);
+            }
+            else
+            {
+                foreach(Coordinates coords in manif.MapCoordinates)
+                {
+                    if(coords.ParentMap.Id == MapToShow.Id)
+                    {
+                        coords.X = x;
+                        coords.Y = y;
+                        break;
+                    }
+                }
+            }
+            drawManifPointers();
+            Repository.GetInstance().SaveData();
+        }
+
         private void Map_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("manifestation"))
             {
                 Point dropPosition = e.GetPosition(Map);
                 Manifestation manifToDrop = e.Data.GetData("manifestation") as Manifestation;
-
-                manifToDrop.MapCoordinates.Add(new Coordinates { X = (int)dropPosition.X, Y = (int)dropPosition.Y, ParentMap = MapToShow });
-                manifsOnMap.Add(manifToDrop);
-                AvailableMaifs.Remove(manifToDrop);
-                drawManifPointers();
-                Repository.GetInstance().SaveData();
+                placeManifAtPos(manifToDrop, (int)dropPosition.X, (int)dropPosition.Y);
             }
         }
 
         private void drawManifPointers()
         {
-            foreach(Manifestation manif in ManifsOnMap)
+            Map.Children.Clear();
+            foreach (Manifestation manif in ManifsOnMap)
             {
                 if (File.Exists(manif.IconPath))
                 {
@@ -223,6 +243,43 @@ namespace ManifestationManagementApp.view
                     }
                 }
             }
+        }
+
+        private void Map_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePosition = e.GetPosition(Map);
+            Vector diff = startPoint - mousePosition;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                Manifestation manifestation = ClickedManifestation((int)mousePosition.X, (int)mousePosition.Y);
+
+                if (manifestation != null)
+                {
+                    DataObject dragData = new DataObject("manifestation", manifestation);
+                    DragDrop.DoDragDrop(Map, dragData, DragDropEffects.Move);
+                }
+            }
+        }
+
+        Manifestation ClickedManifestation(int X_click, int Y_click)
+        {
+            foreach(Manifestation manif in ManifsOnMap)
+            {
+                foreach(Coordinates coords in manif.MapCoordinates)
+                {
+                    if(coords.ParentMap.Id == MapToShow.Id)
+                    {
+                        if (Math.Sqrt(Math.Pow((X_click - coords.X - 32), 2) + Math.Pow((Y_click - coords.Y - 32), 2)) < 40)
+                        {
+                            return manif;
+                        }
+                    }
+                }
+            }
+            return null;
         }
     }
 }
