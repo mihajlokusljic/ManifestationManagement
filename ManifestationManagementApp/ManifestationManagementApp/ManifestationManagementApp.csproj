@@ -73,6 +73,9 @@
     <Compile Include="view\ManifestationTypesView.xaml.cs">
       <DependentUpon>ManifestationTypesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\MapView.xaml.cs">
+      <DependentUpon>MapView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\ManifestationTypesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\MapView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +153,10 @@
   <ItemGroup>
     <Content Include="bin\Debug\ManifestationManagementApp.exe" />
     <Content Include="bin\Debug\ManifestationManagementApp.pdb" />
+    <Resource Include="resources\maps\mapaDetelinara.png" />
+    <Resource Include="resources\maps\mapaLiman.png" />
+    <Resource Include="resources\maps\mapaNoviSad.png" />
+    <Resource Include="resources\maps\mapaStariGrad.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

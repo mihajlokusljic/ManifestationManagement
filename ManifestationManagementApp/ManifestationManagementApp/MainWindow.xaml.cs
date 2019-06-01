@@ -115,5 +115,9 @@ namespace ManifestationManagementApp
             MainContent.Content = view;
         }
 
+        private void showNoviSadMap(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new MapView();
+        }
     }
 }
