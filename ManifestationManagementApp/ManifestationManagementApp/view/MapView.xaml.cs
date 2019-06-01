@@ -27,6 +27,8 @@ namespace ManifestationManagementApp.view
     public partial class MapView : Page, INotifyPropertyChanged
     {
         private Point startPoint = new Point();
+        private Manifestation focusedManifestation;
+        private MainWindow mainWindow;
 
         private Map mapToShow;
         public Map MapToShow
@@ -92,10 +94,11 @@ namespace ManifestationManagementApp.view
             ManifsOnMap = new ObservableCollection<Manifestation>();
         }
 
-        public MapView(Map mapToShow)
+        public MapView(Map mapToShow, MainWindow parentWindow)
         {
             InitializeComponent();
             DataContext = this;
+            mainWindow = parentWindow;
             MapImagePath = mapToShow.ImagePath;
             AvailableMaifs = new ObservableCollection<Manifestation>();
             ManifsOnMap = new ObservableCollection<Manifestation>();
@@ -264,6 +267,8 @@ namespace ManifestationManagementApp.view
             }
         }
 
+        
+
         Manifestation ClickedManifestation(int X_click, int Y_click)
         {
             foreach(Manifestation manif in ManifsOnMap)
@@ -272,7 +277,7 @@ namespace ManifestationManagementApp.view
                 {
                     if(coords.ParentMap.Id == MapToShow.Id)
                     {
-                        if (Math.Sqrt(Math.Pow((X_click - coords.X - 32), 2) + Math.Pow((Y_click - coords.Y - 32), 2)) < 40)
+                        if (Math.Sqrt(Math.Pow((X_click - coords.X - 32), 2) + Math.Pow((Y_click - coords.Y - 32), 2)) < 20)
                         {
                             return manif;
                         }
@@ -280,6 +285,70 @@ namespace ManifestationManagementApp.view
                 }
             }
             return null;
+        }
+
+        private void Map_ContextMenu(object sender, MouseButtonEventArgs e)
+        {
+            Point mousePosition = e.GetPosition(Map);
+            focusedManifestation = ClickedManifestation((int)mousePosition.X, (int)mousePosition.Y);
+
+            if (focusedManifestation != null)
+            {
+                var cmnu = this.FindResource("mapContextMenu") as ContextMenu;
+                cmnu.IsOpen = true;
+            }
+        }
+
+        private void EditManifClicked(object sender, RoutedEventArgs e)
+        {
+            Manifestation target = focusedManifestation;
+            if(target == null)
+            {
+                return;
+            }
+            var view = new AddManifestationView(mainWindow, true);
+            view.idInput.Text = target.Id;
+            view.idInput.IsEnabled = false;
+            view.nameInput.Text = target.Name;
+            view.descriptionInput.Text = target.Description;
+            view.autoGenerateId.Visibility = Visibility.Collapsed;
+            view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;
+            view.AddOrEditBtn.Content = "Confirm changes";
+            mainWindow.MainContent.Content = view;
+        }
+
+        private void DeleteManifClicked(object sender, RoutedEventArgs e)
+        {
+            Manifestation target = focusedManifestation;
+            if(target == null)
+            {
+                return;
+            }
+            MessageBoxResult choice = MessageBox.Show($"Are you sure that you want to permanently delete manifestation \"{target.Id}\"?", "Delete manifestation", MessageBoxButton.YesNoCancel);
+            if (choice == MessageBoxResult.Yes)
+            {
+                ManifsOnMap.Remove(target);
+                drawManifPointers();
+                Repository.GetInstance().DeleteManifestation(target.Id);
+            }
+        }
+
+        private void RemoveManifPointersClicked(object sender, RoutedEventArgs e)
+        {
+            Manifestation target = focusedManifestation;
+            if (target == null)
+            {
+                return;
+            }
+            MessageBoxResult choice = MessageBox.Show($"Are you sure that you want to remove pointers for manifestation \"{target.Id}\" on all maps?", "Remove manifestation map pointers", MessageBoxButton.YesNoCancel);
+            if (choice == MessageBoxResult.Yes)
+            {
+                ManifsOnMap.Remove(target);
+                drawManifPointers();
+                target.MapCoordinates.Clear();
+                AvailableMaifs.Add(target);
+                Repository.GetInstance().SaveData();
+            }
         }
     }
 }

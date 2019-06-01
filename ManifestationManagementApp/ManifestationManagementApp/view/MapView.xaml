@@ -9,7 +9,7 @@
       Title="MapView">
 
     <Page.Resources>
-        <!-- Prikaz manifestacije u list view -->
+        <!-- Manifestation in list view preview -->
         <DataTemplate x:Key="ManifListItem">
             <Grid HorizontalAlignment="Left">
                 <Grid.RowDefinitions>
@@ -29,6 +29,16 @@
             </Grid>
         </DataTemplate>
         
+        <!-- Context menu for the map -->
+        <ContextMenu x:Key="mapContextMenu">
+            <MenuItem Header="Edit manifestation" Click="EditManifClicked">
+            </MenuItem>
+            <MenuItem Header="Remove manifestation from maps" Click="RemoveManifPointersClicked">
+            </MenuItem>
+            <MenuItem Header="Delete manifestation" Click="DeleteManifClicked">
+            </MenuItem>
+        </ContextMenu>
+
     </Page.Resources>
 
     <Grid Margin="20,10">
@@ -96,7 +106,7 @@
             <!-- Map preview -->
             <Viewbox DockPanel.Dock="Right" Stretch="Uniform">
                 <Canvas Width="{Binding MapToShow.Width}" Height="{Binding MapToShow.Heigth}" 
-                        x:Name="Map" AllowDrop="True" Drop="Map_Drop" MouseMove="Map_MouseMove">
+                        x:Name="Map" AllowDrop="True" Drop="Map_Drop" MouseMove="Map_MouseMove" MouseRightButtonDown="Map_ContextMenu">
                     <Canvas.Background>
                         <ImageBrush ImageSource="{Binding MapToShow.ImagePath}" Stretch="Uniform"/>
                     </Canvas.Background>

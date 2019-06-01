@@ -119,7 +119,7 @@ namespace ManifestationManagementApp
         private void showNoviSadMap(object sender, RoutedEventArgs e)
         {
             Map noviSadMap = Repository.GetInstance().GetMap((int)MapIds.NoviSad);
-            MainContent.Content = new MapView(noviSadMap);
+            MainContent.Content = new MapView(noviSadMap, this);
         }
     }
 }
