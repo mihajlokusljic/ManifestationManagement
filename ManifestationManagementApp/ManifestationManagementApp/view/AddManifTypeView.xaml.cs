@@ -37,6 +37,16 @@ namespace ManifestationManagementApp.view
             Editing = editMode;
         }
 
+        private void loadIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.Filter = "Image files (*.png;*.jpg,*.ico)|*.ico;*.png;*.jpg";
+            if (dialog.ShowDialog() == true)
+            {
+                textBoxIconPath.Text = dialog.FileName;
+            }
+        }
+
         private void autoGenerateIdsBtnClicked(object sender, RoutedEventArgs e)
         {
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
@@ -64,6 +74,7 @@ namespace ManifestationManagementApp.view
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
             string typeName = nameInput.Text;
             string desc = descriptionInput.Text;
+            string iconPath = textBoxIconPath.Text;
             Repository rep = Repository.GetInstance();
             string id;
 
@@ -100,6 +111,11 @@ namespace ManifestationManagementApp.view
                 AddedTypeMessage.Content = "Please enter some description.";
                 AddedTypeMessage.Foreground = Brushes.Red;
             }
+            else if (iconPath == "")
+            {
+                AddedTypeMessage.Content = "Please pick some icon.";
+                AddedTypeMessage.Foreground = Brushes.Red;
+            }
             else
             {
                 ManifestationType newType = new ManifestationType()
@@ -107,7 +123,7 @@ namespace ManifestationManagementApp.view
                     Id = id,
                     Name = typeName,
                     Description = desc,
-                    IconPath = "",
+                    IconPath = iconPath,
                 };
                 if (!Editing)
                 {
@@ -116,6 +132,7 @@ namespace ManifestationManagementApp.view
                     AddedTypeMessage.Foreground = Brushes.Green;
                     nameInput.Text = "";
                     descriptionInput.Text = "";
+                    textBoxIconPath.Text = "";
                     if (isAutoChecked)
                     {
                         Repository.GetInstance().ManifestationTypeCounter = Repository.GetInstance().ManifestationTypeCounter + 1;

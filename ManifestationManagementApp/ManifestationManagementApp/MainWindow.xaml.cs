@@ -87,6 +87,7 @@ namespace ManifestationManagementApp
             view.idInput.IsEnabled = false;
             view.nameInput.Text = target.Name;
             view.descriptionInput.Text = target.Description;
+            view.textBoxIconPath.Text = target.IconPath;
             view.autoGenerateId.Visibility = Visibility.Collapsed;
             view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;
             view.AddOrEditBtn.Content = "Confirm changes";

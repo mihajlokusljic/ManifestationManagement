@@ -125,12 +125,6 @@ namespace ManifestationManagementApp.view
                 AddedLabelMessage.Foreground = Brushes.Red;
 
             }
-            else if (textBoxIconPath.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, add icon for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-
-            }
             else if (descriptionInput.Text == "")
             {
                 AddedLabelMessage.Content = "Please, add description for this manifestation";
@@ -261,6 +255,12 @@ namespace ManifestationManagementApp.view
                 retVal.IconPath = textBoxIconPath.Text;
                 retVal.Description = descriptionInput.Text;
                 retVal.Type = Repository.GetInstance().FindManifestationType(comboBoxTypes.Text);
+
+                if (textBoxIconPath.Text == "")
+                {
+                    retVal.IconPath = retVal.Type.IconPath;
+                }
+
                 model.Label lab = Repository.GetInstance().FindLabel(label.Text);
                 if (lab != null)
                 {
