@@ -112,7 +112,53 @@ namespace ManifestationManagementApp.view
             {
                 rep.DeleteManifestation(target.Id);
             }
+        }
 
+        private void filterClick(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<Manifestation> manifestationsFilter = 
+                new ObservableCollection<Manifestation>();
+            string target = FilterInput.Text;
+            if (target == "")
+            {
+                ManifestationsTable.ItemsSource = Manifestations;
+            }
+            else
+            {
+                foreach (Manifestation manif in Manifestations)
+                {
+                    if (manif.Id.Contains(target))
+                    {
+                        manifestationsFilter.Add(manif);
+                    }
+                }
+                ManifestationsTable.ItemsSource = manifestationsFilter;
+            }
+        }
+
+        private void searchClick(object sender, RoutedEventArgs e)
+        {
+            string target = SearchInput.Text;
+            for (int i = 0; i < ManifestationsTable.Items.Count; i++)
+            {
+                DataGridRow row = (DataGridRow)ManifestationsTable.ItemContainerGenerator.ContainerFromIndex(i);
+
+                if (row != null)
+                {
+                    int index = row.GetIndex();
+                    Manifestation manif = row.DataContext as Manifestation;
+                    if (manif.Id.Contains(target))
+                    {
+                        SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(100, 255, 104, 0));
+                        row.Background = brush;
+                    }
+                    else
+                    {
+                        SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                        row.Background = brush;
+                    }
+                }
+            }
         }
     }
 }
