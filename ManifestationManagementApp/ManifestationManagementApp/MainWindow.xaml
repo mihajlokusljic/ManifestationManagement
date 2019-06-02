@@ -45,7 +45,7 @@
             </MenuItem>
 
             <MenuItem Header="Help" Margin="15,0,0,0">
-                <MenuItem Header="Documentation"></MenuItem>
+                <MenuItem Header="Documentation" Click="showDocumentation"></MenuItem>
                 <MenuItem Header="Demo mode"></MenuItem>
             </MenuItem>
         </Menu>

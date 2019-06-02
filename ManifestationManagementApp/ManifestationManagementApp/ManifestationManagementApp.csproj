@@ -65,6 +65,9 @@
     <Compile Include="view\AddManifTypeView.xaml.cs">
       <DependentUpon>AddManifTypeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LabelsView.xaml.cs">
       <DependentUpon>LabelsView.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\AddManifTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\HelpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +161,8 @@
   <ItemGroup>
     <Content Include="bin\Debug\ManifestationManagementApp.exe" />
     <Content Include="bin\Debug\ManifestationManagementApp.pdb" />
+    <Content Include="resources\documentation\Error.html" />
+    <Content Include="resources\documentation\StartHelpPage.html" />
     <Resource Include="resources\maps\mapaDetelinara.png" />
     <Resource Include="resources\maps\mapaLiman.png" />
     <Resource Include="resources\maps\mapaNoviSad.png" />

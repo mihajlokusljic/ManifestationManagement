@@ -92,6 +92,11 @@ namespace ManifestationManagementApp
             this.MainContent.Content = new ManifestationsView(this);
         }
 
+        private void showDocumentation(object sender, RoutedEventArgs e)
+        {
+            this.MainContent.Content = new HelpView();
+        }
+
         public void showLabelEditView(string labelId)
         {
             model.Label target = model.Repository.GetInstance().FindLabel(labelId);
