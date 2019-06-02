@@ -210,7 +210,14 @@ namespace ManifestationManagementApp.view
             {
                 Point dropPosition = e.GetPosition(Map);
                 Manifestation manifToDrop = e.Data.GetData("manifestation") as Manifestation;
-                if(manifToDrop.MapCoordinates.Count > 0 && AvailableMaifs.Contains(manifToDrop))
+                Manifestation underlyingManifestation = ClickedManifestation((int)dropPosition.X, (int)dropPosition.Y);
+                if (underlyingManifestation != null)
+                {
+                    MessageBox.Show($"Unable to place manifestation \"{manifToDrop.Name}\" on given position because manifestation \"{underlyingManifestation.Name}\" is in the way. Please try draging manifestation \"{manifToDrop.Name}\" to a different position.",
+                        "Overlapping manifestations not allowed", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                if (manifToDrop.MapCoordinates.Count > 0 && AvailableMaifs.Contains(manifToDrop))
                 {
                     MessageBoxResult choince = MessageBox.Show($"Manifestation \"{manifToDrop.Id}\" is already placed on another map. Do you want do move it to this map?",
                         $"Change location of {manifToDrop.Id}", MessageBoxButton.YesNoCancel);
