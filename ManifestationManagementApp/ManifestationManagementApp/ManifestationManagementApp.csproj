@@ -73,6 +73,9 @@
     <Compile Include="view\AddManifTypeView.xaml.cs">
       <DependentUpon>AddManifTypeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\LabelsView.xaml.cs">
       <DependentUpon>LabelsView.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\AddManifTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\HelpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +174,15 @@
     <Resource Include="resources\images\delete.png" />
     <Resource Include="resources\images\browse.png" />
     <Resource Include="resources\images\error.jpg" />
+    <Content Include="resources\documentation\AddLabelHelp.html" />
+    <Content Include="resources\documentation\AddManifestationHelp.html" />
+    <Content Include="resources\documentation\AddManifestationTypeHelp.html" />
+    <Content Include="resources\documentation\Error.html" />
+    <Content Include="resources\documentation\MapHelp.html" />
+    <Content Include="resources\documentation\ShowLabelsHelp.html" />
+    <Content Include="resources\documentation\ShowManifestationHelp.html" />
+    <Content Include="resources\documentation\ShowManifestationTypesHelp.html" />
+    <Content Include="resources\documentation\StartHelpPage.html" />
     <Resource Include="resources\maps\mapaDetelinara.png" />
     <Resource Include="resources\maps\mapaLiman.png" />
     <Resource Include="resources\maps\mapaNoviSad.png" />

@@ -7,9 +7,15 @@
       xmlns:local="clr-namespace:ManifestationManagementApp.view"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:val="clr-namespace:ManifestationManagementApp.validation"
+
+      xmlns:commands="clr-namespace:ManifestationManagementApp.command"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddManifestationView">
+
+    <Page.CommandBindings>
+        <CommandBinding Command="commands:Commands.showHelp" Executed="ShowHelp_Executed"/>
+    </Page.CommandBindings>
 
     <Page.Resources>
         <Style x:Key="resizedCalendarItem" TargetType="{x:Type Calendar}">

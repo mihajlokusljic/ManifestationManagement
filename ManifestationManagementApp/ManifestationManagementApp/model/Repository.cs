@@ -61,8 +61,9 @@ namespace ManifestationManagementApp.model
             }
         }
 
+        
         private ObservableCollection<Map> maps;
-        [XmlIgnore]
+        [XmlIgnoreAttribute]
         public ObservableCollection<Map> Maps
         {
             get { return maps; }
@@ -320,7 +321,8 @@ namespace ManifestationManagementApp.model
                 ImagePath = "../resources/maps/mapaNoviSad.png",
                 Width = 1679,
                 Heigth = 1015,
-                ParentMapOffset = new Coordinates() { X = 0, Y = 0, ParentMap = null }
+                ParentMapOffset = new Coordinates() { X = 0, Y = 0, ParentMap = null },
+                ChildMaps = new List<Map>()
             };
             Maps.Add(NoviSadMap);
 
@@ -330,8 +332,10 @@ namespace ManifestationManagementApp.model
                 ImagePath = "../resources/maps/mapaStariGrad.png",
                 Width = 757,
                 Heigth = 312,
-                ParentMapOffset = new Coordinates() { X = 810, Y = 330, ParentMap = NoviSadMap }
+                ParentMapOffset = new Coordinates() { X = 810, Y = 330, ParentMap = NoviSadMap },
+                ChildMaps = new List<Map>()
             };
+            NoviSadMap.ChildMaps.Add(StariGradMap);
             Maps.Add(StariGradMap);
 
             Map DetelinaraMap = new Map()
@@ -340,8 +344,10 @@ namespace ManifestationManagementApp.model
                 ImagePath = "../resources/maps/mapaDetelinara.png",
                 Width = 757,
                 Heigth = 457,
-                ParentMapOffset = new Coordinates() { X = 125, Y = 105, ParentMap = NoviSadMap }
+                ParentMapOffset = new Coordinates() { X = 125, Y = 105, ParentMap = NoviSadMap },
+                ChildMaps = new List<Map>()
             };
+            NoviSadMap.ChildMaps.Add(DetelinaraMap);
             Maps.Add(DetelinaraMap);
 
             Map LimanMap = new Map()
@@ -350,8 +356,10 @@ namespace ManifestationManagementApp.model
                 ImagePath = "../resources/maps/mapaLiman.png",
                 Width = 760,
                 Heigth = 465,
-                ParentMapOffset = new Coordinates() { X = 565, Y = 545, ParentMap = NoviSadMap }
+                ParentMapOffset = new Coordinates() { X = 565, Y = 545, ParentMap = NoviSadMap },
+                ChildMaps = new List<Map>()
             };
+            NoviSadMap.ChildMaps.Add(LimanMap);
             Maps.Add(LimanMap);
         }
 

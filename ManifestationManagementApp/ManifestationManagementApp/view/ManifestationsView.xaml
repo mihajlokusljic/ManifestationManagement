@@ -4,9 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ManifestationManagementApp.view"
+      xmlns:commands="clr-namespace:ManifestationManagementApp.command"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ManifestationsView">
+
+    <Page.CommandBindings>
+        <CommandBinding Command="commands:Commands.showHelp" Executed="ShowHelp_Executed"/>
+    </Page.CommandBindings>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,11 +20,11 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="14*"/>
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="198*"/>
-            <ColumnDefinition Width="211*"/>
-            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="348*"/>
+            <ColumnDefinition Width="379*"/>
+            <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Search and filter fields -->
@@ -74,23 +79,23 @@
         </DataGrid>
 
         <!-- Action buttons -->
-        <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0.4,0,0">
-            
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2" Width="540">
+
             <Button FontSize="24" Margin="10,0" Padding="10,1" VerticalAlignment="Center" Click="editBtnClicked">
-                <StackPanel Orientation="Horizontal" Width="106">
+                <StackPanel Orientation="Horizontal" >
                     <Image Source="..\resources\images\edit.png"  Margin="2,0,10,0" Height="15" HorizontalAlignment="Left"/>
                     <TextBlock Text="Edit Manifestation" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Button>
             <Button FontSize="24" Margin="10,0,0,0" Padding="10,1" VerticalAlignment="Center" Click="DeleteBtnClicked">
-                <StackPanel Orientation="Horizontal" Width="106">
+                <StackPanel Orientation="Horizontal">
                     <Image Source="..\resources\images\delete.png"  Margin="2,0,10,0" Height="15" HorizontalAlignment="Left"/>
                     <TextBlock Text="Delete Manifestation" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </StackPanel>
-                </Button>
+            </Button>
         </StackPanel>
 
-        <Label x:Name="searchMessage" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Content="" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Label x:Name="searchMessage" Grid.Row="2" Grid.Column="1" Content="" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" Height="42" Margin="0,4" Width="10"/>
 
     </Grid>
 </Page>

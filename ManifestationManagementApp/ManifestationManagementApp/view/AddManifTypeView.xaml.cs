@@ -29,6 +29,7 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             Editing = false;
             DataContext = new ManifestationType();
+            descriptionInput.Focus();
         }
 
         public AddManifTypeView(MainWindow parent, bool editMode)
@@ -36,7 +37,16 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             mainWindow = parent;
             Editing = editMode;
+
             DataContext = new ManifestationType();
+
+            descriptionInput.Focus();
+        }
+
+        private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.mainWindow.MainContent.Content = new HelpView("AddManifestationTypeHelp");
+
         }
 
         private void loadIcon_Click(object sender, RoutedEventArgs e)

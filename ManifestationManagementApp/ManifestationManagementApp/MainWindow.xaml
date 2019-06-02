@@ -12,6 +12,10 @@
 
     <Window.CommandBindings>
         <CommandBinding Command="commands:Commands.showNoviSad" Executed="ShowNoviSad_Executed"/>
+        <CommandBinding Command="commands:Commands.showStariGrad" Executed="ShowStariGrad_Executed"/>
+        <CommandBinding Command="commands:Commands.showDetelinara" Executed="ShowDetelinara_Executed"/>
+        <CommandBinding Command="commands:Commands.showLiman" Executed="ShowLiman_Executed"/>
+        <CommandBinding Command="commands:Commands.showHelp" Executed="ShowHelp_Executed"/>
         <CommandBinding Command="commands:Commands.addManifestation" Executed="AddManifestation_Executed"/>
         <CommandBinding Command="commands:Commands.showManifestation" Executed="ShowManifestation_Executed"/>
         <CommandBinding Command="commands:Commands.addManifestationType" Executed="AddManifestationType_Executed"/>
@@ -39,13 +43,13 @@
 
             <MenuItem Header="Show Map" Margin="15,0,0,0">
                 <MenuItem Header="Novi Sad (Ctrl + F1)" Click="showNoviSadMap"></MenuItem>
-                <MenuItem Header="Stari grad" Click="showStariGradMap"></MenuItem>
-                <MenuItem Header="Detelinara" Click="showDetelinaraMap"></MenuItem>
-                <MenuItem Header="Liman" Click="showLimanMap"></MenuItem>
+                <MenuItem Header="Stari grad (Ctrl + F2)" Click="showStariGradMap"></MenuItem>
+                <MenuItem Header="Detelinara (Ctrl + F3)" Click="showDetelinaraMap"></MenuItem>
+                <MenuItem Header="Liman (Ctrl + F4)" Click="showLimanMap"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Help" Margin="15,0,0,0">
-                <MenuItem Header="Documentation"></MenuItem>
+                <MenuItem Header="Documentation (F1)" Click="showDocumentation"></MenuItem>
                 <MenuItem Header="Demo mode"></MenuItem>
             </MenuItem>
         </Menu>

@@ -30,6 +30,8 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             Editing = false;
             DataContext = new model.Label();
+
+            descriptionInput.Focus();
         }
 
         public AddLabelView(MainWindow parent, bool editMode)
@@ -38,6 +40,12 @@ namespace ManifestationManagementApp.view
             mainWindow = parent;
             Editing = editMode;
             DataContext = new model.Label();
+            descriptionInput.Focus();
+        }
+
+        private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.mainWindow.MainContent.Content = new HelpView("AddLabelHelp");
         }
 
         private void AddOrEditButtonClick(object sender, RoutedEventArgs e)

@@ -45,6 +45,7 @@ namespace ManifestationManagementApp.view
             DataContext = new Manifestation();
             mainWindow = parent;
             Editing = editMode;
+            descriptionInput.Focus();
         }
 
         public AddManifestationView()
@@ -54,6 +55,7 @@ namespace ManifestationManagementApp.view
             label.DataContext = Repository.GetInstance();
             DataContext = new Manifestation();
             Editing = false;
+            descriptionInput.Focus();
         }
 
         private void loadIcon_Click(object sender, RoutedEventArgs e)
@@ -64,6 +66,11 @@ namespace ManifestationManagementApp.view
             {
                 textBoxIconPath.Text = dialog.FileName;
             }
+        }
+
+        private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.mainWindow.MainContent.Content = new HelpView("AddManifestationHelp");
         }
 
         private void AutoGenerateIdClicked(object sender, RoutedEventArgs e)
