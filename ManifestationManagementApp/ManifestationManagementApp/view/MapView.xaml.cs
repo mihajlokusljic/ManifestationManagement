@@ -45,20 +45,6 @@ namespace ManifestationManagementApp.view
             }
         }
 
-        private string mapImagePath;
-        public string MapImagePath
-        {
-            get { return mapImagePath; }
-            set
-            {
-                if (value != mapImagePath)
-                {
-                    mapImagePath = value;
-                    OnPropertyChanged("MapImagePath");
-                }
-            }
-        }
-
         private ObservableCollection<Manifestation> manifestations;
         public ObservableCollection<Manifestation> AvailableMaifs
         {
@@ -100,33 +86,42 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             DataContext = this;
             mainWindow = parentWindow;
-            MapImagePath = mapToShow.ImagePath;
+            MapToShow = mapToShow;
+            LoadManifestations("");
+            drawManifPointers();
+        }
+
+        private void LoadManifestations(string filterTarget)
+        {
             AvailableMaifs = new ObservableCollection<Manifestation>();
             ManifsOnMap = new ObservableCollection<Manifestation>();
-            MapToShow = mapToShow;
+
             bool manifOnMap;
-            foreach(Manifestation manif in Repository.GetInstance().Manifestations)
+            foreach (Manifestation manif in Repository.GetInstance().Manifestations)
             {
-                if(manif.MapCoordinates == null)
+                if (manif.MapCoordinates == null)
+                {
+                    continue;
+                }
+                if(!manif.Id.Contains(filterTarget) && !manif.Name.Contains(filterTarget))
                 {
                     continue;
                 }
                 manifOnMap = false;
-               foreach(Coordinates coords in manif.MapCoordinates)
+                foreach (Coordinates coords in manif.MapCoordinates)
                 {
-                    if(coords.ParentMap.Id == MapToShow.Id)
+                    if (coords.ParentMap.Id == MapToShow.Id)
                     {
                         ManifsOnMap.Add(manif);
                         manifOnMap = true;
                         break;
                     }
                 }
-               if(!manifOnMap)
+                if (!manifOnMap)
                 {
                     AvailableMaifs.Add(manif);
                 }
             }
-            drawManifPointers();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -355,5 +350,21 @@ namespace ManifestationManagementApp.view
             }
         }
 
+        private void filterBtnClicked(object sender, RoutedEventArgs e)
+        {
+            string target = FilterInput.Text;
+            LoadManifestations(target);
+            drawManifPointers();
+        }
+
+        private void FilterKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                string target = FilterInput.Text;
+                LoadManifestations(target);
+                drawManifPointers();
+            }
+        }
     }
 }
