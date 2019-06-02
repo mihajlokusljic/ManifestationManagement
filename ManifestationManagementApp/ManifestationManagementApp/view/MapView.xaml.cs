@@ -29,6 +29,7 @@ namespace ManifestationManagementApp.view
         private Point startPoint = new Point();
         private Manifestation focusedManifestation;
         private MainWindow mainWindow;
+        private static int iconSize = 64;
 
         private Map mapToShow;
         public Map MapToShow
@@ -240,11 +241,13 @@ namespace ManifestationManagementApp.view
                         {
                             Image manifIcon = new Image();
                             manifIcon.Source = new BitmapImage(new Uri(manif.IconPath));
-                            manifIcon.Width = 64;
-                            manifIcon.Height = 64;
+                            manifIcon.Width = iconSize;
+                            manifIcon.Height = iconSize;
+                            manifIcon.ToolTip = manif.Name;
                             Map.Children.Add(manifIcon);
-                            Canvas.SetLeft(manifIcon, coords.X);
-                            Canvas.SetTop(manifIcon, coords.Y);
+                            Canvas.SetLeft(manifIcon, coords.X - iconSize / 2);
+                            Canvas.SetTop(manifIcon, coords.Y - iconSize / 2);
+                            
                             break;
                         }
                     }
@@ -286,7 +289,7 @@ namespace ManifestationManagementApp.view
                 {
                     if(coords.ParentMap.Id == MapToShow.Id)
                     {
-                        if (Math.Sqrt(Math.Pow((X_click - coords.X - 32), 2) + Math.Pow((Y_click - coords.Y - 32), 2)) < 30)
+                        if (Math.Sqrt(Math.Pow((X_click - coords.X), 2) + Math.Pow((Y_click - coords.Y), 2)) <= iconSize / 2)
                         {
                             return manif;
                         }
