@@ -193,29 +193,20 @@ namespace ManifestationManagementApp.view
             return null;
         }
 
-        private void placeManifAtPos(Manifestation manif, int x, int y)
+        
+        private void ShowManifPointer(Manifestation manif, int x, int y)
         {
+            MapToShow.PlaceManifAtPos(manif, x, y);
             if(AvailableMaifs.Contains(manif))
             {
-                manif.MapCoordinates.Add(new Coordinates { X = x, Y = y, ParentMap = MapToShow });
                 manifsOnMap.Add(manif);
                 AvailableMaifs.Remove(manif);
-            }
-            else
-            {
-                foreach(Coordinates coords in manif.MapCoordinates)
-                {
-                    if(coords.ParentMap.Id == MapToShow.Id)
-                    {
-                        coords.X = x;
-                        coords.Y = y;
-                        break;
-                    }
-                }
             }
             drawManifPointers();
             Repository.GetInstance().SaveData();
         }
+
+        
 
         private void Map_Drop(object sender, DragEventArgs e)
         {
@@ -223,7 +214,7 @@ namespace ManifestationManagementApp.view
             {
                 Point dropPosition = e.GetPosition(Map);
                 Manifestation manifToDrop = e.Data.GetData("manifestation") as Manifestation;
-                placeManifAtPos(manifToDrop, (int)dropPosition.X, (int)dropPosition.Y);
+                ShowManifPointer(manifToDrop, (int)dropPosition.X, (int)dropPosition.Y);
             }
         }
 
@@ -315,15 +306,7 @@ namespace ManifestationManagementApp.view
             {
                 return;
             }
-            var view = new AddManifestationView(mainWindow, true);
-            view.idInput.Text = target.Id;
-            view.idInput.IsEnabled = false;
-            view.nameInput.Text = target.Name;
-            view.descriptionInput.Text = target.Description;
-            view.autoGenerateId.Visibility = Visibility.Collapsed;
-            view.autoGenerateIdLabel.Visibility = Visibility.Collapsed;
-            view.AddOrEditBtn.Content = "Confirm changes";
-            mainWindow.MainContent.Content = view;
+            mainWindow.showManifestationEditView(target.Id);
         }
 
         private void DeleteManifClicked(object sender, RoutedEventArgs e)
