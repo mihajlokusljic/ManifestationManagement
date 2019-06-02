@@ -25,7 +25,7 @@ namespace ManifestationManagementApp.view
         private MainWindow mainWindow;
         public bool Editing { get; set; }
 
-        private ManifestationType selectedType;
+        private static ManifestationType selectedType;
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string v)
@@ -160,6 +160,7 @@ namespace ManifestationManagementApp.view
             else
             {
                 Manifestation retVal = new Manifestation();
+                retVal.MapCoordinates = new System.Collections.ObjectModel.ObservableCollection<Coordinates>();
                 if (isAutoChecked)
                 {
                     Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
@@ -252,13 +253,17 @@ namespace ManifestationManagementApp.view
                 }
 
                 retVal.Date = DateTime.Parse(datePicker1.Text);
-                retVal.IconPath = textBoxIconPath.Text;
                 retVal.Description = descriptionInput.Text;
                 retVal.Type = Repository.GetInstance().FindManifestationType(comboBoxTypes.Text);
+                SelectedType = retVal.Type;
 
                 if (textBoxIconPath.Text == "")
                 {
                     retVal.IconPath = retVal.Type.IconPath;
+                }
+                else
+                {
+                    retVal.IconPath = textBoxIconPath.Text;
                 }
 
                 model.Label lab = Repository.GetInstance().FindLabel(label.Text);

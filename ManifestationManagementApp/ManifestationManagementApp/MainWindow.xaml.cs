@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ManifestationManagementApp.view;
+using ManifestationManagementApp.model;
 
 namespace ManifestationManagementApp
 {
@@ -29,7 +30,8 @@ namespace ManifestationManagementApp
 
         private void ShowNoviSad_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            MainContent.Content = new MapView();
+            Map noviSadMap = Repository.GetInstance().GetMap((int)MapIds.NoviSad);
+            MainContent.Content = new MapView(noviSadMap, this);
         }
 
         private void AddManifestation_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -141,8 +143,11 @@ namespace ManifestationManagementApp
             {
                 return;
             }
-
             AddManifestationView view = new AddManifestationView(this, true);
+
+
+            view.comboBoxTypes.SelectedIndex = Repository.GetInstance().ManifestationTypes.IndexOf(Repository.GetInstance().FindManifestationType(target.Type.Id));
+            view.label.SelectedIndex = Repository.GetInstance().Labels.IndexOf(Repository.GetInstance().FindLabel(target.Labels.FirstOrDefault().Id));
             view.idInput.Text = target.Id;
             view.idInput.IsEnabled = false;
             view.nameInput.Text = target.Name;
@@ -164,7 +169,26 @@ namespace ManifestationManagementApp
 
         private void showNoviSadMap(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new MapView();
+            Map noviSadMap = Repository.GetInstance().GetMap((int)MapIds.NoviSad);
+            MainContent.Content = new MapView(noviSadMap, this);
+        }
+
+        private void showStariGradMap(object sender, RoutedEventArgs e)
+        {
+            Map stariGradMap = Repository.GetInstance().GetMap((int)MapIds.StariGrad);
+            MainContent.Content = new MapView(stariGradMap, this);
+        }
+
+        private void showDetelinaraMap(object sender, RoutedEventArgs e)
+        {
+            Map detelinaraMap = Repository.GetInstance().GetMap((int)MapIds.Detelinara);
+            MainContent.Content = new MapView(detelinaraMap, this);
+        }
+
+        private void showLimanMap(object sender, RoutedEventArgs e)
+        {
+            Map limanMap = Repository.GetInstance().GetMap((int)MapIds.Liman);
+            MainContent.Content = new MapView(limanMap, this);
         }
     }
 }

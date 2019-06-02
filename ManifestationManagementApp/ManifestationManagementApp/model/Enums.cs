@@ -20,4 +20,12 @@ namespace ManifestationManagementApp.model
         MediumPrices = 2,
         HighPrices = 3
     }
+
+    public enum MapIds
+    {
+        NoviSad = 1,
+        StariGrad = 2,
+        Detelinara = 3,
+        Liman = 4
+    }
 }

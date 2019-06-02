@@ -39,9 +39,9 @@
 
             <MenuItem Header="Show Map" Margin="15,0,0,0">
                 <MenuItem Header="Novi Sad (Ctrl + F1)" Click="showNoviSadMap"></MenuItem>
-                <MenuItem Header="Map 2"></MenuItem>
-                <MenuItem Header="Map 3"></MenuItem>
-                <MenuItem Header="Map 4"></MenuItem>
+                <MenuItem Header="Stari grad" Click="showStariGradMap"></MenuItem>
+                <MenuItem Header="Detelinara" Click="showDetelinaraMap"></MenuItem>
+                <MenuItem Header="Liman" Click="showLimanMap"></MenuItem>
             </MenuItem>
 
             <MenuItem Header="Help" Margin="15,0,0,0">

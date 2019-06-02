@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.IO;
 
 namespace ManifestationManagementApp.model
 {
@@ -60,6 +61,19 @@ namespace ManifestationManagementApp.model
                 if (value != iconPath)
                 {
                     iconPath = value;
+
+                    var exeDirectory = Directory.GetCurrentDirectory();
+                    var exeDirectoryInfo = new DirectoryInfo(exeDirectory);
+                    var projectDirectoryInfo = exeDirectoryInfo.Parent.Parent; // bin/debug to project
+
+                    var dataPath = Path.Combine(projectDirectoryInfo.FullName, "resources\\images");
+                    var newPath = Path.Combine(dataPath, @iconPath.Split('\\').Last());
+                    if (!File.Exists(newPath) && newPath != null && !string.IsNullOrEmpty(newPath) && !string.IsNullOrWhiteSpace(newPath))
+                    {
+                        File.Copy(@iconPath, @newPath, true);
+                    }
+                    iconPath = newPath;
+
                     OnPropertyChanged("IconPath");
                 }
             }

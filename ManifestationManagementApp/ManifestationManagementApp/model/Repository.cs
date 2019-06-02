@@ -59,7 +59,9 @@ namespace ManifestationManagementApp.model
             }
         }
 
+        
         private ObservableCollection<Map> maps;
+        [XmlIgnoreAttribute]
         public ObservableCollection<Map> Maps
         {
             get { return maps; }
@@ -288,6 +290,18 @@ namespace ManifestationManagementApp.model
             return true;
         }
 
+        public Map GetMap(int mapId)
+        {
+            foreach(Map map in Maps)
+            {
+                if(map.Id == mapId)
+                {
+                    return map;
+                }
+            }
+            return null;
+        }
+
         public void SaveData()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Repository));
@@ -295,6 +309,56 @@ namespace ManifestationManagementApp.model
             {
                 serializer.Serialize(sw, this);
             }
+        }
+
+        public void InitializeMaps()
+        {
+            Map NoviSadMap = new Map()
+            {
+                Id = (int)MapIds.NoviSad,
+                ImagePath = "../resources/maps/mapaNoviSad.png",
+                Width = 1679,
+                Heigth = 1015,
+                ParentMapOffset = new Coordinates() { X = 0, Y = 0, ParentMap = null },
+                ChildMaps = new List<Map>()
+            };
+            Maps.Add(NoviSadMap);
+
+            Map StariGradMap = new Map()
+            {
+                Id = (int)MapIds.StariGrad,
+                ImagePath = "../resources/maps/mapaStariGrad.png",
+                Width = 757,
+                Heigth = 312,
+                ParentMapOffset = new Coordinates() { X = 810, Y = 330, ParentMap = NoviSadMap },
+                ChildMaps = new List<Map>()
+            };
+            NoviSadMap.ChildMaps.Add(StariGradMap);
+            Maps.Add(StariGradMap);
+
+            Map DetelinaraMap = new Map()
+            {
+                Id = (int)MapIds.Detelinara,
+                ImagePath = "../resources/maps/mapaDetelinara.png",
+                Width = 757,
+                Heigth = 457,
+                ParentMapOffset = new Coordinates() { X = 125, Y = 105, ParentMap = NoviSadMap },
+                ChildMaps = new List<Map>()
+            };
+            NoviSadMap.ChildMaps.Add(DetelinaraMap);
+            Maps.Add(DetelinaraMap);
+
+            Map LimanMap = new Map()
+            {
+                Id = (int)MapIds.Liman,
+                ImagePath = "../resources/maps/mapaLiman.png",
+                Width = 760,
+                Heigth = 465,
+                ParentMapOffset = new Coordinates() { X = 565, Y = 545, ParentMap = NoviSadMap },
+                ChildMaps = new List<Map>()
+            };
+            NoviSadMap.ChildMaps.Add(LimanMap);
+            Maps.Add(LimanMap);
         }
 
         public void ReadData()
@@ -308,8 +372,8 @@ namespace ManifestationManagementApp.model
                 Labels = rep.Labels;
                 ManifestationTypes = rep.ManifestationTypes;
                 Manifestations = rep.Manifestations;
-                Maps = rep.Maps;
             }
+            InitializeMaps();
         }
 
     }
