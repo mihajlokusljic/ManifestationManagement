@@ -2,7 +2,7 @@
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LabelCounter>1</LabelCounter>
   <ManifestationTypeCounter>4</ManifestationTypeCounter>
-  <ManifestationCounter>1</ManifestationCounter>
+  <ManifestationCounter>0</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab1</Id>
@@ -15,13 +15,13 @@
       <Id>type1</Id>
       <Name>Naziv tipa</Name>
       <Description>Opis</Description>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
     </ManifestationType>
     <ManifestationType>
       <Id>type4</Id>
       <Name>gg</Name>
       <Description>gkgkug</Description>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
     </ManifestationType>
   </ManifestationTypes>
   <Manifestations>
@@ -33,10 +33,10 @@
         <Id>type4</Id>
         <Name>gg</Name>
         <Description>gkgkug</Description>
-        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+        <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
       </Type>
       <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
       <SupportHandicaped>false</SupportHandicaped>
       <SmokingAllowed>true</SmokingAllowed>
       <IsOutside>true</IsOutside>
@@ -50,6 +50,290 @@
         </Label>
       </Labels>
       <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation2</Id>
+      <Name>Exit 2019</Name>
+      <Description>Become part of the tribe!</Description>
+      <Type>
+        <Id>type4</Id>
+        <Name>gg</Name>
+        <Description>gkgkug</Description>
+        <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\exit-tribe-logo.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>MediumPrices</Prices>
+      <Date>2019-07-14T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates>
+        <Coordinates>
+          <X>1229</X>
+          <Y>476</Y>
+          <ParentMap>
+            <Id>1</Id>
+            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+            <Width>1679</Width>
+            <Heigth>1015</Heigth>
+            <ParentMapOffset>
+              <X>0</X>
+              <Y>0</Y>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+        <Coordinates>
+          <X>419</X>
+          <Y>146</Y>
+          <ParentMap>
+            <Id>2</Id>
+            <ImagePath>../resources/maps/mapaStariGrad.png</ImagePath>
+            <Width>757</Width>
+            <Heigth>312</Heigth>
+            <ParentMapOffset>
+              <X>810</X>
+              <Y>330</Y>
+              <ParentMap>
+                <Id>1</Id>
+                <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+                <Width>1679</Width>
+                <Heigth>1015</Heigth>
+                <ParentMapOffset>
+                  <X>0</X>
+                  <Y>0</Y>
+                </ParentMapOffset>
+              </ParentMap>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+      </MapCoordinates>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation3</Id>
+      <Name>Python conference</Name>
+      <Description>Find job opportunities as a Python developer.</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>Naziv tipa</Name>
+        <Description>Opis</Description>
+        <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\python.png</IconPath>
+      <SupportHandicaped>true</SupportHandicaped>
+      <SmokingAllowed>false</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>2019-07-25T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates>
+        <Coordinates>
+          <X>837</X>
+          <Y>772</Y>
+          <ParentMap>
+            <Id>1</Id>
+            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+            <Width>1679</Width>
+            <Heigth>1015</Heigth>
+            <ParentMapOffset>
+              <X>0</X>
+              <Y>0</Y>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+        <Coordinates>
+          <X>272</X>
+          <Y>227</Y>
+          <ParentMap>
+            <Id>4</Id>
+            <ImagePath>../resources/maps/mapaLiman.png</ImagePath>
+            <Width>760</Width>
+            <Heigth>465</Heigth>
+            <ParentMapOffset>
+              <X>565</X>
+              <Y>545</Y>
+              <ParentMap>
+                <Id>1</Id>
+                <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+                <Width>1679</Width>
+                <Heigth>1015</Heigth>
+                <ParentMapOffset>
+                  <X>0</X>
+                  <Y>0</Y>
+                </ParentMapOffset>
+              </ParentMap>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+      </MapCoordinates>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation4</Id>
+      <Name>Festival lampinjona</Name>
+      <Description>Come and join the adventure!</Description>
+      <Type>
+        <Id>type4</Id>
+        <Name>gg</Name>
+        <Description>gkgkug</Description>
+        <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\lampinjoni.jpg</IconPath>
+      <SupportHandicaped>true</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>2019-08-15T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates>
+        <Coordinates>
+          <X>1162</X>
+          <Y>583</Y>
+          <ParentMap>
+            <Id>1</Id>
+            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+            <Width>1679</Width>
+            <Heigth>1015</Heigth>
+            <ParentMapOffset>
+              <X>0</X>
+              <Y>0</Y>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+        <Coordinates>
+          <X>352</X>
+          <Y>253</Y>
+          <ParentMap>
+            <Id>2</Id>
+            <ImagePath>../resources/maps/mapaStariGrad.png</ImagePath>
+            <Width>757</Width>
+            <Heigth>312</Heigth>
+            <ParentMapOffset>
+              <X>810</X>
+              <Y>330</Y>
+              <ParentMap>
+                <Id>1</Id>
+                <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+                <Width>1679</Width>
+                <Heigth>1015</Heigth>
+                <ParentMapOffset>
+                  <X>0</X>
+                  <Y>0</Y>
+                </ParentMapOffset>
+              </ParentMap>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+        <Coordinates>
+          <X>597</X>
+          <Y>38</Y>
+          <ParentMap>
+            <Id>4</Id>
+            <ImagePath>../resources/maps/mapaLiman.png</ImagePath>
+            <Width>760</Width>
+            <Heigth>465</Heigth>
+            <ParentMapOffset>
+              <X>565</X>
+              <Y>545</Y>
+              <ParentMap>
+                <Id>1</Id>
+                <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+                <Width>1679</Width>
+                <Heigth>1015</Heigth>
+                <ParentMapOffset>
+                  <X>0</X>
+                  <Y>0</Y>
+                </ParentMapOffset>
+              </ParentMap>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+      </MapCoordinates>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation5</Id>
+      <Name>Blokstok festival</Name>
+      <Description>Enjoy some of the finest local rock and punk bands.</Description>
+      <Type>
+        <Id>type4</Id>
+        <Name>gg</Name>
+        <Description>gkgkug</Description>
+        <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\blokstok.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>2019-06-15T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates>
+        <Coordinates>
+          <X>676</X>
+          <Y>201</Y>
+          <ParentMap>
+            <Id>1</Id>
+            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+            <Width>1679</Width>
+            <Heigth>1015</Heigth>
+            <ParentMapOffset>
+              <X>0</X>
+              <Y>0</Y>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+        <Coordinates>
+          <X>551</X>
+          <Y>96</Y>
+          <ParentMap>
+            <Id>3</Id>
+            <ImagePath>../resources/maps/mapaDetelinara.png</ImagePath>
+            <Width>757</Width>
+            <Heigth>457</Heigth>
+            <ParentMapOffset>
+              <X>125</X>
+              <Y>105</Y>
+              <ParentMap>
+                <Id>1</Id>
+                <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+                <Width>1679</Width>
+                <Heigth>1015</Heigth>
+                <ParentMapOffset>
+                  <X>0</X>
+                  <Y>0</Y>
+                </ParentMapOffset>
+              </ParentMap>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+      </MapCoordinates>
     </Manifestation>
   </Manifestations>
 </Repository>

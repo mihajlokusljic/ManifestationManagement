@@ -221,6 +221,23 @@ namespace ManifestationManagementApp.model
             }
         }
 
+        public void RemoveCoordinatesForMap(int mapId)
+        {
+            Coordinates target = null;
+            foreach(Coordinates coords in MapCoordinates)
+            {
+                if(coords.ParentMap.Id == mapId)
+                {
+                    target = coords;
+                    break;
+                }
+            }
+            if(target != null)
+            {
+                MapCoordinates.Remove(target);
+            }
+        }
+
         public bool Addlabel(Label newLabel)
         {
             
@@ -231,6 +248,7 @@ namespace ManifestationManagementApp.model
         public Manifestation()
         {
             labels = new ObservableCollection<Label>();
+            MapCoordinates = new ObservableCollection<Coordinates>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
