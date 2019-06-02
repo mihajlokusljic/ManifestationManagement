@@ -59,8 +59,9 @@ namespace ManifestationManagementApp.model
             }
         }
 
-        [XmlIgnore]
+        
         private ObservableCollection<Map> maps;
+        [XmlIgnoreAttribute]
         public ObservableCollection<Map> Maps
         {
             get { return maps; }

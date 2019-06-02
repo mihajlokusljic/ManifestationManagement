@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ManifestationManagementApp.model
 {
@@ -18,6 +19,7 @@ namespace ManifestationManagementApp.model
 
         public Coordinates ParentMapOffset { get; set; }
 
+        [XmlIgnoreAttribute]
         public List<Map> ChildMaps { get; set; }
 
         /**
