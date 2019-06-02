@@ -50,7 +50,7 @@
 
             <MenuItem Header="Help" Margin="15,0,0,0">
                 <MenuItem Header="Documentation (F1)" Click="showDocumentation"></MenuItem>
-                <MenuItem Header="Demo mode"></MenuItem>
+                <MenuItem Header="Demo mode" Click="showDemo"></MenuItem>
             </MenuItem>
         </Menu>
 
