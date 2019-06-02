@@ -138,8 +138,11 @@ namespace ManifestationManagementApp
             {
                 return;
             }
-
             AddManifestationView view = new AddManifestationView(this, true);
+
+
+            view.comboBoxTypes.SelectedIndex = Repository.GetInstance().ManifestationTypes.IndexOf(Repository.GetInstance().FindManifestationType(target.Type.Id));
+            view.label.SelectedIndex = Repository.GetInstance().Labels.IndexOf(Repository.GetInstance().FindLabel(target.Labels.FirstOrDefault().Id));
             view.idInput.Text = target.Id;
             view.idInput.IsEnabled = false;
             view.nameInput.Text = target.Name;

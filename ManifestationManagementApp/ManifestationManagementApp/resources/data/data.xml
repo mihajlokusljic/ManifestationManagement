@@ -2,7 +2,7 @@
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LabelCounter>18</LabelCounter>
   <ManifestationTypeCounter>30</ManifestationTypeCounter>
-  <ManifestationCounter>1</ManifestationCounter>
+  <ManifestationCounter>0</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab4</Id>
@@ -96,12 +96,6 @@
     </Label>
   </Labels>
   <ManifestationTypes>
-    <ManifestationType>
-      <Id>type1</Id>
-      <Name>www</Name>
-      <Description>ww</Description>
-      <IconPath />
-    </ManifestationType>
     <ManifestationType>
       <Id>type1</Id>
       <Name>ffrasf</Name>
@@ -285,32 +279,6 @@
   </ManifestationTypes>
   <Manifestations>
     <Manifestation>
-      <Id>manifestation9</Id>
-      <Name>sasas</Name>
-      <Description>wereqeda</Description>
-      <Type>
-        <Id>type1</Id>
-        <Name>www</Name>
-        <Description>ww</Description>
-        <IconPath />
-      </Type>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\39dccab9-eb22-4026-9d86-a60115b6e0bc.jpg</IconPath>
-      <SupportHandicaped>true</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>true</IsOutside>
-      <Prices>LowPrices</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels>
-        <Label>
-          <Id>lab7</Id>
-          <Color>#FFD2691E</Color>
-          <Description>sasa</Description>
-        </Label>
-      </Labels>
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
       <Id>manifestation10</Id>
       <Name>sasas</Name>
       <Description>wereqeda</Description>
@@ -334,7 +302,23 @@
           <Description>sasa</Description>
         </Label>
       </Labels>
-      <MapCoordinates />
+      <MapCoordinates>
+        <Coordinates>
+          <X>494</X>
+          <Y>183</Y>
+          <ParentMap>
+            <Id>1</Id>
+            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+            <Width>1679</Width>
+            <Heigth>1015</Heigth>
+            <ParentMapOffset>
+              <X>0</X>
+              <Y>0</Y>
+            </ParentMapOffset>
+            <ChildMaps />
+          </ParentMap>
+        </Coordinates>
+      </MapCoordinates>
     </Manifestation>
     <Manifestation>
       <Id>manifestation2</Id>
@@ -363,84 +347,6 @@
       <MapCoordinates />
     </Manifestation>
     <Manifestation>
-      <Id>manifestation3</Id>
-      <Name>dsds</Name>
-      <Description>dsdsd</Description>
-      <Type>
-        <Id>type1</Id>
-        <Name>www</Name>
-        <Description>ww</Description>
-        <IconPath />
-      </Type>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\12348176_143735882657607_8338801069869047781_n.jpg</IconPath>
-      <SupportHandicaped>true</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>true</IsOutside>
-      <Prices>LowPrices</Prices>
-      <Date>2019-05-02T00:00:00</Date>
-      <Labels>
-        <Label>
-          <Id>lab8</Id>
-          <Color>#FFD2691E</Color>
-          <Description>sasa</Description>
-        </Label>
-      </Labels>
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation4</Id>
-      <Name>dsds</Name>
-      <Description>dsdsd</Description>
-      <Type>
-        <Id>type1</Id>
-        <Name>www</Name>
-        <Description>ww</Description>
-        <IconPath />
-      </Type>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\12348176_143735882657607_8338801069869047781_n.jpg</IconPath>
-      <SupportHandicaped>true</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>true</IsOutside>
-      <Prices>LowPrices</Prices>
-      <Date>2019-05-02T00:00:00</Date>
-      <Labels>
-        <Label>
-          <Id>lab8</Id>
-          <Color>#FFD2691E</Color>
-          <Description>sasa</Description>
-        </Label>
-      </Labels>
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation5</Id>
-      <Name>dsds</Name>
-      <Description>dsdsd</Description>
-      <Type>
-        <Id>type1</Id>
-        <Name>www</Name>
-        <Description>ww</Description>
-        <IconPath />
-      </Type>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\12348176_143735882657607_8338801069869047781_n.jpg</IconPath>
-      <SupportHandicaped>true</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>true</IsOutside>
-      <Prices>LowPrices</Prices>
-      <Date>2019-05-02T00:00:00</Date>
-      <Labels>
-        <Label>
-          <Id>lab8</Id>
-          <Color>#FFD2691E</Color>
-          <Description>sasa</Description>
-        </Label>
-      </Labels>
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
       <Id>manifestation1</Id>
       <Name>aaaa</Name>
       <Description>drd</Description>
@@ -464,7 +370,33 @@
           <Description>sasa</Description>
         </Label>
       </Labels>
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation3</Id>
+      <Name>Manifestacija</Name>
+      <Description>desc</Description>
+      <Type>
+        <Id>type4</Id>
+        <Name>dsds</Name>
+        <Description>dsds</Description>
+        <IconPath />
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>2019-06-04T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab17</Id>
+          <Color>#FF556B2F</Color>
+          <Description>xzxzx</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
     </Manifestation>
   </Manifestations>
-  <Maps />
 </Repository>

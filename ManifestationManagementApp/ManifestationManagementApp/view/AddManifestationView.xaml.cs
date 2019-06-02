@@ -25,7 +25,7 @@ namespace ManifestationManagementApp.view
         private MainWindow mainWindow;
         public bool Editing { get; set; }
 
-        private ManifestationType selectedType;
+        private static ManifestationType selectedType;
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string v)
@@ -256,6 +256,7 @@ namespace ManifestationManagementApp.view
                 retVal.IconPath = textBoxIconPath.Text;
                 retVal.Description = descriptionInput.Text;
                 retVal.Type = Repository.GetInstance().FindManifestationType(comboBoxTypes.Text);
+                SelectedType = retVal.Type;
 
                 if (textBoxIconPath.Text == "")
                 {
