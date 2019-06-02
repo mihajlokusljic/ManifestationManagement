@@ -164,5 +164,23 @@ namespace ManifestationManagementApp
             Map noviSadMap = Repository.GetInstance().GetMap((int)MapIds.NoviSad);
             MainContent.Content = new MapView(noviSadMap, this);
         }
+
+        private void showStariGradMap(object sender, RoutedEventArgs e)
+        {
+            Map stariGradMap = Repository.GetInstance().GetMap((int)MapIds.StariGrad);
+            MainContent.Content = new MapView(stariGradMap, this);
+        }
+
+        private void showDetelinaraMap(object sender, RoutedEventArgs e)
+        {
+            Map detelinaraMap = Repository.GetInstance().GetMap((int)MapIds.Detelinara);
+            MainContent.Content = new MapView(detelinaraMap, this);
+        }
+
+        private void showLimanMap(object sender, RoutedEventArgs e)
+        {
+            Map limanMap = Repository.GetInstance().GetMap((int)MapIds.Liman);
+            MainContent.Content = new MapView(limanMap, this);
+        }
     }
 }
