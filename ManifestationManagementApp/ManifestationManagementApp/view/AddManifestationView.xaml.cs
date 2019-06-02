@@ -253,7 +253,6 @@ namespace ManifestationManagementApp.view
                 }
 
                 retVal.Date = DateTime.Parse(datePicker1.Text);
-                retVal.IconPath = textBoxIconPath.Text;
                 retVal.Description = descriptionInput.Text;
                 retVal.Type = Repository.GetInstance().FindManifestationType(comboBoxTypes.Text);
                 SelectedType = retVal.Type;
@@ -261,6 +260,10 @@ namespace ManifestationManagementApp.view
                 if (textBoxIconPath.Text == "")
                 {
                     retVal.IconPath = retVal.Type.IconPath;
+                }
+                else
+                {
+                    retVal.IconPath = textBoxIconPath.Text;
                 }
 
                 model.Label lab = Repository.GetInstance().FindLabel(label.Text);

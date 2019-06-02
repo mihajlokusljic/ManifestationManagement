@@ -1,399 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <LabelCounter>18</LabelCounter>
-  <ManifestationTypeCounter>30</ManifestationTypeCounter>
-  <ManifestationCounter>0</ManifestationCounter>
+  <LabelCounter>1</LabelCounter>
+  <ManifestationTypeCounter>4</ManifestationTypeCounter>
+  <ManifestationCounter>1</ManifestationCounter>
   <Labels>
     <Label>
-      <Id>lab4</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab5</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab6</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
       <Id>lab1</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab2</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab3</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab7</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab8</Id>
-      <Color>#FFD2691E</Color>
-      <Description>sasa</Description>
-    </Label>
-    <Label>
-      <Id>lab10</Id>
-      <Color>#FF556B2F</Color>
-      <Description>sa</Description>
-    </Label>
-    <Label>
-      <Id>lab9</Id>
-      <Color>#FF556B2F</Color>
-      <Description>sa</Description>
-    </Label>
-    <Label>
-      <Id>lab11</Id>
-      <Color>#FF556B2F</Color>
-      <Description>sa</Description>
-    </Label>
-    <Label>
-      <Id>lab12</Id>
-      <Color>#FFDCDCDC</Color>
-      <Description>hello</Description>
-    </Label>
-    <Label>
-      <Id>lab13</Id>
-      <Color>#FF1E90FF</Color>
-      <Description>13 nedo Bog</Description>
-    </Label>
-    <Label>
-      <Id>lab15</Id>
-      <Color>#FF1E90FF</Color>
-      <Description>13 nedo Bog</Description>
-    </Label>
-    <Label>
-      <Id>lab14</Id>
-      <Color>#FF1E90FF</Color>
-      <Description>13 nedo Bog</Description>
-    </Label>
-    <Label>
-      <Id>lab16</Id>
-      <Color>#FF6495ED</Color>
-      <Description>sdas</Description>
-    </Label>
-    <Label>
-      <Id>lab17</Id>
-      <Color>#FF556B2F</Color>
-      <Description>xzxzx</Description>
-    </Label>
-    <Label>
-      <Id>lab18</Id>
-      <Color>#FFFFD700</Color>
-      <Description>xaxa</Description>
+      <Color>#FF000000</Color>
+      <Description>Opis</Description>
     </Label>
   </Labels>
   <ManifestationTypes>
     <ManifestationType>
       <Id>type1</Id>
-      <Name>ffrasf</Name>
-      <Description>fdfd</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>sa</Id>
-      <Name>sasasasasasa</Name>
-      <Description>sasasasasasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type3</Id>
-      <Name>dad</Name>
-      <Description>ds</Description>
-      <IconPath />
+      <Name>Naziv tipa</Name>
+      <Description>Opis</Description>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
     </ManifestationType>
     <ManifestationType>
       <Id>type4</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type7</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type8</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type10</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type5</Id>
-      <Name>asas</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type9</Id>
-      <Name>sasa</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type11</Id>
-      <Name>sas</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type13</Id>
-      <Name>sa</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type15</Id>
-      <Name>sasa</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type17</Id>
-      <Name>sasa</Name>
-      <Description>sasa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type19</Id>
-      <Name>xzd</Name>
-      <Description>dsa</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type6</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type12</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type14</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type16</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type18</Id>
-      <Name>dsd</Name>
-      <Description>dsdsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type20</Id>
-      <Name>sds</Name>
-      <Description>dsdds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type22</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type24</Id>
-      <Name>dsdsds</Name>
-      <Description>dsdsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type21</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type23</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type25</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type28</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type29</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type26</Id>
-      <Name>dsd</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type27</Id>
-      <Name>dsds</Name>
-      <Description>dsds</Description>
-      <IconPath />
-    </ManifestationType>
-    <ManifestationType>
-      <Id>type30</Id>
-      <Name>vasilije</Name>
-      <Description>sasasa</Description>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\IMG_20190523_121122.jpg</IconPath>
+      <Name>gg</Name>
+      <Description>gkgkug</Description>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
     </ManifestationType>
   </ManifestationTypes>
   <Manifestations>
     <Manifestation>
-      <Id>manifestation10</Id>
-      <Name>sasas</Name>
-      <Description>wereqeda</Description>
-      <Type>
-        <Id>sa</Id>
-        <Name>sasasasasasa</Name>
-        <Description>sasasasasasa</Description>
-        <IconPath />
-      </Type>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\12348176_143735882657607_8338801069869047781_n.jpg</IconPath>
-      <SupportHandicaped>true</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>false</IsOutside>
-      <Prices>LowPrices</Prices>
-      <Date>0001-01-01T00:00:00</Date>
-      <Labels>
-        <Label>
-          <Id>lab3</Id>
-          <Color>#FFD2691E</Color>
-          <Description>sasa</Description>
-        </Label>
-      </Labels>
-      <MapCoordinates>
-        <Coordinates>
-          <X>494</X>
-          <Y>183</Y>
-          <ParentMap>
-            <Id>1</Id>
-            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
-            <Width>1679</Width>
-            <Heigth>1015</Heigth>
-            <ParentMapOffset>
-              <X>0</X>
-              <Y>0</Y>
-            </ParentMapOffset>
-            <ChildMaps />
-          </ParentMap>
-        </Coordinates>
-      </MapCoordinates>
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation2</Id>
-      <Name>rhejyfjyht</Name>
-      <Description>etgretuytiyuiy</Description>
-      <Type>
-        <Id>type3</Id>
-        <Name>dad</Name>
-        <Description>ds</Description>
-        <IconPath />
-      </Type>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\12348176_143735882657607_8338801069869047781_n.jpg</IconPath>
-      <SupportHandicaped>true</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>true</IsOutside>
-      <Prices>MediumPrices</Prices>
-      <Date>0001-01-19T00:00:00</Date>
-      <Labels>
-        <Label>
-          <Id>lab10</Id>
-          <Color>#FF556B2F</Color>
-          <Description>sa</Description>
-        </Label>
-      </Labels>
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
       <Id>manifestation1</Id>
-      <Name>aaaa</Name>
-      <Description>drd</Description>
-      <Type>
-        <Id>type30</Id>
-        <Name>vasilije</Name>
-        <Description>sasasa</Description>
-        <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\IMG_20190523_121122.jpg</IconPath>
-      </Type>
-      <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Vasine gluposti\IMG_20190523_121122.jpg</IconPath>
-      <SupportHandicaped>false</SupportHandicaped>
-      <SmokingAllowed>true</SmokingAllowed>
-      <IsOutside>true</IsOutside>
-      <Prices>HighPrices</Prices>
-      <Date>2019-06-21T00:00:00</Date>
-      <Labels>
-        <Label>
-          <Id>lab8</Id>
-          <Color>#FFD2691E</Color>
-          <Description>sasa</Description>
-        </Label>
-      </Labels>
-      <MapCoordinates />
-    </Manifestation>
-    <Manifestation>
-      <Id>manifestation3</Id>
-      <Name>Manifestacija</Name>
-      <Description>desc</Description>
+      <Name>manifestacija</Name>
+      <Description>Opis</Description>
       <Type>
         <Id>type4</Id>
-        <Name>dsds</Name>
-        <Description>dsds</Description>
-        <IconPath />
+        <Name>gg</Name>
+        <Description>gkgkug</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
       </Type>
       <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon1\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\festival_image.png</IconPath>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
       <SupportHandicaped>false</SupportHandicaped>
       <SmokingAllowed>true</SmokingAllowed>
       <IsOutside>true</IsOutside>
-      <Prices>Free</Prices>
-      <Date>2019-06-04T00:00:00</Date>
+      <Prices>LowPrices</Prices>
+      <Date>2019-06-14T00:00:00</Date>
       <Labels>
         <Label>
-          <Id>lab17</Id>
-          <Color>#FF556B2F</Color>
-          <Description>xzxzx</Description>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
         </Label>
       </Labels>
       <MapCoordinates />
