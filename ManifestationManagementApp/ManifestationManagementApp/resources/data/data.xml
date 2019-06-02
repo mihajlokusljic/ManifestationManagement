@@ -2,7 +2,7 @@
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LabelCounter>1</LabelCounter>
   <ManifestationTypeCounter>4</ManifestationTypeCounter>
-  <ManifestationCounter>4</ManifestationCounter>
+  <ManifestationCounter>0</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab1</Id>
@@ -49,46 +49,7 @@
           <Description>Opis</Description>
         </Label>
       </Labels>
-      <MapCoordinates>
-        <Coordinates>
-          <X>579</X>
-          <Y>333</Y>
-          <ParentMap>
-            <Id>1</Id>
-            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
-            <Width>1679</Width>
-            <Heigth>1015</Heigth>
-            <ParentMapOffset>
-              <X>0</X>
-              <Y>0</Y>
-            </ParentMapOffset>
-          </ParentMap>
-        </Coordinates>
-        <Coordinates>
-          <X>454</X>
-          <Y>228</Y>
-          <ParentMap>
-            <Id>3</Id>
-            <ImagePath>../resources/maps/mapaDetelinara.png</ImagePath>
-            <Width>757</Width>
-            <Heigth>457</Heigth>
-            <ParentMapOffset>
-              <X>125</X>
-              <Y>105</Y>
-              <ParentMap>
-                <Id>1</Id>
-                <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
-                <Width>1679</Width>
-                <Heigth>1015</Heigth>
-                <ParentMapOffset>
-                  <X>0</X>
-                  <Y>0</Y>
-                </ParentMapOffset>
-              </ParentMap>
-            </ParentMapOffset>
-          </ParentMap>
-        </Coordinates>
-      </MapCoordinates>
+      <MapCoordinates />
     </Manifestation>
     <Manifestation>
       <Id>manifestation2</Id>
@@ -116,8 +77,8 @@
       </Labels>
       <MapCoordinates>
         <Coordinates>
-          <X>1228</X>
-          <Y>475</Y>
+          <X>1229</X>
+          <Y>476</Y>
           <ParentMap>
             <Id>1</Id>
             <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
@@ -130,8 +91,8 @@
           </ParentMap>
         </Coordinates>
         <Coordinates>
-          <X>418</X>
-          <Y>145</Y>
+          <X>419</X>
+          <Y>146</Y>
           <ParentMap>
             <Id>2</Id>
             <ImagePath>../resources/maps/mapaStariGrad.png</ImagePath>
@@ -181,8 +142,8 @@
       </Labels>
       <MapCoordinates>
         <Coordinates>
-          <X>854</X>
-          <Y>777</Y>
+          <X>837</X>
+          <Y>772</Y>
           <ParentMap>
             <Id>1</Id>
             <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
@@ -195,8 +156,8 @@
           </ParentMap>
         </Coordinates>
         <Coordinates>
-          <X>289</X>
-          <Y>232</Y>
+          <X>272</X>
+          <Y>227</Y>
           <ParentMap>
             <Id>4</Id>
             <ImagePath>../resources/maps/mapaLiman.png</ImagePath>
@@ -246,8 +207,8 @@
       </Labels>
       <MapCoordinates>
         <Coordinates>
-          <X>1153</X>
-          <Y>596</Y>
+          <X>1162</X>
+          <Y>583</Y>
           <ParentMap>
             <Id>1</Id>
             <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
@@ -260,8 +221,32 @@
           </ParentMap>
         </Coordinates>
         <Coordinates>
-          <X>588</X>
-          <Y>51</Y>
+          <X>352</X>
+          <Y>253</Y>
+          <ParentMap>
+            <Id>2</Id>
+            <ImagePath>../resources/maps/mapaStariGrad.png</ImagePath>
+            <Width>757</Width>
+            <Heigth>312</Heigth>
+            <ParentMapOffset>
+              <X>810</X>
+              <Y>330</Y>
+              <ParentMap>
+                <Id>1</Id>
+                <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+                <Width>1679</Width>
+                <Heigth>1015</Heigth>
+                <ParentMapOffset>
+                  <X>0</X>
+                  <Y>0</Y>
+                </ParentMapOffset>
+              </ParentMap>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+        <Coordinates>
+          <X>597</X>
+          <Y>38</Y>
           <ParentMap>
             <Id>4</Id>
             <ImagePath>../resources/maps/mapaLiman.png</ImagePath>
@@ -283,17 +268,58 @@
             </ParentMapOffset>
           </ParentMap>
         </Coordinates>
+      </MapCoordinates>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation5</Id>
+      <Name>Blokstok festival</Name>
+      <Description>Enjoy some of the finest local rock and punk bands.</Description>
+      <Type>
+        <Id>type4</Id>
+        <Name>gg</Name>
+        <Description>gkgkug</Description>
+        <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\kusljic\Documents\HCI WS\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\blokstok.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>2019-06-15T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates>
         <Coordinates>
-          <X>343</X>
-          <Y>266</Y>
+          <X>676</X>
+          <Y>201</Y>
           <ParentMap>
-            <Id>2</Id>
-            <ImagePath>../resources/maps/mapaStariGrad.png</ImagePath>
-            <Width>757</Width>
-            <Heigth>312</Heigth>
+            <Id>1</Id>
+            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+            <Width>1679</Width>
+            <Heigth>1015</Heigth>
             <ParentMapOffset>
-              <X>810</X>
-              <Y>330</Y>
+              <X>0</X>
+              <Y>0</Y>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+        <Coordinates>
+          <X>551</X>
+          <Y>96</Y>
+          <ParentMap>
+            <Id>3</Id>
+            <ImagePath>../resources/maps/mapaDetelinara.png</ImagePath>
+            <Width>757</Width>
+            <Heigth>457</Heigth>
+            <ParentMapOffset>
+              <X>125</X>
+              <Y>105</Y>
               <ParentMap>
                 <Id>1</Id>
                 <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>

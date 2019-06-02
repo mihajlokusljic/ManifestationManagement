@@ -214,6 +214,15 @@ namespace ManifestationManagementApp.view
             {
                 Point dropPosition = e.GetPosition(Map);
                 Manifestation manifToDrop = e.Data.GetData("manifestation") as Manifestation;
+                if(manifToDrop.MapCoordinates.Count > 0 && AvailableMaifs.Contains(manifToDrop))
+                {
+                    MessageBoxResult choince = MessageBox.Show($"Manifestation \"{manifToDrop.Id}\" is already placed on another map. Do you want do move it to this map?",
+                        $"Change location of {manifToDrop.Id}", MessageBoxButton.YesNoCancel);
+                    if(choince != MessageBoxResult.Yes)
+                    {
+                        return;
+                    }
+                }
                 ShowManifPointer(manifToDrop, (int)dropPosition.X, (int)dropPosition.Y);
             }
         }
