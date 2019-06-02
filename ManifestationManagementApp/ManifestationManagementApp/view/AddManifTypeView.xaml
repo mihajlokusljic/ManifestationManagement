@@ -4,9 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ManifestationManagementApp.view"
+      xmlns:commands="clr-namespace:ManifestationManagementApp.command"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="900"
       Title="AddManifTypeView">
+
+    <Page.CommandBindings>
+        <CommandBinding Command="commands:Commands.showHelp" Executed="ShowHelp_Executed"/>
+    </Page.CommandBindings>
 
     <Grid Margin="20,10,20,20">
         <Grid.RowDefinitions>

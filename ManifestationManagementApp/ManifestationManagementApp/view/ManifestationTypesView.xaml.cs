@@ -47,6 +47,7 @@ namespace ManifestationManagementApp.view
             SelectedManifestationType = null;
             DataContext = this;
             Types = Repository.GetInstance().ManifestationTypes;
+            FilterInput.Focus();
         }
 
         public ManifestationTypesView(MainWindow parent)
@@ -57,6 +58,12 @@ namespace ManifestationManagementApp.view
             DataContext = this;
             Types = Repository.GetInstance().ManifestationTypes;
             mainWindow = parent;
+            FilterInput.Focus();
+        }
+
+        private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.mainWindow.MainContent.Content = new HelpView("ShowManifestationTypesHelp");
         }
 
         public void scrollTo(string TypeId)

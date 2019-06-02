@@ -47,6 +47,12 @@ namespace ManifestationManagementApp.view
             SelectedLabel = null;
             DataContext = this;
             Labels = Repository.GetInstance().Labels;
+            FilterInput.Focus();
+        }
+
+        private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.mainWindow.MainContent.Content = new HelpView("ShowLabelsHelp");
         }
 
         public void scrollTo(string labelId)
@@ -70,6 +76,7 @@ namespace ManifestationManagementApp.view
             DataContext = this;
             Labels = Repository.GetInstance().Labels;
             mainWindow = parent;
+            FilterInput.Focus();
         }
 
         private void tagsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

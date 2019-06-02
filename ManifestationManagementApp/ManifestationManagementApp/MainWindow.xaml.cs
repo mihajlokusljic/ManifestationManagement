@@ -28,10 +28,33 @@ namespace ManifestationManagementApp
             InitializeComponent();
         }
 
+        private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.MainContent.Content = new HelpView("StartHelpPage");
+        }
+
         private void ShowNoviSad_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Map noviSadMap = Repository.GetInstance().GetMap((int)MapIds.NoviSad);
             MainContent.Content = new MapView(noviSadMap, this);
+        }
+
+        private void ShowStariGrad_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Map stariGradMap = Repository.GetInstance().GetMap((int)MapIds.StariGrad);
+            MainContent.Content = new MapView(stariGradMap, this);
+        }
+
+        private void ShowDetelinara_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Map detelinaraMap = Repository.GetInstance().GetMap((int)MapIds.Detelinara);
+            MainContent.Content = new MapView(detelinaraMap, this);
+        }
+
+        private void ShowLiman_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Map limanMap = Repository.GetInstance().GetMap((int)MapIds.Liman);
+            MainContent.Content = new MapView(limanMap, this);
         }
 
         private void AddManifestation_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -96,7 +119,7 @@ namespace ManifestationManagementApp
 
         private void showDocumentation(object sender, RoutedEventArgs e)
         {
-            this.MainContent.Content = new HelpView();
+            this.MainContent.Content = new HelpView("StartHelpPage");
         }
 
         public void showLabelEditView(string labelId)

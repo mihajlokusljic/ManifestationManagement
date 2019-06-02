@@ -21,11 +21,9 @@ namespace ManifestationManagementApp.view
     /// </summary>
     public partial class HelpView : Page
     {
-        public HelpView()
+        public HelpView(string key)
         {
             InitializeComponent();
-
-            string key = "StartHelpPage";
 
             string path = string.Format("..\\..\\resources\\documentation\\{0}.html", key);
 

@@ -28,6 +28,7 @@ namespace ManifestationManagementApp.view
         {
             InitializeComponent();
             Editing = false;
+            descriptionInput.Focus();
         }
 
         public AddLabelView(MainWindow parent, bool editMode)
@@ -35,6 +36,12 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             mainWindow = parent;
             Editing = editMode;
+            descriptionInput.Focus();
+        }
+
+        private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.mainWindow.MainContent.Content = new HelpView("AddLabelHelp");
         }
 
         private void AddOrEditButtonClick(object sender, RoutedEventArgs e)

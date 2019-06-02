@@ -92,6 +92,12 @@ namespace ManifestationManagementApp.view
             DataContext = this;
             AvailableMaifs = new ObservableCollection<Manifestation>();
             ManifsOnMap = new ObservableCollection<Manifestation>();
+            FilterInput.Focus();
+        }
+
+        private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.mainWindow.MainContent.Content = new HelpView("MapHelp");
         }
 
         public MapView(Map mapToShow, MainWindow parentWindow)
@@ -126,6 +132,7 @@ namespace ManifestationManagementApp.view
                 }
             }
             drawManifPointers();
+            FilterInput.Focus();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -9,6 +9,16 @@ namespace ManifestationManagementApp.command
 {
     public static class Commands
     {
+        public static readonly RoutedUICommand showHelp = new RoutedUICommand(
+            "Show Help",
+            "ShowHelp",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F1, ModifierKeys.None)
+            }
+            );
+
         public static readonly RoutedUICommand showNoviSad = new RoutedUICommand(
             "Show Novi Sad",
             "ShowNoviSad",
@@ -16,6 +26,36 @@ namespace ManifestationManagementApp.command
             new InputGestureCollection()
             {
                 new KeyGesture(Key.F1, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand showStariGrad = new RoutedUICommand(
+            "Show Stari Grad",
+            "ShowStariGrad",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F2, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand showDetelinara = new RoutedUICommand(
+            "Show Detelinara",
+            "ShowDetelinara",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F3, ModifierKeys.Control)
+            }
+            );
+
+        public static readonly RoutedUICommand showLiman = new RoutedUICommand(
+            "Show Liman",
+            "ShowLiman",
+            typeof(RoutedCommand),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F4, ModifierKeys.Control)
             }
             );
 
