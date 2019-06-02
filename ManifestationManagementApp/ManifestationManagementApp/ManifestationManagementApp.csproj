@@ -56,6 +56,14 @@
     </ApplicationDefinition>
     <Compile Include="command\Commands.cs" />
     <Compile Include="model\Repository.cs" />
+    <Compile Include="validation\ColorValidation.cs" />
+    <Compile Include="validation\ComboBoxLabelValidation.cs" />
+    <Compile Include="validation\ContentValidation.cs" />
+    <Compile Include="validation\EmptyRowValidation.cs" />
+    <Compile Include="validation\LabelValidation.cs" />
+    <Compile Include="validation\LengthValidation.cs" />
+    <Compile Include="validation\ManifestationValidation.cs" />
+    <Compile Include="validation\TypeValidation.cs" />
     <Compile Include="view\AddLabelView.xaml.cs">
       <DependentUpon>AddLabelView.xaml</DependentUpon>
     </Compile>
@@ -154,6 +162,11 @@
   <ItemGroup>
     <Content Include="bin\Debug\ManifestationManagementApp.exe" />
     <Content Include="bin\Debug\ManifestationManagementApp.pdb" />
+    <Resource Include="resources\images\search.png" />
+    <Resource Include="resources\images\edit.png" />
+    <Resource Include="resources\images\delete.png" />
+    <Resource Include="resources\images\browse.png" />
+    <Resource Include="resources\images\error.jpg" />
     <Resource Include="resources\maps\mapaDetelinara.png" />
     <Resource Include="resources\maps\mapaLiman.png" />
     <Resource Include="resources\maps\mapaNoviSad.png" />
@@ -162,7 +175,6 @@
   <ItemGroup>
     <Folder Include="bin\Release\" />
     <Folder Include="resources\data\" />
-    <Folder Include="resources\images\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit">

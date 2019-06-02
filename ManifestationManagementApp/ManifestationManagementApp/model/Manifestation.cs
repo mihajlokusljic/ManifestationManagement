@@ -179,7 +179,7 @@ namespace ManifestationManagementApp.model
             }
         }
 
-        private DateTime date;
+        private DateTime date = DateTime.Today;
         public DateTime Date
         {
             get { return date; }

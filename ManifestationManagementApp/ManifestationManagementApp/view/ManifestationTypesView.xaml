@@ -73,8 +73,18 @@
 
         <!-- Action buttons -->
         <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0.4,0,0">
-            <Button FontSize="24" Margin="10,0" Padding="10,1" VerticalAlignment="Center" Click="editBtnClicked">Edit Type</Button>
-            <Button FontSize="24" Margin="10,0,0,0" Padding="10,1" VerticalAlignment="Center" Click="DeleteBtnClicked">Delete Type</Button>
+            <Button FontSize="24" Margin="10,0" Padding="10,1" VerticalAlignment="Center" Click="editBtnClicked">
+                <StackPanel Orientation="Horizontal" Width="106">
+                    <Image Source="..\resources\images\edit.png"  Margin="2,0,10,0" Height="15" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Edit Type" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button FontSize="24" Margin="10,0,0,0" Padding="10,1" VerticalAlignment="Center" Click="DeleteBtnClicked">
+                <StackPanel Orientation="Horizontal" Width="106">
+                    <Image Source="..\resources\images\delete.png"  Margin="2,0,10,0" Height="15" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Delete Type" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <Label x:Name="searchMessage" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Content="" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left"/>

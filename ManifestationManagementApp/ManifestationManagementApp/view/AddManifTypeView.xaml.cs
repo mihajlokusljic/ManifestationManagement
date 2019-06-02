@@ -28,6 +28,7 @@ namespace ManifestationManagementApp.view
         {
             InitializeComponent();
             Editing = false;
+            DataContext = new ManifestationType();
         }
 
         public AddManifTypeView(MainWindow parent, bool editMode)
@@ -35,6 +36,7 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             mainWindow = parent;
             Editing = editMode;
+            DataContext = new ManifestationType();
         }
 
         private void loadIcon_Click(object sender, RoutedEventArgs e)
@@ -77,8 +79,12 @@ namespace ManifestationManagementApp.view
             string iconPath = textBoxIconPath.Text;
             Repository rep = Repository.GetInstance();
             string id;
+            idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            nameInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            descriptionInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            textBoxIconPath.GetBindingExpression(TextBox.TextProperty).UpdateSource();
 
-            if(isAutoChecked && !Editing)
+            if (isAutoChecked && !Editing)
             {
                 id = $"type{Repository.GetInstance().ManifestationTypeCounter + 1}";
                 while (rep.FindManifestationType(id) != null)
@@ -91,31 +97,13 @@ namespace ManifestationManagementApp.view
                 id = idInput.Text;
             }
 
-            if(id == "")
+            if(id == "" || (rep.FindManifestationType(id) != null && !Editing) || typeName == "" ||
+               desc == "" || iconPath == "")
             {
-                AddedTypeMessage.Content = "Please enter an Id.";
+                AddedTypeMessage.Content = "Manifestation type has not been added successfully.";
                 AddedTypeMessage.Foreground = Brushes.Red;
             }
-            else if (rep.FindManifestationType(id) != null && !Editing)
-            {
-                AddedTypeMessage.Content = "Entered id already exists. Pease enter a different value.";
-                AddedTypeMessage.Foreground = Brushes.Red;
-            }
-            else if (typeName == "")
-            {
-                AddedTypeMessage.Content = "Please enter a name for manifestation type.";
-                AddedTypeMessage.Foreground = Brushes.Red;
-            }
-            else if (desc == "")
-            {
-                AddedTypeMessage.Content = "Please enter some description.";
-                AddedTypeMessage.Foreground = Brushes.Red;
-            }
-            else if (iconPath == "")
-            {
-                AddedTypeMessage.Content = "Please pick some icon.";
-                AddedTypeMessage.Foreground = Brushes.Red;
-            }
+           
             else
             {
                 ManifestationType newType = new ManifestationType()

@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <LabelCounter>1</LabelCounter>
+  <LabelCounter>3</LabelCounter>
   <ManifestationTypeCounter>4</ManifestationTypeCounter>
-  <ManifestationCounter>1</ManifestationCounter>
+  <ManifestationCounter>0</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab1</Id>
       <Color>#FF000000</Color>
       <Description>Opis</Description>
+    </Label>
+    <Label>
+      <Id>lab2</Id>
+      <Color>#FF00FFFF</Color>
+      <Description>rrrrrrrrrr</Description>
+    </Label>
+    <Label>
+      <Id>lab3</Id>
+      <Color>#FF7FFFD4</Color>
+      <Description>aaaaaaaa</Description>
     </Label>
   </Labels>
   <ManifestationTypes>
@@ -22,6 +32,12 @@
       <Name>gg</Name>
       <Description>gkgkug</Description>
       <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+    </ManifestationType>
+    <ManifestationType>
+      <Id>type5</Id>
+      <Name>tttt</Name>
+      <Description>dddd</Description>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
     </ManifestationType>
   </ManifestationTypes>
   <Manifestations>
@@ -42,6 +58,218 @@
       <IsOutside>true</IsOutside>
       <Prices>LowPrices</Prices>
       <Date>2019-06-14T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation2</Id>
+      <Name>adsad</Name>
+      <Description>ddd</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>Naziv tipa</Name>
+        <Description>Opis</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation3</Id>
+      <Name>adad</Name>
+      <Description>ddd</Description>
+      <Type>
+        <Id>type4</Id>
+        <Name>gg</Name>
+        <Description>gkgkug</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-06T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates>
+        <Coordinates>
+          <X>926</X>
+          <Y>767</Y>
+          <ParentMap>
+            <Id>1</Id>
+            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+            <Width>1679</Width>
+            <Heigth>1015</Heigth>
+            <ParentMapOffset>
+              <X>0</X>
+              <Y>0</Y>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+      </MapCoordinates>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation4</Id>
+      <Name>adsad</Name>
+      <Description>ddd</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>Naziv tipa</Name>
+        <Description>Opis</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation5</Id>
+      <Name>adsad</Name>
+      <Description>ddd</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>Naziv tipa</Name>
+        <Description>Opis</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation6</Id>
+      <Name>adsad</Name>
+      <Description>ddd</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>Naziv tipa</Name>
+        <Description>Opis</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates>
+        <Coordinates>
+          <X>262</X>
+          <Y>219</Y>
+          <ParentMap>
+            <Id>1</Id>
+            <ImagePath>../resources/maps/mapaNoviSad.png</ImagePath>
+            <Width>1679</Width>
+            <Heigth>1015</Heigth>
+            <ParentMapOffset>
+              <X>0</X>
+              <Y>0</Y>
+            </ParentMapOffset>
+          </ParentMap>
+        </Coordinates>
+      </MapCoordinates>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation7</Id>
+      <Name>adsad</Name>
+      <Description>ddd</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>Naziv tipa</Name>
+        <Description>Opis</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab1</Id>
+          <Color>#FF000000</Color>
+          <Description>Opis</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
+    </Manifestation>
+    <Manifestation>
+      <Id>ggggg</Id>
+      <Name>adsad</Name>
+      <Description>ddd</Description>
+      <Type>
+        <Id>type1</Id>
+        <Name>Naziv tipa</Name>
+        <Description>Opis</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>0001-01-01T00:00:00</Date>
       <Labels>
         <Label>
           <Id>lab1</Id>

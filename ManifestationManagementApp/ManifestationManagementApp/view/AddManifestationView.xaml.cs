@@ -25,7 +25,7 @@ namespace ManifestationManagementApp.view
         private MainWindow mainWindow;
         public bool Editing { get; set; }
 
-        private static ManifestationType selectedType;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string v)
@@ -35,25 +35,14 @@ namespace ManifestationManagementApp.view
                 PropertyChanged(this, new PropertyChangedEventArgs(v));
             }
         }
-
-        public ManifestationType SelectedType
-        {
-            get { return selectedType; }
-            set
-            {
-                if (value != selectedType)
-                {
-                    selectedType = value;
-                    OnPropertyChanged("Type");
-                }
-            }
-        }
+        
 
         public AddManifestationView(MainWindow parent, bool editMode)
         {
             InitializeComponent();
             comboBoxTypes.DataContext = Repository.GetInstance();
             label.DataContext = Repository.GetInstance();
+            DataContext = new Manifestation();
             mainWindow = parent;
             Editing = editMode;
         }
@@ -63,6 +52,7 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             comboBoxTypes.DataContext = Repository.GetInstance();
             label.DataContext = Repository.GetInstance();
+            DataContext = new Manifestation();
             Editing = false;
         }
 
@@ -100,62 +90,20 @@ namespace ManifestationManagementApp.view
         private void addManifBtnClicked(object sender, RoutedEventArgs e) //ispraviti sa editom
         {
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
-      
-            if (idInput.Text == "" && !isAutoChecked)
+            idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            comboBoxTypes.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
+            nameInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            label.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
+            descriptionInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+     //       datePicker1.GetBindingExpression(DatePicker.TextProperty).UpdateSource();
+
+            if (idInput.Text == "" || nameInput.Text == "" || comboBoxTypes.Text == "" || label.Text == "" ||
+                descriptionInput.Text == "" || priceCategory.Text == "" || alcoholConsumption.Text == "" ||
+                datePicker1.Text == "" || isItOutside.Text == "" || (Repository.GetInstance().FindManifestation(idInput.Text) != null && !isAutoChecked && !Editing))
             {
-                AddedLabelMessage.Content = "Please, insert id for this manifestation";
+                AddedLabelMessage.Content = "Manifestation has not been added successfully";
                 AddedLabelMessage.Foreground = Brushes.Red;
 
-            }
-            else if (nameInput.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, insert name for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-
-            }
-            else if (comboBoxTypes.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, add type for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-
-            }
-            else if (label.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, add label for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-
-            }
-            else if (descriptionInput.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, add description for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-
-            }
-            else if (priceCategory.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, pick price category for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-
-            }
-            else if (alcoholConsumption.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, pick alcohol consumption type for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-            }
-            else if (datePicker1.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, pick date for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-            }
-            else if (isItOutside.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, pick is it outside or not for this manifestation";
-                AddedLabelMessage.Foreground = Brushes.Red;
-            }
-            else if (Repository.GetInstance().FindManifestation(idInput.Text) != null && !isAutoChecked && !Editing)
-            {
-                AddedLabelMessage.Content = "This id is already taken, please insert another one";
-                AddedLabelMessage.Foreground = Brushes.Red;
             }
             else
             {
@@ -255,7 +203,7 @@ namespace ManifestationManagementApp.view
                 retVal.Date = DateTime.Parse(datePicker1.Text);
                 retVal.Description = descriptionInput.Text;
                 retVal.Type = Repository.GetInstance().FindManifestationType(comboBoxTypes.Text);
-                SelectedType = retVal.Type;
+                
 
                 if (textBoxIconPath.Text == "")
                 {
@@ -309,5 +257,11 @@ namespace ManifestationManagementApp.view
             }
             mainWindow.MainContent.Content = manifestations;
         }
+
+        private void IdInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        
     }
 }

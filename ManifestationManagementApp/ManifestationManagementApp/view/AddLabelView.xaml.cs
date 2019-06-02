@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ManifestationManagementApp.model;
 
+
 namespace ManifestationManagementApp.view
 {
     /// <summary>
@@ -28,6 +29,7 @@ namespace ManifestationManagementApp.view
         {
             InitializeComponent();
             Editing = false;
+            DataContext = new model.Label();
         }
 
         public AddLabelView(MainWindow parent, bool editMode)
@@ -35,27 +37,24 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             mainWindow = parent;
             Editing = editMode;
+            DataContext = new model.Label();
         }
 
         private void AddOrEditButtonClick(object sender, RoutedEventArgs e)
         {
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
-            if (colorPicker.SelectedColor.ToString() == "")
+            idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            descriptionInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+
+            if (descriptionInput.Text == "" || idInput.Text == "" && !isAutoChecked || (idInput.Text != "" && 
+                !isAutoChecked && Repository.GetInstance().FindLabel(idInput.Text) != null && !Editing))
             {
-                AddedLabelMessage.Content = "Please, pick some color.";
-                AddedLabelMessage.Foreground = Brushes.Red;
-            } else if (descriptionInput.Text == "")
-            {
-                AddedLabelMessage.Content = "Please, add some description.";
-                AddedLabelMessage.Foreground = Brushes.Red;
-            } else if (idInput.Text == "" && !isAutoChecked)
-            {
-                AddedLabelMessage.Content = "Please, insert id for this label.";
+                AddedLabelMessage.Content = "Label has not been added successfully.";
                 AddedLabelMessage.Foreground = Brushes.Red;
             }
-            else if (idInput.Text != "" && !isAutoChecked && Repository.GetInstance().FindLabel(idInput.Text) != null && !Editing)
+            else if (colorPicker.SelectedColor.ToString() == "")
             {
-                AddedLabelMessage.Content = "This id is already taken, please select another one.";
+                AddedLabelMessage.Content = "Please, pick some color.";
                 AddedLabelMessage.Foreground = Brushes.Red;
             }
             else

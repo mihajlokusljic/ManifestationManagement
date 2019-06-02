@@ -102,6 +102,7 @@ namespace ManifestationManagementApp
                 return;
             }
             AddLabelView view = new AddLabelView(this, true);
+            view.DataContext = target;
             view.idInput.Text = target.Id;
             view.idInput.IsEnabled = false;
             view.colorPicker.SelectedColor = (Color)ColorConverter.ConvertFromString(target.Color);
@@ -120,6 +121,7 @@ namespace ManifestationManagementApp
                 return;
             }
             AddManifTypeView view = new AddManifTypeView(this, true);
+            view.DataContext = target;
             view.idInput.Text = target.Id;
             view.idInput.IsEnabled = false;
             view.nameInput.Text = target.Name;
@@ -139,7 +141,9 @@ namespace ManifestationManagementApp
                 return;
             }
             AddManifestationView view = new AddManifestationView(this, true);
-
+            view.DataContext = target;
+            model.Repository.GetInstance().SelectedType = target.Type;
+            model.Repository.GetInstance().SelectedLabel = target.Labels.First();
 
             view.comboBoxTypes.SelectedIndex = Repository.GetInstance().ManifestationTypes.IndexOf(Repository.GetInstance().FindManifestationType(target.Type.Id));
             view.label.SelectedIndex = Repository.GetInstance().Labels.IndexOf(Repository.GetInstance().FindLabel(target.Labels.FirstOrDefault().Id));

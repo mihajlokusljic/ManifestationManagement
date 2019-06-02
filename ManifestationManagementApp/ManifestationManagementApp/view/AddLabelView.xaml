@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
       xmlns:local="clr-namespace:ManifestationManagementApp.view"
+      xmlns:val="clr-namespace:ManifestationManagementApp.validation"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="900"
       Title="AddLabelView">
@@ -46,13 +47,124 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBox.RenderTransform>
+            <TextBox.Text>
+                <Binding Path="Id" UpdateSourceTrigger="LostFocus" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <val:LengthValidation ValidationStep="RawProposedValue" Min="2" Max="60" />
+                        <val:ContentValidation ValidationStep="RawProposedValue" />
+                        <val:LabelValidation ValidationStep="RawProposedValue" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+
+                    <Grid Grid.Row="1" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="bg" BorderBrush="Red" BorderThickness="1">
+
+                        </Border>
+
+                        <AdornedElementPlaceholder x:Name="textBoxId"/>
+                        <Image Name="ErrorImage" Grid.Row="0" Grid.Column="1" Width="24" Height="24" HorizontalAlignment="Left" Source="/resources/images/error.jpg" >
+                            <ToolTipService.ToolTip>
+                                <ToolTip Background="Red">
+                                    <TextBlock Height="30" Foreground="White" FontSize="18" Text="{Binding [0].ErrorContent}"/>
+
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
         </TextBox>
 
         <Label Grid.Row="2" Grid.Column="0" Content="Label Color:" FontSize="22"/>
-        <wpfTool:ColorPicker x:Name="colorPicker" Grid.Row="2" Grid.Column="1" ToolTip="Pick a color for the label" Margin="0,5"/>
+        <wpfTool:ColorPicker x:Name="colorPicker" Grid.Row="2" Grid.Column="1" ToolTip="Pick a color for the label" Margin="0,5">
+        <wpfTool:ColorPicker.SelectedColor>
+                <Binding Path="Color" UpdateSourceTrigger="LostFocus" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <val:ColorValidation ValidationStep="RawProposedValue" />
+                    </Binding.ValidationRules>
+                </Binding>
+        </wpfTool:ColorPicker.SelectedColor>
+            <Validation.ErrorTemplate>
+                    <ControlTemplate>
+
+                        <Grid Grid.Row="1" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="bg" BorderBrush="Red" BorderThickness="1">
+
+                            </Border>
+
+                            <AdornedElementPlaceholder x:Name="textBoxId"/>
+                            <Image Name="ErrorImage" Grid.Row="0" Grid.Column="1" Width="24" Height="24" HorizontalAlignment="Left" Source="/resources/images/error.jpg" >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Background="Red">
+                                        <TextBlock Height="30" Foreground="White" FontSize="18" Text="{Binding [0].ErrorContent}"/>
+
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                            </Image>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            
+        </wpfTool:ColorPicker>
 
         <Label Grid.Row="3" Grid.Column="0" Content="Label Description:" FontSize="22"/>
-        <TextBox x:Name="descriptionInput" Grid.Row="3" Grid.Column="1" FontSize="22" Margin="0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="descriptionInput" Grid.Row="3" Grid.Column="1" FontSize="22" Margin="0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto">
+            <TextBox.Text>
+                <Binding Path="Description" UpdateSourceTrigger="LostFocus" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <val:LengthValidation ValidationStep="RawProposedValue" Min="2" Max="200" />
+                    </Binding.ValidationRules>
+                </Binding>
+
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+
+                    <Grid Grid.Row="1" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="bg" BorderBrush="Red" BorderThickness="1">
+
+                        </Border>
+
+                        <AdornedElementPlaceholder x:Name="textBoxId"/>
+                        <Image Name="ErrorImage" Grid.Row="0" Grid.Column="1" Width="24" Height="24" HorizontalAlignment="Left" Source="/resources/images/error.jpg" >
+                            <ToolTipService.ToolTip>
+                                <ToolTip Background="Red">
+                                    <TextBlock Height="30" Foreground="White" FontSize="18" Text="{Binding [0].ErrorContent}"/>
+
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
 
         <Label x:Name="AddedLabelMessage" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24"/>
 
