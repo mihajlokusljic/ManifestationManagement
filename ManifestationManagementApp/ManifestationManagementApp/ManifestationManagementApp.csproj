@@ -73,6 +73,9 @@
     <Compile Include="view\AddManifTypeView.xaml.cs">
       <DependentUpon>AddManifTypeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\DemoView.xaml.cs">
+      <DependentUpon>DemoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\HelpView.xaml.cs">
       <DependentUpon>HelpView.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\AddManifTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\DemoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,6 +190,12 @@
     <Content Include="resources\documentation\ShowManifestationHelp.html" />
     <Content Include="resources\documentation\ShowManifestationTypesHelp.html" />
     <Content Include="resources\documentation\StartHelpPage.html" />
+    <Resource Include="resources\icons\pause.png" />
+    <Resource Include="resources\icons\play.png" />
+    <Resource Include="resources\icons\stop.png" />
+    <Content Include="resources\video\Clock_Face_2Videvo.mov">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="resources\maps\mapaDetelinara.png" />
     <Resource Include="resources\maps\mapaLiman.png" />
     <Resource Include="resources\maps\mapaNoviSad.png" />

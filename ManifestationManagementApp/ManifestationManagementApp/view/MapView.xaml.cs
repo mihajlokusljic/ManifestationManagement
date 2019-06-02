@@ -29,6 +29,7 @@ namespace ManifestationManagementApp.view
         private Point startPoint = new Point();
         private Manifestation focusedManifestation;
         private MainWindow mainWindow;
+        private static int iconSize = 64;
 
         private Map mapToShow;
         public Map MapToShow
@@ -40,20 +41,6 @@ namespace ManifestationManagementApp.view
                 {
                     mapToShow = value;
                     OnPropertyChanged("MapToShow");
-                }
-            }
-        }
-
-        private string mapImagePath;
-        public string MapImagePath
-        {
-            get { return mapImagePath; }
-            set
-            {
-                if (value != mapImagePath)
-                {
-                    mapImagePath = value;
-                    OnPropertyChanged("MapImagePath");
                 }
             }
         }
@@ -105,28 +92,38 @@ namespace ManifestationManagementApp.view
             InitializeComponent();
             DataContext = this;
             mainWindow = parentWindow;
-            MapImagePath = mapToShow.ImagePath;
+            MapToShow = mapToShow;
+            LoadManifestations("");
+            drawManifPointers();
+        }
+
+        private void LoadManifestations(string filterTarget)
+        {
             AvailableMaifs = new ObservableCollection<Manifestation>();
             ManifsOnMap = new ObservableCollection<Manifestation>();
-            MapToShow = mapToShow;
+
             bool manifOnMap;
-            foreach(Manifestation manif in Repository.GetInstance().Manifestations)
+            foreach (Manifestation manif in Repository.GetInstance().Manifestations)
             {
-                if(manif.MapCoordinates == null)
+                if (manif.MapCoordinates == null)
+                {
+                    continue;
+                }
+                if(!manif.Id.Contains(filterTarget) && !manif.Name.Contains(filterTarget))
                 {
                     continue;
                 }
                 manifOnMap = false;
-               foreach(Coordinates coords in manif.MapCoordinates)
+                foreach (Coordinates coords in manif.MapCoordinates)
                 {
-                    if(coords.ParentMap.Id == MapToShow.Id)
+                    if (coords.ParentMap.Id == MapToShow.Id)
                     {
                         ManifsOnMap.Add(manif);
                         manifOnMap = true;
                         break;
                     }
                 }
-               if(!manifOnMap)
+                if (!manifOnMap)
                 {
                     AvailableMaifs.Add(manif);
                 }
@@ -221,7 +218,14 @@ namespace ManifestationManagementApp.view
             {
                 Point dropPosition = e.GetPosition(Map);
                 Manifestation manifToDrop = e.Data.GetData("manifestation") as Manifestation;
-                if(manifToDrop.MapCoordinates.Count > 0 && AvailableMaifs.Contains(manifToDrop))
+                Manifestation underlyingManifestation = ClickedManifestation((int)dropPosition.X, (int)dropPosition.Y);
+                if (underlyingManifestation != null)
+                {
+                    MessageBox.Show($"Unable to place manifestation \"{manifToDrop.Name}\" on given position because manifestation \"{underlyingManifestation.Name}\" is in the way. Please try draging manifestation \"{manifToDrop.Name}\" to a different position.",
+                        "Overlapping manifestations not allowed", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                if (manifToDrop.MapCoordinates.Count > 0 && AvailableMaifs.Contains(manifToDrop))
                 {
                     MessageBoxResult choince = MessageBox.Show($"Manifestation \"{manifToDrop.Id}\" is already placed on another map. Do you want do move it to this map?",
                         $"Change location of {manifToDrop.Id}", MessageBoxButton.YesNoCancel);
@@ -247,11 +251,13 @@ namespace ManifestationManagementApp.view
                         {
                             Image manifIcon = new Image();
                             manifIcon.Source = new BitmapImage(new Uri(manif.IconPath));
-                            manifIcon.Width = 64;
-                            manifIcon.Height = 64;
+                            manifIcon.Width = iconSize;
+                            manifIcon.Height = iconSize;
+                            manifIcon.ToolTip = manif.Name;
                             Map.Children.Add(manifIcon);
-                            Canvas.SetLeft(manifIcon, coords.X);
-                            Canvas.SetTop(manifIcon, coords.Y);
+                            Canvas.SetLeft(manifIcon, coords.X - iconSize / 2);
+                            Canvas.SetTop(manifIcon, coords.Y - iconSize / 2);
+                            
                             break;
                         }
                     }
@@ -293,7 +299,7 @@ namespace ManifestationManagementApp.view
                 {
                     if(coords.ParentMap.Id == MapToShow.Id)
                     {
-                        if (Math.Sqrt(Math.Pow((X_click - coords.X - 32), 2) + Math.Pow((Y_click - coords.Y - 32), 2)) < 30)
+                        if (Math.Sqrt(Math.Pow((X_click - coords.X), 2) + Math.Pow((Y_click - coords.Y), 2)) <= iconSize / 2)
                         {
                             return manif;
                         }
@@ -359,5 +365,21 @@ namespace ManifestationManagementApp.view
             }
         }
 
+        private void filterBtnClicked(object sender, RoutedEventArgs e)
+        {
+            string target = FilterInput.Text;
+            LoadManifestations(target);
+            drawManifPointers();
+        }
+
+        private void FilterKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                string target = FilterInput.Text;
+                LoadManifestations(target);
+                drawManifPointers();
+            }
+        }
     }
 }
