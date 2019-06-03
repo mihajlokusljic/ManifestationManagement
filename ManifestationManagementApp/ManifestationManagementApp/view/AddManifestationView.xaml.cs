@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 using ManifestationManagementApp.model;
+using Xceed.Wpf.Toolkit;
 
 namespace ManifestationManagementApp.view
 {
@@ -25,8 +27,81 @@ namespace ManifestationManagementApp.view
         private MainWindow mainWindow;
         public bool Editing { get; set; }
 
+        
+        public ObservableCollection<model.Label> Labels { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private string labelText;
+        public string LabelText
+        {
+            get { return labelText; }
+            set
+            {
+                if (value != labelText)
+                {
+                    labelText = value;
+                    OnPropertyChanged("LabelText");
+                }
+            }
+        }
+
+        private string isOut;
+        public string IsOut
+        {
+            get { return isOut; }
+            set
+            {
+                if (value != isOut)
+                {
+                    isOut = value;
+                    OnPropertyChanged("IsOut");
+                }
+            }
+        }
+
+        private string alcoholCons;
+        public string AlcoholCons
+        {
+            get { return alcoholCons; }
+            set
+            {
+                if (value != alcoholCons)
+                {
+                    alcoholCons = value;
+                    OnPropertyChanged("AlcoholCons");
+                }
+            }
+        }
+
+        private string priceCat;
+        public string PriceCat
+        {
+            get { return priceCat; }
+            set
+            {
+                if (value != priceCat)
+                {
+                    priceCat = value;
+                    OnPropertyChanged("PriceCat");
+                }
+            }
+        }
+
+        public ObservableCollection<model.Label> selectedLabels;
+
+        public ObservableCollection<model.Label> SelectedLabels
+        {
+            get { return selectedLabels; }
+            set
+            {
+                if (value != selectedLabels)
+                {
+                    selectedLabels = value;
+                    OnPropertyChanged("Labels");
+                }
+            }
+        }
 
         private void OnPropertyChanged(string v)
         {
@@ -41,9 +116,16 @@ namespace ManifestationManagementApp.view
         {
             InitializeComponent();
             comboBoxTypes.DataContext = Repository.GetInstance();
-            label.DataContext = Repository.GetInstance();
+            Labels = Repository.GetInstance().Labels;
             DataContext = new Manifestation();
+            label.DataContext = this;
+            isItOutside.DataContext = this;
+            alcoholConsumption.DataContext = this;
+            priceCategory.DataContext = this;
             mainWindow = parent;
+            labelText = "";
+            isOut = "";
+            selectedLabels = new ObservableCollection<model.Label>();
             Editing = editMode;
             descriptionInput.Focus();
         }
@@ -52,9 +134,16 @@ namespace ManifestationManagementApp.view
         {
             InitializeComponent();
             comboBoxTypes.DataContext = Repository.GetInstance();
-            label.DataContext = Repository.GetInstance();
+            Labels = Repository.GetInstance().Labels;
             DataContext = new Manifestation();
+            label.DataContext = this;
+            isItOutside.DataContext = this;
+            alcoholConsumption.DataContext = this;
+            priceCategory.DataContext = this; label.DataContext = this;
             Editing = false;
+            labelText = "";
+            isOut = "";
+            selectedLabels = new ObservableCollection<model.Label>();
             descriptionInput.Focus();
         }
 
@@ -97,14 +186,22 @@ namespace ManifestationManagementApp.view
         private void addManifBtnClicked(object sender, RoutedEventArgs e) //ispraviti sa editom
         {
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
-            idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            if (!Editing)
+            {
+                idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            }
             comboBoxTypes.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
             nameInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            label.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
+           // label.GetBindingExpression(CheckComboBox.SelectedValueProperty).UpdateSource();
+            isItOutside.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
+            alcoholConsumption.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
+            priceCategory.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
+
             descriptionInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
      //       datePicker1.GetBindingExpression(DatePicker.TextProperty).UpdateSource();
+            
 
-            if (idInput.Text == "" || nameInput.Text == "" || comboBoxTypes.Text == "" || label.Text == "" ||
+            if (idInput.Text == "" || nameInput.Text == "" || comboBoxTypes.Text == "" || label.Text=="" ||
                 descriptionInput.Text == "" || priceCategory.Text == "" || alcoholConsumption.Text == "" ||
                 datePicker1.Text == "" || isItOutside.Text == "" || (Repository.GetInstance().FindManifestation(idInput.Text) != null && !isAutoChecked && !Editing))
             {
@@ -176,15 +273,15 @@ namespace ManifestationManagementApp.view
                 }
 
                 String alcohol = alcoholConsumption.Text;
-                if (price.Equals("No alcohol"))
+                if (alcohol.Equals("No alcohol"))
                 {
                     retVal.Alcohol = model.AlcoholConusmption.Forbidden;
                 }
-                else if (price.Equals("Allowed to bring alcohol"))
+                else if (alcohol.Equals("Allowed to bring alcohol"))
                 {
                     retVal.Alcohol = model.AlcoholConusmption.BringAlcohol;
                 }
-                else if (price.Equals("Allowed to buy alcohol"))
+                else if (alcohol.Equals("Allowed to buy alcohol"))
                 {
                     retVal.Alcohol = model.AlcoholConusmption.BuyAlcohol;
                 }
@@ -194,11 +291,11 @@ namespace ManifestationManagementApp.view
                 }
 
                 String outside = isItOutside.Text;
-                if (price.Equals("Outside"))
+                if (outside.Equals("Outside"))
                 {
                     retVal.IsOutside = true;
                 }
-                else if (price.Equals("Inside"))
+                else if (outside.Equals("Inside"))
                 {
                     retVal.IsOutside = false;
                 }
@@ -221,12 +318,15 @@ namespace ManifestationManagementApp.view
                     retVal.IconPath = textBoxIconPath.Text;
                 }
 
-                model.Label lab = Repository.GetInstance().FindLabel(label.Text);
-                if (lab != null)
+                foreach (model.Label lab in SelectedLabels)
                 {
-                    retVal.Addlabel(Repository.GetInstance().FindLabel(label.Text));
-
+                    model.Label labela = Repository.GetInstance().FindLabel(lab.Id);
+                    if (labela != null)
+                    {
+                        retVal.Addlabel(Repository.GetInstance().FindLabel(lab.Id));
+                    }
                 }
+
                 model.Repository rep = model.Repository.GetInstance();
                 if (!Editing)
                 {

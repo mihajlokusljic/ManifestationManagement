@@ -89,7 +89,10 @@ namespace ManifestationManagementApp.view
             string iconPath = textBoxIconPath.Text;
             Repository rep = Repository.GetInstance();
             string id;
-            idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            if (!Editing)
+            {
+                idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            }
             nameInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             descriptionInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             textBoxIconPath.GetBindingExpression(TextBox.TextProperty).UpdateSource();

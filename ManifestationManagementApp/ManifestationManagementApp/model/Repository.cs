@@ -17,7 +17,20 @@ namespace ManifestationManagementApp.model
         public int ManifestationTypeCounter { get; set; }
         public int ManifestationCounter { get; set; }
         public ManifestationType SelectedType { get; set; }
-        public Label SelectedLabel { get; set; }
+
+        private ObservableCollection<Label> selectedLabels;
+        public ObservableCollection<Label> SelectedLabels
+        {
+            get { return selectedLabels; }
+            set
+            {
+                if (selectedLabels != value)
+                {
+                    selectedLabels = value;
+                    OnPropertyChanged("SelectedLabels");
+                }
+            }
+        }
 
         private ObservableCollection<Label> labels;
         public ObservableCollection<Label> Labels

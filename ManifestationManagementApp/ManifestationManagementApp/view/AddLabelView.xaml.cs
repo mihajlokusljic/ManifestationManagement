@@ -51,7 +51,10 @@ namespace ManifestationManagementApp.view
         private void AddOrEditButtonClick(object sender, RoutedEventArgs e)
         {
             bool isAutoChecked = autoGenerateId.IsChecked.Value;
-            idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            if (!Editing)
+            {
+                idInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            }
             descriptionInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
 
             if (descriptionInput.Text == "" || idInput.Text == "" && !isAutoChecked || (idInput.Text != "" && 

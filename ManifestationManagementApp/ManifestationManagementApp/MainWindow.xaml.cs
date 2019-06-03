@@ -26,6 +26,8 @@ namespace ManifestationManagementApp
         {
             model.Repository.GetInstance().ReadData();
             InitializeComponent();
+            Map noviSadMap = Repository.GetInstance().GetMap((int)MapIds.NoviSad);
+            MainContent.Content = new MapView(noviSadMap, this);
         }
 
         private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -176,10 +178,18 @@ namespace ManifestationManagementApp
             AddManifestationView view = new AddManifestationView(this, true);
             view.DataContext = target;
             model.Repository.GetInstance().SelectedType = target.Type;
-            model.Repository.GetInstance().SelectedLabel = target.Labels.First();
+            model.Repository.GetInstance().SelectedLabels = target.Labels;
 
             view.comboBoxTypes.SelectedIndex = Repository.GetInstance().ManifestationTypes.IndexOf(Repository.GetInstance().FindManifestationType(target.Type.Id));
-            view.label.SelectedIndex = Repository.GetInstance().Labels.IndexOf(Repository.GetInstance().FindLabel(target.Labels.FirstOrDefault().Id));
+            //view.label.SelectedIndex = Repository.GetInstance().Labels.IndexOf(Repository.GetInstance().FindLabel(target.Labels.FirstOrDefault().Id));
+            view.SelectedLabels = new System.Collections.ObjectModel.ObservableCollection<model.Label>();
+            foreach (model.Label lab in target.Labels)
+            {
+                view.SelectedLabels.Add(lab);
+            }
+            view.AlcoholCons = nameof(target.Alcohol);
+            view.PriceCat = nameof(target.Prices);
+            view.IsOut = nameof(target.IsOutside);
             view.idInput.Text = target.Id;
             view.idInput.IsEnabled = false;
             view.nameInput.Text = target.Name;

@@ -44,6 +44,11 @@
 
         <Label Grid.Row="1" Grid.Column="0" Content="Label Id:" FontSize="24"/>
         <TextBox x:Name="idInput" Grid.Row="1" Grid.Column="1" FontSize="26" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Margin="0,5">
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Enter the id of the label"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="0.85"/>
@@ -92,7 +97,12 @@
         </TextBox>
 
         <Label Grid.Row="2" Grid.Column="0" Content="Label Color:" FontSize="22"/>
-        <wpfTool:ColorPicker x:Name="colorPicker" Grid.Row="2" Grid.Column="1" ToolTip="Pick a color for the label" Margin="0,5">
+        <wpfTool:ColorPicker x:Name="colorPicker" Grid.Row="2" Grid.Column="1" Margin="0,5">
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Pick a color for the label"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
         <wpfTool:ColorPicker.SelectedColor>
                 <Binding Path="Color" UpdateSourceTrigger="LostFocus" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
@@ -133,6 +143,11 @@
 
         <Label Grid.Row="3" Grid.Column="0" Content="Label Description:" FontSize="22"/>
         <TextBox x:Name="descriptionInput" Grid.Row="3" Grid.Column="1" FontSize="22" Margin="0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto">
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Enter the description of manifestation"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
             <TextBox.Text>
                 <Binding Path="Description" UpdateSourceTrigger="LostFocus" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
