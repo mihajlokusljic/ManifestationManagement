@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <LabelCounter>1</LabelCounter>
-  <ManifestationTypeCounter>4</ManifestationTypeCounter>
+  <LabelCounter>2</LabelCounter>
+  <ManifestationTypeCounter>5</ManifestationTypeCounter>
   <ManifestationCounter>0</ManifestationCounter>
   <Labels>
     <Label>
       <Id>lab1</Id>
-      <Color>#FF000000</Color>
-      <Description>Opis</Description>
+      <Color>#FF00008B</Color>
+      <Description>dess</Description>
+    </Label>
+    <Label>
+      <Id>lab2</Id>
+      <Color>#FF0000FF</Color>
+      <Description>Labela</Description>
     </Label>
   </Labels>
   <ManifestationTypes>
@@ -15,13 +20,19 @@
       <Id>type1</Id>
       <Name>Naziv tipa</Name>
       <Description>Opis</Description>
-      <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
     </ManifestationType>
     <ManifestationType>
       <Id>type4</Id>
       <Name>gg</Name>
       <Description>gkgkug</Description>
-      <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+    </ManifestationType>
+    <ManifestationType>
+      <Id>type5</Id>
+      <Name>namamam</Name>
+      <Description>desc</Description>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
     </ManifestationType>
   </ManifestationTypes>
   <Manifestations>
@@ -33,10 +44,10 @@
         <Id>type1</Id>
         <Name>Naziv tipa</Name>
         <Description>Opis</Description>
-        <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
       </Type>
       <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
       <SupportHandicaped>false</SupportHandicaped>
       <SmokingAllowed>true</SmokingAllowed>
       <IsOutside>true</IsOutside>
@@ -98,10 +109,10 @@
         <Id>type4</Id>
         <Name>gg</Name>
         <Description>gkgkug</Description>
-        <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
       </Type>
       <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\exit-tribe-logo.png</IconPath>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\exit-tribe-logo.png</IconPath>
       <SupportHandicaped>false</SupportHandicaped>
       <SmokingAllowed>true</SmokingAllowed>
       <IsOutside>true</IsOutside>
@@ -163,10 +174,10 @@
         <Id>type1</Id>
         <Name>Naziv tipa</Name>
         <Description>Opis</Description>
-        <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\15291522-festival-icon.jpg</IconPath>
       </Type>
       <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\python.png</IconPath>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\python.png</IconPath>
       <SupportHandicaped>true</SupportHandicaped>
       <SmokingAllowed>false</SmokingAllowed>
       <IsOutside>true</IsOutside>
@@ -204,10 +215,10 @@
         <Id>type4</Id>
         <Name>gg</Name>
         <Description>gkgkug</Description>
-        <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
       </Type>
       <Alcohol>Forbidden</Alcohol>
-      <IconPath>C:\Users\Vaso\Desktop\Fakultet\Interakcija_Covjek_Racunar\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\blokstok.jpg</IconPath>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\blokstok.jpg</IconPath>
       <SupportHandicaped>false</SupportHandicaped>
       <SmokingAllowed>true</SmokingAllowed>
       <IsOutside>true</IsOutside>
@@ -236,6 +247,32 @@
           </ParentMap>
         </Coordinates>
       </MapCoordinates>
+    </Manifestation>
+    <Manifestation>
+      <Id>manifestation4</Id>
+      <Name>manif</Name>
+      <Description>ddddddddd</Description>
+      <Type>
+        <Id>type4</Id>
+        <Name>gg</Name>
+        <Description>gkgkug</Description>
+        <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      </Type>
+      <Alcohol>Forbidden</Alcohol>
+      <IconPath>C:\Users\Nikolina\Desktop\treca godina\hci\klon2\ManifestationManagement\ManifestationManagementApp\ManifestationManagementApp\resources\images\images.jpg</IconPath>
+      <SupportHandicaped>false</SupportHandicaped>
+      <SmokingAllowed>true</SmokingAllowed>
+      <IsOutside>true</IsOutside>
+      <Prices>Free</Prices>
+      <Date>2019-06-03T00:00:00+02:00</Date>
+      <Labels>
+        <Label>
+          <Id>lab2</Id>
+          <Color>#FF0000FF</Color>
+          <Description>Labela</Description>
+        </Label>
+      </Labels>
+      <MapCoordinates />
     </Manifestation>
   </Manifestations>
 </Repository>

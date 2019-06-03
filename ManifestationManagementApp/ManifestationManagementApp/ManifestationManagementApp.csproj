@@ -60,6 +60,7 @@
     <Compile Include="validation\ComboBoxLabelValidation.cs" />
     <Compile Include="validation\ContentValidation.cs" />
     <Compile Include="validation\EmptyRowValidation.cs" />
+    <Compile Include="validation\EnumValidation.cs" />
     <Compile Include="validation\LabelValidation.cs" />
     <Compile Include="validation\LengthValidation.cs" />
     <Compile Include="validation\ManifestationValidation.cs" />

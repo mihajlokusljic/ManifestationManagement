@@ -69,6 +69,11 @@
 
         <Label Grid.Row="1" Grid.Column="0" Content="Manifestation Id:" FontSize="24"/>
         <TextBox x:Name="idInput" Grid.Row="1" Grid.Column="1" FontSize="24" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Margin="0,0,82,14"  Height="36" TextChanged="IdInput_TextChanged" >
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Enter the id of the manifestation"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
             <TextBox.Text>
                 <Binding Path="Id" UpdateSourceTrigger="LostFocus" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
@@ -119,6 +124,11 @@
         <Label Grid.Row="2" Grid.Column="0" Content="Name:" FontSize="24"/>
 
         <TextBox x:Name="nameInput" Grid.Row="2" Grid.Column="1" FontSize="24" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Margin="0,0,82,14"  Height="36">
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Enter the name of the manifestation"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="0.85"/>
@@ -169,12 +179,17 @@
 
         <Label Grid.Column="0" Grid.Row="3" Content="Type:" FontSize="24" Margin="0,0,0,10" />
         <ComboBox Name="comboBoxTypes" FontSize="20" 
-                               ToolTip="Choose type of manifestation" Grid.Column="1" Grid.Row="3" 
+                               Grid.Column="1" Grid.Row="3" 
                                VerticalAlignment="Center" Margin="0,0,82,14" Height="36"
                                ItemsSource="{Binding ManifestationTypes}"
                                DisplayMemberPath="Id"
 
             >
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Choose type of the manifestation"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
             <ComboBox.SelectedItem>
                 <Binding Path="SelectedType" UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors ="True" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
@@ -238,6 +253,11 @@
 
         <Label Grid.Column="0" Grid.Row="5" Content="Date:" VerticalAlignment="Center" FontSize="24" RenderTransformOrigin="0.5,0.5" Margin="0,2,0,6" Height="42" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="230" />
         <DatePicker SelectedDate="{x:Static sys:DateTime.Today}" CalendarStyle="{StaticResource resizedCalendarItem}" FontSize="24" Grid.Column="1" Grid.Row="5" Height="37" HorizontalAlignment="Left" Name="datePicker1" VerticalAlignment="Center" Width="300">
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Select a date of manifestation"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
             <DatePicker.Text>
 
                 <Binding Path="Date" UpdateSourceTrigger="LostFocus" NotifyOnValidationError="True">
@@ -284,36 +304,18 @@
         </DatePicker>
 
         <Label Grid.Column="0" Grid.Row="6" Content="Is it outside:" FontSize="24" Margin="0,0,5,0" />
-        <ComboBox Name="isItOutside" FontSize="20" ToolTip="Choose is it outside or inside event" Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" >
+        <ComboBox Name="isItOutside" FontSize="20" Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" >
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Choose is it outside or inside event"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
             <ComboBoxItem FontSize="20">Outside</ComboBoxItem>
             <ComboBoxItem FontSize="20">Inside</ComboBoxItem>
-
-        </ComboBox>
-
-        <Label Grid.Column="0" Grid.Row="7" Content="Alcohol consumption:" FontSize="24" Margin="0,0,5,0" />
-        <ComboBox Name="alcoholConsumption" FontSize="20" ToolTip="Choose consumption of alcohol" Grid.Column="1" Grid.Row="7" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" >
-            <ComboBoxItem FontSize="20">No alcohol</ComboBoxItem>
-            <ComboBoxItem FontSize="20">Allowed to bring alcohol</ComboBoxItem>
-            <ComboBoxItem FontSize="20">Allowed to buy alcohol</ComboBoxItem>
-        </ComboBox>
-
-        <Label Grid.Column="0" Grid.Row="8" Content="Price category:" FontSize="24" Margin="0,0,5,0" />
-        <ComboBox Name="priceCategory" FontSize="20" ToolTip="Choose price cateogry of manifestation" Grid.Row="8" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" Grid.Column="1">
-            <ComboBoxItem FontSize="20">Free</ComboBoxItem>
-            <ComboBoxItem FontSize="20">Low price</ComboBoxItem>
-            <ComboBoxItem FontSize="20">Medium price</ComboBoxItem>
-            <ComboBoxItem FontSize="20">High price</ComboBoxItem>
-        </ComboBox>
-
-        <Label Grid.Column="0" Grid.Row="9" Content="Label:" FontSize="24" Margin="0,0,5,0" />
-        <ComboBox Name="label" FontSize="20" ToolTip="Choose label of manifestation" Grid.Row="8" VerticalAlignment="Bottom" Margin="0,0,82,8" Height="36" Grid.Column="1"
-                  ItemsSource="{Binding Labels}"
-                  DisplayMemberPath="Id" Grid.RowSpan="2"
-                  >
             <ComboBox.SelectedItem>
-                <Binding Path="SelectedLabel" UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors ="True" NotifyOnValidationError="True">
+                <Binding Path="IsOut" UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors ="True" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
-                        <val:ComboBoxLabelValidation ValidationStep="RawProposedValue" />
+                        <val:EnumValidation ValidationStep="RawProposedValue"  />
                     </Binding.ValidationRules>
                 </Binding>
             </ComboBox.SelectedItem>
@@ -347,15 +349,131 @@
             </Validation.ErrorTemplate>
         </ComboBox>
 
+        <Label Grid.Column="0" Grid.Row="7" Content="Alcohol consumption:" FontSize="24" Margin="0,0,5,0" />
+        <ComboBox Name="alcoholConsumption" FontSize="20" Grid.Column="1" Grid.Row="7" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" >
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Choose consumption of alcohol"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
+            <ComboBoxItem FontSize="20">No alcohol</ComboBoxItem>
+            <ComboBoxItem FontSize="20">Allowed to bring alcohol</ComboBoxItem>
+            <ComboBoxItem FontSize="20">Allowed to buy alcohol</ComboBoxItem>
+            <ComboBox.SelectedItem>
+                <Binding Path="AlcoholCons" UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors ="True" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <val:EnumValidation ValidationStep="RawProposedValue"  />
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.SelectedItem>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+
+                    <Grid Grid.Row="1" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="bg" BorderBrush="Red" BorderThickness="1">
+
+                        </Border>
+
+                        <AdornedElementPlaceholder x:Name="textBoxId"/>
+                        <Image Name="ErrorImage" Grid.Row="0" Grid.Column="1" Width="24" Height="24" HorizontalAlignment="Left" Source="/resources/images/error.jpg" >
+                            <ToolTipService.ToolTip>
+                                <ToolTip Background="Red">
+                                    <TextBlock Height="30" Foreground="White" FontSize="18" Text="{Binding [0].ErrorContent}"/>
+
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </ComboBox>
+
+        <Label Grid.Column="0" Grid.Row="8" Content="Price category:" FontSize="24" Margin="0,0,5,0" />
+        <ComboBox Name="priceCategory" FontSize="20" Grid.Row="8" VerticalAlignment="Center" Margin="0,0,82,14" Height="36" Grid.Column="1">
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Choose price cateogry of manifestation"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
+            <ComboBoxItem FontSize="20">Free</ComboBoxItem>
+            <ComboBoxItem FontSize="20">Low price</ComboBoxItem>
+            <ComboBoxItem FontSize="20">Medium price</ComboBoxItem>
+            <ComboBoxItem FontSize="20">High price</ComboBoxItem>
+            <ComboBox.SelectedItem>
+                <Binding Path="PriceCat" UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors ="True" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <val:EnumValidation ValidationStep="RawProposedValue"  />
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.SelectedItem>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+
+                    <Grid Grid.Row="1" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="bg" BorderBrush="Red" BorderThickness="1">
+
+                        </Border>
+
+                        <AdornedElementPlaceholder x:Name="textBoxId"/>
+                        <Image Name="ErrorImage" Grid.Row="0" Grid.Column="1" Width="24" Height="24" HorizontalAlignment="Left" Source="/resources/images/error.jpg" >
+                            <ToolTipService.ToolTip>
+                                <ToolTip Background="Red">
+                                    <TextBlock Height="30" Foreground="White" FontSize="18" Text="{Binding [0].ErrorContent}"/>
+
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                        </Image>
+
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </ComboBox>
+
+        <Label Grid.Column="0" Grid.Row="9" Content="Label:" FontSize="24" Margin="0,0,5,0" />
+
+        <wpfTool:CheckComboBox FontSize="20" Name="label" Margin="0,0,82,8" Height="36" Grid.Column="1" Grid.Row="8" VerticalAlignment="Bottom"
+                                ItemsSource="{Binding Labels}"
+                                DisplayMemberPath="Id"
+                                SelectedItemsOverride="{Binding SelectedLabels}"
+                                MaxDropDownHeight="100" Grid.RowSpan="2" 
+                               >
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Choose labels of manifestation"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
+        </wpfTool:CheckComboBox>
+
+
         <Label Grid.Column="0" Grid.Row="10" Content="Icon:" FontSize="24" />
         <Grid Grid.Column="1" Grid.Row="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="121" />
             </Grid.ColumnDefinitions>
-            <TextBox Name="textBoxIconPath" ToolTip="Address of icon path" IsReadOnly="True" IsEnabled="False" FontSize="24" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Margin="0,0,55,9" Height="36" />
+            <TextBox Name="textBoxIconPath" IsReadOnly="True" IsEnabled="False" FontSize="24" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Margin="0,0,55,9" Height="36" />
 
-            <Button Name="loadIcon" FontSize="20" Grid.Column="1" ToolTip="Choose icon of manifestation" Grid.Row="0" Margin="0,0,10,2" Padding="0,0" Height="36" Click="loadIcon_Click">
+            <Button Name="loadIcon" FontSize="20" Grid.Column="1" Grid.Row="0" Margin="0,0,10,2" Padding="0,0" Height="36" Click="loadIcon_Click">
+                <ToolTipService.ToolTip>
+                    <ToolTip>
+                        <TextBlock Height="30" FontSize="18" Text="Choose icon of manifestation"/>
+                    </ToolTip>
+                </ToolTipService.ToolTip>
                 <StackPanel Orientation="Horizontal" Width="101">
                     <Image Source="..\resources\images\browse.png"  Margin="2,0,10,0" Height="15" HorizontalAlignment="Left"/>
                     <TextBlock Text="Browse" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -364,6 +482,11 @@
         </Grid>
         <Label Grid.Row="0" Grid.Column="2" Content="Description:" FontSize="24" Margin="0,3,1,5" Height="42" />
         <TextBox x:Name="descriptionInput" Grid.Row="1" Grid.Column="2" FontSize="22" Margin="10,5,10,0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Grid.RowSpan="8">
+            <ToolTipService.ToolTip>
+                <ToolTip>
+                    <TextBlock Height="30" FontSize="18" Text="Enter the description of manifestation"/>
+                </ToolTip>
+            </ToolTipService.ToolTip>
             <TextBox.Text>
                 <Binding Path="Description" UpdateSourceTrigger="LostFocus" NotifyOnValidationError="True">
                     <Binding.ValidationRules>

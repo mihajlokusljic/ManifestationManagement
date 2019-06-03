@@ -15,11 +15,14 @@ namespace ManifestationManagementApp.validation
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            string strValue = Convert.ToString(value);
+            
             if (value == null)
             {
                 return new ValidationResult(false, "This field can not be empty");
             }
+
+            string strValue = value.ToString();
+
             if (strValue.Length == 0 || strValue == null)
             {
                 return new ValidationResult(false, "This field can not be empty");
