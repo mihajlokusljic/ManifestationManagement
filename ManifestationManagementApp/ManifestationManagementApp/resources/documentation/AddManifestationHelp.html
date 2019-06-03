@@ -5,27 +5,56 @@
     <meta charset="utf-8" />
     <title></title>
 </head>
-<body>
+<body style="padding : 15px;">
     <h1 align="center">Adding manifestation</h1>
     <p style="font-size:150%">
         When adding manifestation, user can enter following data:
         <ul>
             <li style="font-size:150%">
-                <b>Label</b> - they are used for labeling manifestation,
-                manifestation can have more than one label, for them you can choose
-                color, id and description
+                <b>Id</b> - Value of manifestation identifier (id) must be unique and can be manually entered.
+                Also, there is an option for automatic generation of id by selecting "Auto-generated Id" field. If id is entered
+                manually there is length constraint: from 2 to 60 characters.
             </li>
             <li style="font-size:150%">
-                <b>Manifestation Type</b> - they are used for setting type of manifestation,
-                manifestation can have only one type, for them you can choose
-                icon, name, id and description
+                <b>Name</b> - Represents manifestation name. It has length constraint: from 2 to 60 characters.
             </li>
             <li style="font-size:150%">
-                <b>Manifestation</b> - they are used for defining manifestation, for them you can choose
-                id, name, labels, type, icon (optionally, if not setted, default icon is set from manifestation type)
-                , is it in outside environment, description and more
+                <b>Type</b> - Allows user to choose manifestation type relying on existing manifestation types in system. Manifestation
+                type must be chosen.
+            </li>
+            <li style="font-size:150%">
+                <b>Smoking allowed</b> - Represents if smoking is allowed on manifestation.
+            </li>
+            <li style="font-size:150%">
+                <b>People with special needs support</b> - Represents if manifestation is suited for people with special needs.
+            </li>
+            <li style="font-size:150%">
+                <b>Date</b> - Selection of date when manifestation is being held.
+            </li>
+            <li style="font-size:150%">
+                <b>Environment</b> - Represents if manifestation is occuring on open area or in closed space.
+            </li>
+            <li style="font-size:150%">
+                <b>Alcohol consumption</b> - Represents if alcohol consumption is allowed at manifestation, and if it is allowed, is it
+                allowed to buy it by yourself and use on event.
+            </li>
+            <li style="font-size:150%">
+                <b>Price category</b> - Represents manifestation price range.
+            </li>
+            <li style="font-size:150%">
+                <b>Label</b> - Allows user to add labels for current manifestation. At least one label must be added.
+            </li>
+            <li style="font-size:150%">
+                <b>Icon</b> - Choose icon for manifestation. If not chosen, manifestation type icon will be used.
+            </li>
+            <li style="font-size:150%">
+                <b>Description</b> - More detailed description about manifestation. It has length constraint with minimum 2 characters.
             </li>
         </ul>
+    <p style="font-size:150%">
+        By clicking on button "Add manifestation" user adds manifestation to system. In case of clicking on button "Cancel" adding
+        manifestation is cancelled and user is redirected to window that shows current manifestations in system.
     </p>
+    
 </body>
 </html>
