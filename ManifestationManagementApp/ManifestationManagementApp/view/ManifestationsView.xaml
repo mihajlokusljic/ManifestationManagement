@@ -13,11 +13,12 @@
         <CommandBinding Command="commands:Commands.showHelp" Executed="ShowHelp_Executed"/>
     </Page.CommandBindings>
 
-    <Grid>
+    <Grid Margin="0,0,0,10">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*"/>
@@ -36,7 +37,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Search: " FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox x:Name="SearchInput" Grid.Row="0" Grid.Column="1" FontSize="24" VerticalAlignment="Center"/>
+            <TextBox x:Name="SearchInput" Grid.Row="0" Grid.Column="1" FontSize="24" VerticalAlignment="Center" KeyUp="SearchKeyUp"/>
             <Button FontSize="24" Grid.Row="0" Grid.Column="2" Margin="10,5,0,5" VerticalAlignment="Center" Click="searchClick">Search</Button>
         </Grid>
 
@@ -49,7 +50,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Filter: " FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox x:Name="FilterInput" Grid.Row="0" Grid.Column="1" FontSize="24" VerticalAlignment="Center"/>
+            <TextBox x:Name="FilterInput" Grid.Row="0" Grid.Column="1" FontSize="24" VerticalAlignment="Center" KeyUp="FilterKeyUp"/>
             <Button FontSize="24" Grid.Row="0" Grid.Column="2" Margin="10,5,0,5" VerticalAlignment="Center" Click="filterClick">Filter</Button>
 
         </Grid>
@@ -57,7 +58,7 @@
         <!-- Types table -->
         <DataGrid EnableColumnVirtualization="True"
           VirtualizingPanel.IsVirtualizingWhenGrouping="True"
-          VirtualizingPanel.VirtualizationMode="Standard" VirtualizingPanel.IsVirtualizing="True" EnableRowVirtualization="True" x:Name="ManifestationsTable" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestation, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Manifestations}" SelectionChanged="tagsGrid_SelectionChanged">
+          VirtualizingPanel.VirtualizationMode="Standard" VirtualizingPanel.IsVirtualizing="True" EnableRowVirtualization="True" x:Name="ManifestationsTable" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" SelectedItem="{Binding Path=SelectedManifestation, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=Manifestations}" SelectionChanged="tagsGrid_SelectionChanged" Margin="0,0,0,15">
             <DataGrid.Columns>
 
                 <DataGridTemplateColumn Header="Icon" MinWidth="100" MaxWidth="120" Width="1.5*" IsReadOnly="True">
@@ -95,7 +96,7 @@
             </Button>
         </StackPanel>
 
-        <Label x:Name="searchMessage" Grid.Row="2" Grid.Column="1" Content="" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left" Height="42" Margin="0,4" Width="10"/>
+        <Label x:Name="searchMessage" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Content="" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
     </Grid>
 </Page>

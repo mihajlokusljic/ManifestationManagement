@@ -219,7 +219,7 @@ namespace ManifestationManagementApp.view
                 Point dropPosition = e.GetPosition(Map);
                 Manifestation manifToDrop = e.Data.GetData("manifestation") as Manifestation;
                 Manifestation underlyingManifestation = ClickedManifestation((int)dropPosition.X, (int)dropPosition.Y);
-                if (underlyingManifestation != null)
+                if (underlyingManifestation != null && underlyingManifestation.Id != manifToDrop.Id)
                 {
                     MessageBox.Show($"Unable to place manifestation \"{manifToDrop.Name}\" on given position because manifestation \"{underlyingManifestation.Name}\" is in the way. Please try draging manifestation \"{manifToDrop.Name}\" to a different position.",
                         "Overlapping manifestations not allowed", MessageBoxButton.OK, MessageBoxImage.Warning);

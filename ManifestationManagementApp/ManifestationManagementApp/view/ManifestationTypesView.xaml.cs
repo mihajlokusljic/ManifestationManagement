@@ -130,6 +130,11 @@ namespace ManifestationManagementApp.view
 
         private void filterClick(object sender, RoutedEventArgs e)
         {
+            FilterManifTypes();
+        }
+
+        private void FilterManifTypes()
+        {
             searchMessage.Content = "";
             ObservableCollection<ManifestationType> manifestationTypesFilter =
                 new ObservableCollection<ManifestationType>();
@@ -156,6 +161,19 @@ namespace ManifestationManagementApp.view
         }
 
         private void searchClick(object sender, RoutedEventArgs e)
+        {
+            SearchManifTypes();
+        }
+
+        private void SearchKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                SearchManifTypes();
+            }
+        }
+
+        private void SearchManifTypes()
         {
             string target = SearchInput.Text;
             int numberOfFound = 0;
@@ -196,5 +214,14 @@ namespace ManifestationManagementApp.view
                 searchMessage.Content = "";
             }
         }
+
+        private void FilterKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                FilterManifTypes();
+            }
+        }
+
     }
 }

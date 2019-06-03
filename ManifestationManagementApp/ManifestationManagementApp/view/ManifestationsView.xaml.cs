@@ -123,8 +123,26 @@ namespace ManifestationManagementApp.view
 
         private void filterClick(object sender, RoutedEventArgs e)
         {
+            FilterManifs();
+        }
+
+        private void searchClick(object sender, RoutedEventArgs e)
+        {
+            SearchManifs();
+        }
+
+        private void SearchKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                SearchManifs();
+            }
+        }
+
+        private void FilterManifs()
+        {
             searchMessage.Content = "";
-            ObservableCollection<Manifestation> manifestationsFilter = 
+            ObservableCollection<Manifestation> manifestationsFilter =
                 new ObservableCollection<Manifestation>();
             string target = FilterInput.Text;
             if (target == "")
@@ -140,7 +158,7 @@ namespace ManifestationManagementApp.view
                         manifestationsFilter.Add(manif);
                     }
                     else if (manif.Name.Contains(target))
-                    { 
+                    {
                         manifestationsFilter.Add(manif);
                     }
                 }
@@ -148,7 +166,7 @@ namespace ManifestationManagementApp.view
             }
         }
 
-        private void searchClick(object sender, RoutedEventArgs e)
+        private void SearchManifs()
         {
             string target = SearchInput.Text;
             int numberOfFound = 0;
@@ -187,6 +205,14 @@ namespace ManifestationManagementApp.view
             else
             {
                 searchMessage.Content = "";
+            }
+        }
+
+        private void FilterKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                FilterManifs();
             }
         }
     }

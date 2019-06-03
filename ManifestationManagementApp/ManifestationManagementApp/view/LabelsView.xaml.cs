@@ -129,28 +129,23 @@ namespace ManifestationManagementApp.view
 
         private void filterClick(object sender, RoutedEventArgs e)
         {
-            searchMessage.Content = "";
-            ObservableCollection<model.Label> labelsFilter =
-                new ObservableCollection<model.Label>();
-            string target = FilterInput.Text;
-            if (target == "")
-            {
-                LabelsTable.ItemsSource = Labels;
-            }
-            else
-            {
-                foreach (model.Label label in Labels)
-                {
-                    if (label.Id.Contains(target))
-                    {
-                        labelsFilter.Add(label);
-                    }
-                }
-                LabelsTable.ItemsSource = labelsFilter;
-            }
+            FilterLabels();
         }
 
         private void searchClick(object sender, RoutedEventArgs e)
+        {
+            SearchLabels();
+        }
+
+        private void SearchKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                SearchLabels();
+            }
+        }
+
+        private void SearchLabels()
         {
             string target = SearchInput.Text;
             int numberOfFound = 0;
@@ -183,6 +178,37 @@ namespace ManifestationManagementApp.view
             else
             {
                 searchMessage.Content = "";
+            }
+        }
+
+        private void FilterLabels()
+        {
+            searchMessage.Content = "";
+            ObservableCollection<model.Label> labelsFilter =
+                new ObservableCollection<model.Label>();
+            string target = FilterInput.Text;
+            if (target == "")
+            {
+                LabelsTable.ItemsSource = Labels;
+            }
+            else
+            {
+                foreach (model.Label label in Labels)
+                {
+                    if (label.Id.Contains(target))
+                    {
+                        labelsFilter.Add(label);
+                    }
+                }
+                LabelsTable.ItemsSource = labelsFilter;
+            }
+        }
+
+        private void filterKeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                FilterLabels();
             }
         }
     }
