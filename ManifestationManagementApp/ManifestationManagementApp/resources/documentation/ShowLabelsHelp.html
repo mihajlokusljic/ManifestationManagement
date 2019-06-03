@@ -6,6 +6,51 @@
     <title></title>
 </head>
 <body>
-    <h1>Show Label Help</h1>
+    <h1 align="center">Labels preview</h1>
+    <p>
+        This page displays all added manifestation labels. The labels are shown within a table.
+        For each label you can see its color, id and description. You can delete or edit a label
+        by selecting it in the table and clicking the "Edit Label" button or "Delete Label" button
+        at the bottom of the form. Also you can easily find specific labels by typing
+        its id or name in the search and filter fields.
+    </p>
+
+    <h1>Edit a label</h1>
+    <p>
+        For more details about a label you can select a label in the table
+        and click the "Edit Label" button to enter the edit form, where you can see and
+        change values of all attributes for the selected label. The form displays the
+        current data for the selected label that can be changed. If you want to save the
+        changes click the "Confirm changes" button. If you make a mistake that you want to undo
+        just click the "Cancel" button at the bottom of the edit page. After confirming or
+        canceling the changes you will be returned to the labels privew where you can
+        see the resulting data for the edited label in the table.
+    </p>
+
+    <h1>Delete a label</h1>
+    <p>
+        You can delete a label by selecting it in the table and clicking the
+        "Delete Label" button at the bottom of the page. <b>A label type can be deleted only
+        if there are no manifestations marked with the given label.</b> Note that this is a
+        destructive operation that can not be undone. When deleting a label
+        you will be prompted with a warning and asked to confirm the delete operation. If you
+        choose "Yes" in the warning dialog the manifestation type will be permanently deleted.
+    </p>
+
+    <h1>Searching labels</h1>
+    <p>
+        You can easily distinguish certain labels by doing a search. Enter a part or
+        full label id or name in the "Search" field at the top left part of the page and
+        press Enter or click the search button. All labels that contain the given input
+        in their id or name will be highlighted with red color in the table. The search is case sensitive.
+    </p>
+
+    <h1>Filtering labels</h1>
+    <p>
+        You can easily access certain labels by performing a filter. Enter a part or
+        full label id or name in the filter fild at the top right part of the page and
+        press Enter or click the "Filter" button. Only the labels that contain the given input
+        in their id or name will be displayed in the table. Filtering is case sensitive.
+    </p>
 </body>
 </html>
