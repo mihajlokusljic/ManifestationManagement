@@ -105,10 +105,7 @@ namespace ManifestationManagementApp.view
 
         private void OnPropertyChanged(string v)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(v));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
         }
         
 
@@ -159,7 +156,7 @@ namespace ManifestationManagementApp.view
 
         private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            this.mainWindow.MainContent.Content = new HelpView("AddManifestationHelp");
+            mainWindow.MainContent.Content = new HelpView("AddManifestationHelp");
         }
 
         private void AutoGenerateIdClicked(object sender, RoutedEventArgs e)
@@ -192,13 +189,11 @@ namespace ManifestationManagementApp.view
             }
             comboBoxTypes.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
             nameInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-           // label.GetBindingExpression(CheckComboBox.SelectedValueProperty).UpdateSource();
             isItOutside.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
             alcoholConsumption.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
             priceCategory.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
 
             descriptionInput.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-     //       datePicker1.GetBindingExpression(DatePicker.TextProperty).UpdateSource();
             
 
             if (idInput.Text == "" || nameInput.Text == "" || comboBoxTypes.Text == "" || label.Text=="" ||
@@ -212,7 +207,7 @@ namespace ManifestationManagementApp.view
             else
             {
                 Manifestation retVal = new Manifestation();
-                retVal.MapCoordinates = new System.Collections.ObjectModel.ObservableCollection<Coordinates>();
+                retVal.MapCoordinates = new ObservableCollection<Coordinates>();
                 if (isAutoChecked)
                 {
                     Repository.GetInstance().ManifestationCounter = Repository.GetInstance().ManifestationCounter + 1;
@@ -250,47 +245,47 @@ namespace ManifestationManagementApp.view
                     retVal.SupportHandicaped = false;
                 }
 
-                String price = priceCategory.Text;
+                string price = priceCategory.Text;
                 if (price.Equals("Free"))
                 {
-                    retVal.Prices = model.PriceCategory.Free;
+                    retVal.Prices = PriceCategory.Free;
                 }
                 else if (price.Equals("Low price"))
                 {
-                    retVal.Prices = model.PriceCategory.LowPrices;
+                    retVal.Prices = PriceCategory.LowPrices;
                 }
                 else if (price.Equals("Medium price"))
                 {
-                    retVal.Prices = model.PriceCategory.MediumPrices;
+                    retVal.Prices = PriceCategory.MediumPrices;
                 }
                 else if (price.Equals("High price"))
                 {
-                    retVal.Prices = model.PriceCategory.HighPrices;
+                    retVal.Prices = PriceCategory.HighPrices;
                 }
                 else
                 {
-                    retVal.Prices = model.PriceCategory.Free;
+                    retVal.Prices = PriceCategory.Free;
                 }
 
-                String alcohol = alcoholConsumption.Text;
+                string alcohol = alcoholConsumption.Text;
                 if (alcohol.Equals("No alcohol"))
                 {
-                    retVal.Alcohol = model.AlcoholConusmption.Forbidden;
+                    retVal.Alcohol = AlcoholConusmption.Forbidden;
                 }
                 else if (alcohol.Equals("Allowed to bring alcohol"))
                 {
-                    retVal.Alcohol = model.AlcoholConusmption.BringAlcohol;
+                    retVal.Alcohol = AlcoholConusmption.BringAlcohol;
                 }
                 else if (alcohol.Equals("Allowed to buy alcohol"))
                 {
-                    retVal.Alcohol = model.AlcoholConusmption.BuyAlcohol;
+                    retVal.Alcohol = AlcoholConusmption.BuyAlcohol;
                 }
                 else
                 {
-                    retVal.Alcohol = model.AlcoholConusmption.Forbidden;
+                    retVal.Alcohol = AlcoholConusmption.Forbidden;
                 }
 
-                String outside = isItOutside.Text;
+                string outside = isItOutside.Text;
                 if (outside.Equals("Outside"))
                 {
                     retVal.IsOutside = true;
@@ -327,7 +322,7 @@ namespace ManifestationManagementApp.view
                     }
                 }
 
-                model.Repository rep = model.Repository.GetInstance();
+                Repository rep = Repository.GetInstance();
                 if (!Editing)
                 {
                     rep.AddManifestation(retVal);

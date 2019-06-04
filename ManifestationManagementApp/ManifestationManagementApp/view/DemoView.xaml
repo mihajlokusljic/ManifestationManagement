@@ -26,7 +26,7 @@
             </Button>
             <Button x:Name="buttonStop" Click="buttonStop_Click" Height="60" Width="150" Margin="0,0,0,10">
                 <StackPanel Orientation="Horizontal">
-                    <Image x:Name="stopImage" Source="..\\..\\resources\\icons\\stop.png" Height="40" Width="40" HorizontalAlignment="Left"/>
+                    <Image x:Name="stopImage" Source="..\\..\\resources\\icons\\reload.png" Height="27" Width="27" HorizontalAlignment="Left"/>
                     <TextBlock Text="Reload" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="3"/>
                 </StackPanel>
             </Button>

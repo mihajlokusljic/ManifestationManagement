@@ -24,15 +24,14 @@ namespace ManifestationManagementApp.view
         public DemoView()
         {
             InitializeComponent();
-            string absolutePath = System.IO.Path.GetFullPath(string.Format("..\\..\\resources\\video\\Clock_Face_2Videvo.mov"));
+            string absolutePath = System.IO.Path.GetFullPath(string.Format("..\\..\\resources\\video\\HCI demo.avi"));
             player.Source = new Uri(absolutePath);
             player.Play();
-            player.Pause();
             string absolutePath2 = System.IO.Path.GetFullPath(string.Format("..\\..\\resources\\icons\\play.png"));
             startImage.Source = BitmapFrame.Create(new Uri(absolutePath2));
             string absolutePath3 = System.IO.Path.GetFullPath(string.Format("..\\..\\resources\\icons\\pause.png"));
             pauseImage.Source = BitmapFrame.Create(new Uri(absolutePath3));
-            string absolutePath4 = System.IO.Path.GetFullPath(string.Format("..\\..\\resources\\icons\\stop.png"));
+            string absolutePath4 = System.IO.Path.GetFullPath(string.Format("..\\..\\resources\\icons\\reload.png"));
             stopImage.Source = BitmapFrame.Create(new Uri(absolutePath4));
         }
 
@@ -49,6 +48,7 @@ namespace ManifestationManagementApp.view
         private void buttonStop_Click(object sender, RoutedEventArgs e)
         {
             player.Stop();
+            player.Play();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

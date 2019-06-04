@@ -177,6 +177,8 @@
   <ItemGroup>
     <Content Include="bin\Debug\ManifestationManagementApp.exe" />
     <Content Include="bin\Debug\ManifestationManagementApp.pdb" />
+    <Resource Include="resources\icons\reload.png" />
+    <Content Include="resources\video\HCI demo.avi" />
     <Resource Include="resources\images\search.png" />
     <Resource Include="resources\images\edit.png" />
     <Resource Include="resources\images\delete.png" />
@@ -194,9 +196,6 @@
     <Resource Include="resources\icons\pause.png" />
     <Resource Include="resources\icons\play.png" />
     <Resource Include="resources\icons\stop.png" />
-    <Content Include="resources\video\Clock_Face_2Videvo.mov">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="resources\maps\mapaDetelinara.png" />
     <Resource Include="resources\maps\mapaLiman.png" />
     <Resource Include="resources\maps\mapaNoviSad.png" />

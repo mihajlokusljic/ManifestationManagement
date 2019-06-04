@@ -45,7 +45,7 @@ namespace ManifestationManagementApp.view
 
         private void ShowHelp_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            this.mainWindow.MainContent.Content = new HelpView("AddLabelHelp");
+            mainWindow.MainContent.Content = new HelpView("AddLabelHelp");
         }
 
         private void AddOrEditButtonClick(object sender, RoutedEventArgs e)
